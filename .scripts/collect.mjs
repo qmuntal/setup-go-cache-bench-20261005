@@ -53,12 +53,21 @@ for (const entry of await fs.readdir(directory, {withFileTypes: true})) {
     const duration = step => (Date.parse(step.completed_at) - Date.parse(step.started_at)) / 1000;
     const post = job.steps.filter(step => /^Post Sample/.test(step.name));
     const jobLines = logs.split('\n').filter(line => line.startsWith(`${job.name}\t`));
-    const postLines = jobLines.filter(line => /^Post Sample/.test(line.split('\t')[1]));
+    const postStart = jobLines.findIndex(line => line.includes('Post job cleanup.'));
+    const postLines = postStart >= 0 ? jobLines.slice(postStart) : [];
     const postText = postLines.join('\n');
-    const compressedBytes = [...postText.matchAll(/Cache Size:\s*[^\n]*?\((\d+) B\)/g)].map(match => Number(match[1]));
     const savedKeys = [...postText.matchAll(/Cache saved with the key:\s*(\S+)/g)].map(match => match[1]);
+    // Composite action logs can be labeled UNKNOWN STEP. Match the saved key
+    // to the cache record instead of depending on runner display names.
+    const compressedBytes = savedKeys.map(key => {
+      const matches = caches.actions_caches.filter(cache => cache.key === key);
+      matches.sort((a, b) => Date.parse(b.created_at) - Date.parse(a.created_at));
+      return matches.find(cache => Date.parse(cache.created_at) >= Date.parse(job.started_at) && Date.parse(cache.created_at) <= Date.parse(job.completed_at))?.size_in_bytes;
+    });
+    if (compressedBytes.some(bytes => bytes === undefined)) throw new Error(`Missing persisted cache record for ${job.name}`);
+    const postDurations = [...postText.matchAll(/##\[end-action id=__[^;]*\.(?:baseline|split);outcome=success;conclusion=success;duration_ms=(\d+)\]/g)].map(match => Number(match[1]) / 1000);
     const failures = jobLines.filter(line => /Restore .* cache failed|Save .* cache failed|Restore cache failed|Unable to save cache|Failed to save|Error:|\[error\]/i.test(line));
-    jobs.push({project, variant, phase, runId: job.run_id, jobId: job.id, conclusion: job.conclusion, postSeconds: post.reduce((sum, step) => sum + duration(step), 0), jobSeconds: (Date.parse(job.completed_at) - Date.parse(job.started_at)) / 1000, compressedBytes, uploadedBytes: compressedBytes.reduce((a, b) => a + b, 0), savedKeys, failures});
+    jobs.push({project, variant, phase, runId: job.run_id, jobId: job.id, conclusion: job.conclusion, postSeconds: postDurations.length ? postDurations.reduce((a, b) => a + b, 0) : post.reduce((sum, step) => sum + duration(step), 0), jobSeconds: (Date.parse(job.completed_at) - Date.parse(job.started_at)) / 1000, compressedBytes, uploadedBytes: compressedBytes.reduce((a, b) => a + b, 0), savedKeys, failures});
   }
 }
 

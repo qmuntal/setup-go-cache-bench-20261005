@@ -2,7 +2,7 @@
   {"slug":"cobra","repository":"spf13/cobra","tag":"v1.10.2","sha":"88b30ab89da2d0d0abb153818746c5a2d30eccec","requirements":4,"packages":["./..."]},
   {"slug":"viper","repository":"spf13/viper","tag":"v1.21.0","sha":"394040caccbdf5821fa6839386a35f0fb1b1ee9e","requirements":17,"packages":["./..."]},
   {"slug":"client_golang","repository":"prometheus/client_golang","tag":"v1.24.1","sha":"d6087ee482e06716ee21dc03819432d5d40f72db","requirements":23,"packages":["./prometheus/..."]},
-  {"slug":"gin","repository":"gin-gonic/gin","tag":"v1.12.0","sha":"73726dc606796a025971fe451f0aa6f1b9b847f6","requirements":34,"packages":["./..."]},
+  {"slug":"gin","repository":"gin-gonic/gin","tag":"v1.12.0","sha":"73726dc606796a025971fe451f0aa6f1b9b847f6","requirements":35,"packages":["./..."]},
   {"slug":"grpc","repository":"grpc/grpc-go","tag":"v1.84.0","sha":"e84aa5ab15d1d2b29d54f838312ad490cb7551a8","requirements":43,"packages":["./codes","./metadata","./status","./credentials/...","./encoding/...","./resolver/...","./balancer/..."]},
   {"slug":"hugo","repository":"gohugoio/hugo","tag":"v0.159.0","sha":"2ed7d193cfdfcf11808fb2a921a9429423b0ebe9","requirements":184,"packages":["./common/...","./parser/...","./tpl/strings","./tpl/math"]},
   {"slug":"prometheus","repository":"prometheus/prometheus","tag":"v3.15.0","sha":"5241a27fe3c6983549fccc32f6e65917408c63cd","requirements":251,"packages":["./model/...","./promql/parser/...","./util/strutil/..."]}

@@ -1,0 +1,428 @@
+{
+  "total_count": 47,
+  "actions_caches": [
+    {
+      "id": 8522580285,
+      "ref": "refs/heads/main",
+      "key": "setup-go-build-Windows-x64-go-1.26.8-55bc726694ed9b0217457830a4860311937b8604085d4ffd2d58528600c50e30",
+      "version": "b8b6bed4f80f2b66f80b42620a7cf330dcf0b23ab2c0f977b78df360a751a907",
+      "last_accessed_at": "2026-10-05T14:19:03.813093Z",
+      "created_at": "2026-10-05T14:19:03.813093Z",
+      "size_in_bytes": 58574143
+    },
+    {
+      "id": 8522563526,
+      "ref": "refs/heads/main",
+      "key": "setup-go-Windows-x64-go-1.26.8-55bc726694ed9b0217457830a4860311937b8604085d4ffd2d58528600c50e30",
+      "version": "0b2a078c81c5d8a408ef41ffc737128ff6cf25de2afd4afac03a5dee63ba6c1b",
+      "last_accessed_at": "2026-10-05T14:18:44.845275Z",
+      "created_at": "2026-10-05T14:18:44.845275Z",
+      "size_in_bytes": 924770837
+    },
+    {
+      "id": 8522490868,
+      "ref": "refs/heads/main",
+      "key": "setup-go-build-Windows-x64-go-1.26.8-668a58539737b470748f5e1701f5e4e6afa9976bd9d79de24fe9fa14a88cbc57",
+      "version": "efbabee27ff6f9ea5c7ef095c2ca3ec05cab81975eaba6026a2e0224fd2fa7c0",
+      "last_accessed_at": "2026-10-05T14:17:18.151016Z",
+      "created_at": "2026-10-05T14:17:18.151016Z",
+      "size_in_bytes": 86858269
+    },
+    {
+      "id": 8522472319,
+      "ref": "refs/heads/main",
+      "key": "setup-go-Windows-x64-go-1.26.8-668a58539737b470748f5e1701f5e4e6afa9976bd9d79de24fe9fa14a88cbc57",
+      "version": "aa9ddc73b629c3de4a6dd8153a3e32867cce3c8c5e0709b7c5d15033e7b872f5",
+      "last_accessed_at": "2026-10-05T14:17:00.188631Z",
+      "created_at": "2026-10-05T14:17:00.188631Z",
+      "size_in_bytes": 371568073
+    },
+    {
+      "id": 8520883247,
+      "ref": "refs/heads/main",
+      "key": "setup-go-modules-Windows-55bc726694ed9b0217457830a4860311937b8604085d4ffd2d58528600c50e30",
+      "version": "9d5db36c91d2097b03fa6b0afb2b29786a94f3a128c8ec32875255392ccab767",
+      "last_accessed_at": "2026-10-05T14:16:44.184Z",
+      "created_at": "2026-10-05T13:44:37.423791Z",
+      "size_in_bytes": 866658883
+    },
+    {
+      "id": 8522432589,
+      "ref": "refs/heads/main",
+      "key": "setup-go-Windows-x64-go-1.26.8-30b352221f382473dd0af55eacc951b004e128915efd742744cc2c47cf7bc54f",
+      "version": "c1edba619e596e8ba99247f10beced27a64b184f4dedaf5cb8cc09f4e8059bf0",
+      "last_accessed_at": "2026-10-05T14:16:12.006819Z",
+      "created_at": "2026-10-05T14:16:12.006819Z",
+      "size_in_bytes": 180695032
+    },
+    {
+      "id": 8522431994,
+      "ref": "refs/heads/main",
+      "key": "setup-go-build-Windows-x64-go-1.26.8-30b352221f382473dd0af55eacc951b004e128915efd742744cc2c47cf7bc54f",
+      "version": "3a3dd87bd93150f8191aadad6271bffabb5feeac19763a9cbc675a58ef9316ac",
+      "last_accessed_at": "2026-10-05T14:16:11.292388Z",
+      "created_at": "2026-10-05T14:16:11.292388Z",
+      "size_in_bytes": 56086671
+    },
+    {
+      "id": 8520790680,
+      "ref": "refs/heads/main",
+      "key": "setup-go-modules-Windows-668a58539737b470748f5e1701f5e4e6afa9976bd9d79de24fe9fa14a88cbc57",
+      "version": "ab8077bd83c4da7e5ffbd0e8faada35bde153bfe03eb094e6d5f1afae67ff179",
+      "last_accessed_at": "2026-10-05T14:16:03.395982Z",
+      "created_at": "2026-10-05T13:42:46.149694Z",
+      "size_in_bytes": 284851952
+    },
+    {
+      "id": 8522402962,
+      "ref": "refs/heads/main",
+      "key": "setup-go-build-Windows-x64-go-1.26.8-86a98ee14546903a86fa0b54af9fd44597fb08536cb9a2658d216657af9443df",
+      "version": "113406559a35f3e750fd813bf8a3e952a74f9625d7f3aaaf98f2b85fe9d34bf3",
+      "last_accessed_at": "2026-10-05T14:15:37.140353Z",
+      "created_at": "2026-10-05T14:15:37.140353Z",
+      "size_in_bytes": 46050839
+    },
+    {
+      "id": 8520736352,
+      "ref": "refs/heads/main",
+      "key": "setup-go-modules-Windows-30b352221f382473dd0af55eacc951b004e128915efd742744cc2c47cf7bc54f",
+      "version": "fd7c08b0d21ca6784e7c660404a774deab0fbe7c2c6caeffc68437ea80c5902e",
+      "last_accessed_at": "2026-10-05T14:15:11.310513Z",
+      "created_at": "2026-10-05T13:41:39.979576Z",
+      "size_in_bytes": 124574498
+    },
+    {
+      "id": 8522367914,
+      "ref": "refs/heads/main",
+      "key": "setup-go-Windows-x64-go-1.26.8-86a98ee14546903a86fa0b54af9fd44597fb08536cb9a2658d216657af9443df",
+      "version": "83ed2e4e2e3576a519cc31903314a5bd1ce744cf3905e8bd63fd9572165af91c",
+      "last_accessed_at": "2026-10-05T14:14:56.929994Z",
+      "created_at": "2026-10-05T14:14:56.929994Z",
+      "size_in_bytes": 103246951
+    },
+    {
+      "id": 8520680388,
+      "ref": "refs/heads/main",
+      "key": "setup-go-modules-Windows-86a98ee14546903a86fa0b54af9fd44597fb08536cb9a2658d216657af9443df",
+      "version": "1d503a1857fe8a38bcc0f39f05f71523cc1dbf0c416b140a07f05ea87cc52e3e",
+      "last_accessed_at": "2026-10-05T14:14:45.164873Z",
+      "created_at": "2026-10-05T13:40:25.580541Z",
+      "size_in_bytes": 57004298
+    },
+    {
+      "id": 8522354263,
+      "ref": "refs/heads/main",
+      "key": "setup-go-build-Windows-x64-go-1.26.8-04f8459f03329e739f26266754266e9af7b3b4606f5f4001deccda591dca7e3b",
+      "version": "99f9261c2a6f7bf8aec2effd9bf765122ce68f6a43f828203fc79f9bba6a36ac",
+      "last_accessed_at": "2026-10-05T14:14:39.491554Z",
+      "created_at": "2026-10-05T14:14:39.491554Z",
+      "size_in_bytes": 32197441
+    },
+    {
+      "id": 8522350443,
+      "ref": "refs/heads/main",
+      "key": "setup-go-Windows-x64-go-1.26.8-04f8459f03329e739f26266754266e9af7b3b4606f5f4001deccda591dca7e3b",
+      "version": "5ee848295f201cd6451f4088ceab2e6c880529a3cdd3c015537bbbf24baf8720",
+      "last_accessed_at": "2026-10-05T14:14:37.081215Z",
+      "created_at": "2026-10-05T14:14:37.081215Z",
+      "size_in_bytes": 129658594
+    },
+    {
+      "id": 8522336548,
+      "ref": "refs/heads/main",
+      "key": "setup-go-Windows-x64-go-1.26.8-cdbe4eec444b2f1a8245ffd9d9df4911c57d3ed1ecc93f0d3ac1932914930bd6",
+      "version": "109a2581e6d91470e619267da6d17681aff18f89aa3253f59145d4aeca9e5a9c",
+      "last_accessed_at": "2026-10-05T14:14:18.757935Z",
+      "created_at": "2026-10-05T14:14:18.757935Z",
+      "size_in_bytes": 51868878
+    },
+    {
+      "id": 8520655486,
+      "ref": "refs/heads/main",
+      "key": "setup-go-modules-Windows-04f8459f03329e739f26266754266e9af7b3b4606f5f4001deccda591dca7e3b",
+      "version": "254fd50d7ecc0aaec2d4735f4da71e38ce1e63becd7e80f61d0439b1fbd15a3b",
+      "last_accessed_at": "2026-10-05T14:14:06.353486Z",
+      "created_at": "2026-10-05T13:39:56.924550Z",
+      "size_in_bytes": 97443573
+    },
+    {
+      "id": 8522308021,
+      "ref": "refs/heads/main",
+      "key": "setup-go-Windows-x64-go-1.26.8-0ff4231887221b860d1531a13149a4af156f73a3f5b05c037a9beacd61b69061",
+      "version": "1feb9ea61c246610b4f86efb41abcd24e8976618ba0606c24d4b466432ed33d8",
+      "last_accessed_at": "2026-10-05T14:13:43.802736Z",
+      "created_at": "2026-10-05T14:13:43.802736Z",
+      "size_in_bytes": 14739149
+    },
+    {
+      "id": 8522305456,
+      "ref": "refs/heads/main",
+      "key": "setup-go-build-Windows-x64-go-1.26.8-cdbe4eec444b2f1a8245ffd9d9df4911c57d3ed1ecc93f0d3ac1932914930bd6",
+      "version": "fe5044fb00e2ecc50eb3d4cbd2dff1aafb4a7395b5b353064736a25be235ac18",
+      "last_accessed_at": "2026-10-05T14:13:40.642469Z",
+      "created_at": "2026-10-05T14:13:40.642469Z",
+      "size_in_bytes": 29211498
+    },
+    {
+      "id": 8522294136,
+      "ref": "refs/heads/main",
+      "key": "setup-go-build-Windows-x64-go-1.26.8-0ff4231887221b860d1531a13149a4af156f73a3f5b05c037a9beacd61b69061",
+      "version": "69791d0e070e1697d9d50379c9937758f1d3ea69a47dc28deededd578b07f2fc",
+      "last_accessed_at": "2026-10-05T14:13:25.473874Z",
+      "created_at": "2026-10-05T14:13:25.473874Z",
+      "size_in_bytes": 14100778
+    },
+    {
+      "id": 8520596430,
+      "ref": "refs/heads/main",
+      "key": "setup-go-modules-Windows-cdbe4eec444b2f1a8245ffd9d9df4911c57d3ed1ecc93f0d3ac1932914930bd6",
+      "version": "ceaa5b60b45143caaac4db8b8653bb3ad16aacc7274f5df677ee1b270810b137",
+      "last_accessed_at": "2026-10-05T14:13:08.598560Z",
+      "created_at": "2026-10-05T13:38:41.546230Z",
+      "size_in_bytes": 22599533
+    },
+    {
+      "id": 8520597530,
+      "ref": "refs/heads/main",
+      "key": "setup-go-modules-Windows-0ff4231887221b860d1531a13149a4af156f73a3f5b05c037a9beacd61b69061",
+      "version": "f22fb60cbfce410a14580d48c9c46abffe5df8bd400b0ca0be0c5ff92d8af0f6",
+      "last_accessed_at": "2026-10-05T14:13:08.355638Z",
+      "created_at": "2026-10-05T13:38:42.735226Z",
+      "size_in_bytes": 668333
+    },
+    {
+      "id": 8520850947,
+      "ref": "refs/heads/main",
+      "key": "setup-go-build-Windows-x64-go-1.26.7-55bc726694ed9b0217457830a4860311937b8604085d4ffd2d58528600c50e30",
+      "version": "b8b6bed4f80f2b66f80b42620a7cf330dcf0b23ab2c0f977b78df360a751a907",
+      "last_accessed_at": "2026-10-05T14:09:54.163598Z",
+      "created_at": "2026-10-05T13:43:59.287789Z",
+      "size_in_bytes": 58611303
+    },
+    {
+      "id": 8520847542,
+      "ref": "refs/heads/main",
+      "key": "setup-go-Windows-x64-go-1.26.7-55bc726694ed9b0217457830a4860311937b8604085d4ffd2d58528600c50e30",
+      "version": "0b2a078c81c5d8a408ef41ffc737128ff6cf25de2afd4afac03a5dee63ba6c1b",
+      "last_accessed_at": "2026-10-05T14:07:41.884352Z",
+      "created_at": "2026-10-05T13:43:57.705508Z",
+      "size_in_bytes": 924999203
+    },
+    {
+      "id": 8520756958,
+      "ref": "refs/heads/main",
+      "key": "setup-go-Windows-x64-go-1.26.7-668a58539737b470748f5e1701f5e4e6afa9976bd9d79de24fe9fa14a88cbc57",
+      "version": "aa9ddc73b629c3de4a6dd8153a3e32867cce3c8c5e0709b7c5d15033e7b872f5",
+      "last_accessed_at": "2026-10-05T13:55:55.743226Z",
+      "created_at": "2026-10-05T13:42:03.574334Z",
+      "size_in_bytes": 371257890
+    },
+    {
+      "id": 8520783383,
+      "ref": "refs/heads/main",
+      "key": "setup-go-build-Windows-x64-go-1.26.7-668a58539737b470748f5e1701f5e4e6afa9976bd9d79de24fe9fa14a88cbc57",
+      "version": "efbabee27ff6f9ea5c7ef095c2ca3ec05cab81975eaba6026a2e0224fd2fa7c0",
+      "last_accessed_at": "2026-10-05T13:55:32.174696Z",
+      "created_at": "2026-10-05T13:42:37.774757Z",
+      "size_in_bytes": 86617499
+    },
+    {
+      "id": 8520734095,
+      "ref": "refs/heads/main",
+      "key": "setup-go-build-Windows-x64-go-1.26.7-30b352221f382473dd0af55eacc951b004e128915efd742744cc2c47cf7bc54f",
+      "version": "3a3dd87bd93150f8191aadad6271bffabb5feeac19763a9cbc675a58ef9316ac",
+      "last_accessed_at": "2026-10-05T13:53:58.558266Z",
+      "created_at": "2026-10-05T13:41:32.784534Z",
+      "size_in_bytes": 55875574
+    },
+    {
+      "id": 8520730107,
+      "ref": "refs/heads/main",
+      "key": "setup-go-Windows-x64-go-1.26.7-30b352221f382473dd0af55eacc951b004e128915efd742744cc2c47cf7bc54f",
+      "version": "c1edba619e596e8ba99247f10beced27a64b184f4dedaf5cb8cc09f4e8059bf0",
+      "last_accessed_at": "2026-10-05T13:53:13.300092Z",
+      "created_at": "2026-10-05T13:41:27.223089Z",
+      "size_in_bytes": 180554266
+    },
+    {
+      "id": 8520680762,
+      "ref": "refs/heads/main",
+      "key": "setup-go-Windows-x64-go-1.26.7-86a98ee14546903a86fa0b54af9fd44597fb08536cb9a2658d216657af9443df",
+      "version": "83ed2e4e2e3576a519cc31903314a5bd1ce744cf3905e8bd63fd9572165af91c",
+      "last_accessed_at": "2026-10-05T13:51:16.771521Z",
+      "created_at": "2026-10-05T13:40:28.099592Z",
+      "size_in_bytes": 103130196
+    },
+    {
+      "id": 8520679231,
+      "ref": "refs/heads/main",
+      "key": "setup-go-build-Windows-x64-go-1.26.7-86a98ee14546903a86fa0b54af9fd44597fb08536cb9a2658d216657af9443df",
+      "version": "113406559a35f3e750fd813bf8a3e952a74f9625d7f3aaaf98f2b85fe9d34bf3",
+      "last_accessed_at": "2026-10-05T13:51:01.228921Z",
+      "created_at": "2026-10-05T13:40:23.834966Z",
+      "size_in_bytes": 46157516
+    },
+    {
+      "id": 8520655044,
+      "ref": "refs/heads/main",
+      "key": "setup-go-build-Windows-x64-go-1.26.7-04f8459f03329e739f26266754266e9af7b3b4606f5f4001deccda591dca7e3b",
+      "version": "99f9261c2a6f7bf8aec2effd9bf765122ce68f6a43f828203fc79f9bba6a36ac",
+      "last_accessed_at": "2026-10-05T13:50:35.955777Z",
+      "created_at": "2026-10-05T13:39:55.371480Z",
+      "size_in_bytes": 32155575
+    },
+    {
+      "id": 8520650941,
+      "ref": "refs/heads/main",
+      "key": "setup-go-Windows-x64-go-1.26.7-04f8459f03329e739f26266754266e9af7b3b4606f5f4001deccda591dca7e3b",
+      "version": "5ee848295f201cd6451f4088ceab2e6c880529a3cdd3c015537bbbf24baf8720",
+      "last_accessed_at": "2026-10-05T13:50:15.761092Z",
+      "created_at": "2026-10-05T13:39:50.998346Z",
+      "size_in_bytes": 129580235
+    },
+    {
+      "id": 8520609846,
+      "ref": "refs/heads/main",
+      "key": "setup-go-Windows-x64-go-1.26.7-cdbe4eec444b2f1a8245ffd9d9df4911c57d3ed1ecc93f0d3ac1932914930bd6",
+      "version": "109a2581e6d91470e619267da6d17681aff18f89aa3253f59145d4aeca9e5a9c",
+      "last_accessed_at": "2026-10-05T13:48:31.673319Z",
+      "created_at": "2026-10-05T13:39:00.585381Z",
+      "size_in_bytes": 51767444
+    },
+    {
+      "id": 8520597642,
+      "ref": "refs/heads/main",
+      "key": "setup-go-build-Windows-x64-go-1.26.7-0ff4231887221b860d1531a13149a4af156f73a3f5b05c037a9beacd61b69061",
+      "version": "69791d0e070e1697d9d50379c9937758f1d3ea69a47dc28deededd578b07f2fc",
+      "last_accessed_at": "2026-10-05T13:48:25.642948Z",
+      "created_at": "2026-10-05T13:38:43.405455Z",
+      "size_in_bytes": 14073909
+    },
+    {
+      "id": 8520596473,
+      "ref": "refs/heads/main",
+      "key": "setup-go-build-Windows-x64-go-1.26.7-cdbe4eec444b2f1a8245ffd9d9df4911c57d3ed1ecc93f0d3ac1932914930bd6",
+      "version": "fe5044fb00e2ecc50eb3d4cbd2dff1aafb4a7395b5b353064736a25be235ac18",
+      "last_accessed_at": "2026-10-05T13:48:24.188908Z",
+      "created_at": "2026-10-05T13:38:41.765595Z",
+      "size_in_bytes": 29222114
+    },
+    {
+      "id": 8520592775,
+      "ref": "refs/heads/main",
+      "key": "setup-go-Windows-x64-go-1.26.7-0ff4231887221b860d1531a13149a4af156f73a3f5b05c037a9beacd61b69061",
+      "version": "1feb9ea61c246610b4f86efb41abcd24e8976618ba0606c24d4b466432ed33d8",
+      "last_accessed_at": "2026-10-05T13:48:13.491237Z",
+      "created_at": "2026-10-05T13:38:37.885785Z",
+      "size_in_bytes": 14756765
+    },
+    {
+      "id": 8520469415,
+      "ref": "refs/heads/main",
+      "key": "setup-go-modules-Windows-55bc726694ed9b0217457830a4860311937b8604085d4ffd2d58528600c50e30",
+      "version": "fcce552124541285e45574462064a78410ec556d76754e03d50396514d34a39d",
+      "last_accessed_at": "2026-10-05T13:36:12.459648Z",
+      "created_at": "2026-10-05T13:36:12.459648Z",
+      "size_in_bytes": 866748139
+    },
+    {
+      "id": 8520452520,
+      "ref": "refs/heads/main",
+      "key": "setup-go-modules-Windows-668a58539737b470748f5e1701f5e4e6afa9976bd9d79de24fe9fa14a88cbc57",
+      "version": "59a066e19f0b946c2f27ba1f9e001349a3f279c276fe22f573d50fbf2fcc6693",
+      "last_accessed_at": "2026-10-05T13:35:51.083323Z",
+      "created_at": "2026-10-05T13:35:51.083323Z",
+      "size_in_bytes": 284864373
+    },
+    {
+      "id": 8520447961,
+      "ref": "refs/heads/main",
+      "key": "setup-go-build-Windows-x64-go-1.26.7-668a58539737b470748f5e1701f5e4e6afa9976bd9d79de24fe9fa14a88cbc57",
+      "version": "d9296a6bce6acad23d89f8b9d3dabba679082e21153cc20f1e9ad85739b3fb5e",
+      "last_accessed_at": "2026-10-05T13:35:47.340914Z",
+      "created_at": "2026-10-05T13:35:47.340914Z",
+      "size_in_bytes": 381411342
+    },
+    {
+      "id": 8520442483,
+      "ref": "refs/heads/main",
+      "key": "setup-go-Windows-x64-go-1.26.7-55bc726694ed9b0217457830a4860311937b8604085d4ffd2d58528600c50e30",
+      "version": "552058823d566b9397c6fcec5703eaac15774d300f8ffc99ad3f576d21840ba5",
+      "last_accessed_at": "2026-10-05T13:35:38.327164Z",
+      "created_at": "2026-10-05T13:35:38.327164Z",
+      "size_in_bytes": 961608295
+    },
+    {
+      "id": 8520441862,
+      "ref": "refs/heads/main",
+      "key": "setup-go-build-Windows-x64-go-1.26.7-55bc726694ed9b0217457830a4860311937b8604085d4ffd2d58528600c50e30",
+      "version": "301e994f5565b6f305cce08c66636652d30fc3da24b5ddba4945ae6a047d0f7f",
+      "last_accessed_at": "2026-10-05T13:35:35.934714Z",
+      "created_at": "2026-10-05T13:35:35.934714Z",
+      "size_in_bytes": 94824649
+    },
+    {
+      "id": 8520435843,
+      "ref": "refs/heads/main",
+      "key": "setup-go-Windows-x64-go-1.26.7-668a58539737b470748f5e1701f5e4e6afa9976bd9d79de24fe9fa14a88cbc57",
+      "version": "ea0e71e87818768dbc434888e2df7d594a7daa98793bb2aba1c2de8baf1168e8",
+      "last_accessed_at": "2026-10-05T13:35:29.618904Z",
+      "created_at": "2026-10-05T13:35:29.618904Z",
+      "size_in_bytes": 666376876
+    },
+    {
+      "id": 8520133811,
+      "ref": "refs/heads/main",
+      "key": "setup-go-build-Windows-x64-go-1.26.7-cdbe4eec444b2f1a8245ffd9d9df4911c57d3ed1ecc93f0d3ac1932914930bd6",
+      "version": "219cbf143250aa62234f8e61a788e03a97c995edd85d80125060ffef1c6fbcd1",
+      "last_accessed_at": "2026-10-05T13:29:13.043553Z",
+      "created_at": "2026-10-05T13:29:13.043553Z",
+      "size_in_bytes": 33157815
+    },
+    {
+      "id": 8520133677,
+      "ref": "refs/heads/main",
+      "key": "setup-go-modules-Windows-cdbe4eec444b2f1a8245ffd9d9df4911c57d3ed1ecc93f0d3ac1932914930bd6",
+      "version": "41270545f6cc903eb925e1f67474b875934e305325f9ba7fcad180994d7061c7",
+      "last_accessed_at": "2026-10-05T13:29:12.623243Z",
+      "created_at": "2026-10-05T13:29:12.623243Z",
+      "size_in_bytes": 22595759
+    },
+    {
+      "id": 8520124922,
+      "ref": "refs/heads/main",
+      "key": "setup-go-Windows-x64-go-1.26.7-cdbe4eec444b2f1a8245ffd9d9df4911c57d3ed1ecc93f0d3ac1932914930bd6",
+      "version": "9c7c0c6d70f59c4c1ba3a72e6edf9539eb2be855a27579a8fffc6183238e5337",
+      "last_accessed_at": "2026-10-05T13:29:03.386777Z",
+      "created_at": "2026-10-05T13:29:03.386777Z",
+      "size_in_bytes": 55711783
+    },
+    {
+      "id": 8520121414,
+      "ref": "refs/heads/main",
+      "key": "setup-go-build-Windows-x64-go-1.26.7-0ff4231887221b860d1531a13149a4af156f73a3f5b05c037a9beacd61b69061",
+      "version": "10aef10e0ef6a610a8a97740b6932a34a654b59110074ebd36fa43b34ae0a72e",
+      "last_accessed_at": "2026-10-05T13:28:59.296636Z",
+      "created_at": "2026-10-05T13:28:59.296636Z",
+      "size_in_bytes": 19448722
+    },
+    {
+      "id": 8520121089,
+      "ref": "refs/heads/main",
+      "key": "setup-go-modules-Windows-0ff4231887221b860d1531a13149a4af156f73a3f5b05c037a9beacd61b69061",
+      "version": "a458fcfbb359a94ceec3f27b63028eb57e1ddb9b184c4b9b5252963ba0d58198",
+      "last_accessed_at": "2026-10-05T13:28:58.000611Z",
+      "created_at": "2026-10-05T13:28:58.000611Z",
+      "size_in_bytes": 668683
+    },
+    {
+      "id": 8520105281,
+      "ref": "refs/heads/main",
+      "key": "setup-go-Windows-x64-go-1.26.7-0ff4231887221b860d1531a13149a4af156f73a3f5b05c037a9beacd61b69061",
+      "version": "544fbaa2d8b4e4ed3bf90ddcb7a80479d2a9c734f5e59fea34695955c08fe61c",
+      "last_accessed_at": "2026-10-05T13:28:37.297845Z",
+      "created_at": "2026-10-05T13:28:37.297845Z",
+      "size_in_bytes": 20030845
+    }
+  ]
+}

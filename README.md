@@ -7,12 +7,12 @@ Seven pinned upstream Go source snapshots with original notices and licenses. Th
 | spf13/cobra | 4 | v1.10.2 |
 | spf13/viper | 17 | v1.21.0 |
 | prometheus/client_golang | 23 | v1.24.1 |
-| gin-gonic/gin | 34 | v1.12.0 |
+| gin-gonic/gin | 35 | v1.12.0 |
 | grpc/grpc-go | 43 | v1.84.0 |
 | gohugoio/hugo | 184 | v0.159.0 |
 | prometheus/prometheus | 251 | v3.15.0 |
 
-See projects.json for exact commit provenance and bounded build-package selections. `go mod download` fetches the full declared module graph, not only the selected build dependencies. `go build` populates compiled cache entries without running tests. No test suite, race build, or external service deployment is run. Hugo uses a Go-1.25-compatible release so every project can use the same Go toolchains.
+See projects.json for exact commit provenance and bounded build-package selections. `go mod download` pre-fills modules according to Go's default semantics: explicit requirements for Go1.17+ module files, or all transitively required modules for older files. The resolved graph can contain more modules than are downloaded; `go list -m -json all` records that graph after the timed build. `go build` populates compiled cache entries without running tests. No test suite, race build, or external service deployment is run. Hugo uses a Go-1.25-compatible release so every project can use the same Go toolchains.
 
 ## Method
 
@@ -23,3 +23,7 @@ Dispatch seed first on Go1.26.7 (one cold sample per project/action), then warm 
 Each sample runs the unmodified real setup-go action; its post action saves through the real GitHub cache service at job end. JSON artifacts include action/restore wall time, module download time, build time, hit output, and disk-cache file counts and bytes. The GitHub jobs API and logs provide post-save duration and compressed transfer bytes; the cache API supplies persisted archive sizes. Two action variants are isolated by job, not by changing module file hashes. Paired samples are indexed within matching project/scenario jobs; distinct VMs mean their CPU/noise cannot be controlled as tightly as local pairs.
 
 The repository contains public upstream code only. Workflow permissions are read-only except the normal Actions cache-service access. No secrets, deployments, or publication steps. Do not enable upstream copied workflows; only the root benchmark workflow executes. No automatic deletion of the scratch repository or its caches is performed.
+
+## Results
+
+See [RESULTS.md](RESULTS.md) for measured warm-cache timing and actual upload/storage bytes, including regressions and sampling limits. A cancelled test-based pilot is excluded from every reported figure.

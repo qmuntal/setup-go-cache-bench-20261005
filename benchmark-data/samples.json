@@ -1,0 +1,6818 @@
+[
+  {
+    "beforePostSeconds": 23.5894343,
+    "phase": "seed",
+    "downloadSeconds": 1.4904043,
+    "cacheHit": "false",
+    "sample": 1,
+    "runnerArch": "X64",
+    "workload": "build-v2",
+    "version": "go version go1.26.7 windows/amd64",
+    "source": {
+      "slug": "client_golang",
+      "repository": "prometheus/client_golang",
+      "tag": "v1.24.1",
+      "sha": "d6087ee482e06716ee21dc03819432d5d40f72db",
+      "requirements": 23,
+      "packages": [
+        "./prometheus/..."
+      ]
+    },
+    "project": "client_golang",
+    "variant": "baseline",
+    "runId": "37318273231",
+    "job": "measure",
+    "imageVersion": "20260925.250.1",
+    "runnerOS": "Windows",
+    "cpus": 4,
+    "buildSeconds": 19.2932483,
+    "restoreSeconds": 2.7705283,
+    "inventory": {
+      "modules": {
+        "bytes": 166244119,
+        "files": 4191
+      },
+      "build": {
+        "bytes": 138700409,
+        "files": 1755
+      }
+    }
+  },
+  {
+    "project": "client_golang",
+    "buildSeconds": 21.4710261,
+    "version": "go version go1.26.7 windows/amd64",
+    "workload": "build-v2",
+    "variant": "split",
+    "source": {
+      "slug": "client_golang",
+      "repository": "prometheus/client_golang",
+      "tag": "v1.24.1",
+      "sha": "d6087ee482e06716ee21dc03819432d5d40f72db",
+      "requirements": 23,
+      "packages": [
+        "./prometheus/..."
+      ]
+    },
+    "downloadSeconds": 1.964668,
+    "runId": "37318273231",
+    "job": "measure",
+    "runnerArch": "X64",
+    "restoreSeconds": 2.8511386,
+    "cacheHit": "false",
+    "phase": "seed",
+    "inventory": {
+      "build": {
+        "bytes": 138700409,
+        "files": 1755
+      },
+      "modules": {
+        "bytes": 166244119,
+        "files": 4191
+      }
+    },
+    "beforePostSeconds": 26.327419,
+    "imageVersion": "20260925.250.1",
+    "cpus": 4,
+    "runnerOS": "Windows",
+    "sample": 1
+  },
+  {
+    "version": "go version go1.26.7 windows/amd64",
+    "project": "cobra",
+    "runnerArch": "X64",
+    "sample": 1,
+    "variant": "baseline",
+    "runnerOS": "Windows",
+    "downloadSeconds": 0.2678219,
+    "cpus": 4,
+    "cacheHit": "false",
+    "workload": "build-v2",
+    "source": {
+      "slug": "cobra",
+      "repository": "spf13/cobra",
+      "tag": "v1.10.2",
+      "sha": "88b30ab89da2d0d0abb153818746c5a2d30eccec",
+      "requirements": 4,
+      "packages": [
+        "./..."
+      ]
+    },
+    "runId": "37318273231",
+    "beforePostSeconds": 12.4141706,
+    "imageVersion": "20260925.250.1",
+    "phase": "seed",
+    "inventory": {
+      "modules": {
+        "files": 257,
+        "bytes": 1859788
+      },
+      "build": {
+        "files": 680,
+        "bytes": 59850089
+      }
+    },
+    "restoreSeconds": 2.3890787,
+    "buildSeconds": 9.7129469,
+    "job": "measure"
+  },
+  {
+    "job": "measure",
+    "workload": "build-v2",
+    "source": {
+      "slug": "cobra",
+      "repository": "spf13/cobra",
+      "tag": "v1.10.2",
+      "sha": "88b30ab89da2d0d0abb153818746c5a2d30eccec",
+      "requirements": 4,
+      "packages": [
+        "./..."
+      ]
+    },
+    "inventory": {
+      "modules": {
+        "bytes": 1859788,
+        "files": 257
+      },
+      "build": {
+        "bytes": 59850089,
+        "files": 680
+      }
+    },
+    "restoreSeconds": 2.1376364,
+    "imageVersion": "20260925.250.1",
+    "downloadSeconds": 0.3028001,
+    "sample": 1,
+    "runnerOS": "Windows",
+    "cacheHit": "false",
+    "beforePostSeconds": 10.5371478,
+    "phase": "seed",
+    "runnerArch": "X64",
+    "cpus": 4,
+    "variant": "split",
+    "version": "go version go1.26.7 windows/amd64",
+    "buildSeconds": 8.0544538,
+    "runId": "37318273231",
+    "project": "cobra"
+  },
+  {
+    "beforePostSeconds": 47.4426475,
+    "project": "gin",
+    "cpus": 4,
+    "restoreSeconds": 2.4442343,
+    "buildSeconds": 42.0567934,
+    "version": "go version go1.26.7 windows/amd64",
+    "inventory": {
+      "modules": {
+        "files": 9243,
+        "bytes": 185257820
+      },
+      "build": {
+        "files": 2001,
+        "bytes": 214510074
+      }
+    },
+    "job": "measure",
+    "sample": 1,
+    "imageVersion": "20260925.250.1",
+    "source": {
+      "slug": "gin",
+      "repository": "gin-gonic/gin",
+      "tag": "v1.12.0",
+      "sha": "73726dc606796a025971fe451f0aa6f1b9b847f6",
+      "requirements": 34,
+      "packages": [
+        "./..."
+      ]
+    },
+    "runnerOS": "Windows",
+    "phase": "seed",
+    "downloadSeconds": 2.8924725,
+    "workload": "build-v2",
+    "runnerArch": "X64",
+    "variant": "baseline",
+    "cacheHit": "false",
+    "runId": "37318273231"
+  },
+  {
+    "job": "measure",
+    "cacheHit": "false",
+    "source": {
+      "slug": "gin",
+      "repository": "gin-gonic/gin",
+      "tag": "v1.12.0",
+      "sha": "73726dc606796a025971fe451f0aa6f1b9b847f6",
+      "requirements": 34,
+      "packages": [
+        "./..."
+      ]
+    },
+    "restoreSeconds": 2.4442812,
+    "inventory": {
+      "modules": {
+        "files": 9243,
+        "bytes": 185257820
+      },
+      "build": {
+        "files": 2001,
+        "bytes": 214510074
+      }
+    },
+    "runId": "37318273231",
+    "runnerOS": "Windows",
+    "cpus": 4,
+    "variant": "split",
+    "beforePostSeconds": 37.4072575,
+    "runnerArch": "X64",
+    "downloadSeconds": 2.7196802,
+    "imageVersion": "20260925.250.1",
+    "version": "go version go1.26.7 windows/amd64",
+    "buildSeconds": 32.2089172,
+    "phase": "seed",
+    "sample": 1,
+    "project": "gin",
+    "workload": "build-v2"
+  },
+  {
+    "restoreSeconds": 2.5978912,
+    "runnerOS": "Windows",
+    "buildSeconds": 29.3691659,
+    "imageVersion": "20260925.250.1",
+    "cpus": 4,
+    "beforePostSeconds": 38.342545,
+    "project": "grpc",
+    "job": "measure",
+    "source": {
+      "slug": "grpc",
+      "repository": "grpc/grpc-go",
+      "tag": "v1.84.0",
+      "sha": "e84aa5ab15d1d2b29d54f838312ad490cb7551a8",
+      "requirements": 43,
+      "packages": [
+        "./codes",
+        "./metadata",
+        "./status",
+        "./credentials/...",
+        "./encoding/...",
+        "./resolver/...",
+        "./balancer/..."
+      ]
+    },
+    "cacheHit": "false",
+    "sample": 1,
+    "runId": "37318273231",
+    "variant": "baseline",
+    "workload": "build-v2",
+    "version": "go version go1.26.7 windows/amd64",
+    "downloadSeconds": 6.3392597,
+    "inventory": {
+      "build": {
+        "files": 3162,
+        "bytes": 252202025
+      },
+      "modules": {
+        "files": 11363,
+        "bytes": 604873641
+      }
+    },
+    "phase": "seed",
+    "runnerArch": "X64"
+  },
+  {
+    "version": "go version go1.26.7 windows/amd64",
+    "downloadSeconds": 6.0141062,
+    "variant": "split",
+    "project": "grpc",
+    "cacheHit": "false",
+    "beforePostSeconds": 39.1928934,
+    "sample": 1,
+    "job": "measure",
+    "runId": "37318273231",
+    "runnerOS": "Windows",
+    "imageVersion": "20260925.250.1",
+    "inventory": {
+      "modules": {
+        "bytes": 604873641,
+        "files": 11363
+      },
+      "build": {
+        "bytes": 252202025,
+        "files": 3162
+      }
+    },
+    "cpus": 4,
+    "restoreSeconds": 2.1079765,
+    "buildSeconds": 31.03271,
+    "source": {
+      "slug": "grpc",
+      "repository": "grpc/grpc-go",
+      "tag": "v1.84.0",
+      "sha": "e84aa5ab15d1d2b29d54f838312ad490cb7551a8",
+      "requirements": 43,
+      "packages": [
+        "./codes",
+        "./metadata",
+        "./status",
+        "./credentials/...",
+        "./encoding/...",
+        "./resolver/...",
+        "./balancer/..."
+      ]
+    },
+    "workload": "build-v2",
+    "phase": "seed",
+    "runnerArch": "X64"
+  },
+  {
+    "inventory": {
+      "build": {
+        "bytes": 393644007,
+        "files": 3730
+      },
+      "modules": {
+        "bytes": 984712171,
+        "files": 38485
+      }
+    },
+    "runId": "37318273231",
+    "cpus": 4,
+    "runnerOS": "Windows",
+    "restoreSeconds": 1.7801391,
+    "job": "measure",
+    "downloadSeconds": 13.2539761,
+    "variant": "baseline",
+    "buildSeconds": 32.0286024,
+    "version": "go version go1.26.7 windows/amd64",
+    "phase": "seed",
+    "source": {
+      "slug": "hugo",
+      "repository": "gohugoio/hugo",
+      "tag": "v0.159.0",
+      "sha": "2ed7d193cfdfcf11808fb2a921a9429423b0ebe9",
+      "requirements": 184,
+      "packages": [
+        "./common/...",
+        "./parser/...",
+        "./tpl/strings",
+        "./tpl/math"
+      ]
+    },
+    "project": "hugo",
+    "beforePostSeconds": 47.0886628,
+    "sample": 1,
+    "imageVersion": "20260925.250.1",
+    "runnerArch": "X64",
+    "workload": "build-v2",
+    "cacheHit": "false"
+  },
+  {
+    "source": {
+      "slug": "hugo",
+      "repository": "gohugoio/hugo",
+      "tag": "v0.159.0",
+      "sha": "2ed7d193cfdfcf11808fb2a921a9429423b0ebe9",
+      "requirements": 184,
+      "packages": [
+        "./common/...",
+        "./parser/...",
+        "./tpl/strings",
+        "./tpl/math"
+      ]
+    },
+    "sample": 1,
+    "runId": "37318273231",
+    "workload": "build-v2",
+    "variant": "split",
+    "imageVersion": "20260925.250.1",
+    "runnerOS": "Windows",
+    "downloadSeconds": 11.4812025,
+    "inventory": {
+      "modules": {
+        "bytes": 984712171,
+        "files": 38485
+      },
+      "build": {
+        "bytes": 393644007,
+        "files": 3730
+      }
+    },
+    "version": "go version go1.26.7 windows/amd64",
+    "cacheHit": "false",
+    "cpus": 4,
+    "beforePostSeconds": 61.6030147,
+    "restoreSeconds": 2.7303624,
+    "runnerArch": "X64",
+    "phase": "seed",
+    "job": "measure",
+    "project": "hugo",
+    "buildSeconds": 47.3540251
+  },
+  {
+    "cpus": 4,
+    "imageVersion": "20260925.250.1",
+    "runnerArch": "X64",
+    "restoreSeconds": 2.0375943,
+    "source": {
+      "slug": "prometheus",
+      "repository": "prometheus/prometheus",
+      "tag": "v3.15.0",
+      "sha": "5241a27fe3c6983549fccc32f6e65917408c63cd",
+      "requirements": 251,
+      "packages": [
+        "./model/...",
+        "./promql/parser/...",
+        "./util/strutil/..."
+      ]
+    },
+    "inventory": {
+      "build": {
+        "bytes": 257464575,
+        "files": 2701
+      },
+      "modules": {
+        "bytes": 2796434435,
+        "files": 147447
+      }
+    },
+    "phase": "seed",
+    "cacheHit": "false",
+    "sample": 1,
+    "runnerOS": "Windows",
+    "version": "go version go1.26.7 windows/amd64",
+    "beforePostSeconds": 66.221892,
+    "project": "prometheus",
+    "downloadSeconds": 37.5755054,
+    "workload": "build-v2",
+    "job": "measure",
+    "buildSeconds": 26.5800185,
+    "runId": "37318273231",
+    "variant": "baseline"
+  },
+  {
+    "job": "measure",
+    "beforePostSeconds": 79.5196729,
+    "sample": 1,
+    "cpus": 4,
+    "inventory": {
+      "build": {
+        "bytes": 257464575,
+        "files": 2701
+      },
+      "modules": {
+        "bytes": 2796379363,
+        "files": 147440
+      }
+    },
+    "cacheHit": "false",
+    "restoreSeconds": 1.789152,
+    "buildSeconds": 41.7761331,
+    "phase": "seed",
+    "runnerOS": "Windows",
+    "imageVersion": "20260925.250.1",
+    "project": "prometheus",
+    "runnerArch": "X64",
+    "workload": "build-v2",
+    "variant": "split",
+    "source": {
+      "slug": "prometheus",
+      "repository": "prometheus/prometheus",
+      "tag": "v3.15.0",
+      "sha": "5241a27fe3c6983549fccc32f6e65917408c63cd",
+      "requirements": 251,
+      "packages": [
+        "./model/...",
+        "./promql/parser/...",
+        "./util/strutil/..."
+      ]
+    },
+    "version": "go version go1.26.7 windows/amd64",
+    "runId": "37318273231",
+    "downloadSeconds": 35.9204555
+  },
+  {
+    "runnerOS": "Windows",
+    "imageVersion": "20260925.250.1",
+    "version": "go version go1.26.7 windows/amd64",
+    "beforePostSeconds": 22.371053,
+    "runnerArch": "X64",
+    "runId": "37318273231",
+    "source": {
+      "slug": "viper",
+      "repository": "spf13/viper",
+      "tag": "v1.21.0",
+      "sha": "394040caccbdf5821fa6839386a35f0fb1b1ee9e",
+      "requirements": 17,
+      "packages": [
+        "./..."
+      ]
+    },
+    "cacheHit": "false",
+    "restoreSeconds": 2.3441488,
+    "variant": "baseline",
+    "job": "measure",
+    "cpus": 4,
+    "sample": 1,
+    "inventory": {
+      "modules": {
+        "bytes": 68856951,
+        "files": 1889
+      },
+      "build": {
+        "bytes": 123601802,
+        "files": 1641
+      }
+    },
+    "project": "viper",
+    "downloadSeconds": 1.1749901,
+    "workload": "build-v2",
+    "phase": "seed",
+    "buildSeconds": 18.8095119
+  },
+  {
+    "sample": 1,
+    "restoreSeconds": 2.4383398,
+    "source": {
+      "slug": "viper",
+      "repository": "spf13/viper",
+      "tag": "v1.21.0",
+      "sha": "394040caccbdf5821fa6839386a35f0fb1b1ee9e",
+      "requirements": 17,
+      "packages": [
+        "./..."
+      ]
+    },
+    "job": "measure",
+    "cacheHit": "false",
+    "cpus": 4,
+    "downloadSeconds": 1.0340041,
+    "project": "viper",
+    "runId": "37318273231",
+    "buildSeconds": 17.5762468,
+    "version": "go version go1.26.7 windows/amd64",
+    "runnerArch": "X64",
+    "imageVersion": "20260925.250.1",
+    "workload": "build-v2",
+    "beforePostSeconds": 21.0896151,
+    "runnerOS": "Windows",
+    "phase": "seed",
+    "variant": "split",
+    "inventory": {
+      "modules": {
+        "bytes": 68856951,
+        "files": 1889
+      },
+      "build": {
+        "bytes": 123601802,
+        "files": 1641
+      }
+    }
+  },
+  {
+    "inventory": {
+      "modules": {
+        "files": 4191,
+        "bytes": 166244119
+      },
+      "build": {
+        "files": 1770,
+        "bytes": 138703034
+      }
+    },
+    "cpus": 4,
+    "imageVersion": "20260925.250.1",
+    "project": "client_golang",
+    "runnerArch": "X64",
+    "version": "go version go1.26.7 windows/amd64",
+    "source": {
+      "slug": "client_golang",
+      "repository": "prometheus/client_golang",
+      "tag": "v1.24.1",
+      "sha": "d6087ee482e06716ee21dc03819432d5d40f72db",
+      "requirements": 23,
+      "packages": [
+        "./prometheus/..."
+      ]
+    },
+    "buildSeconds": 0.4330271,
+    "downloadSeconds": 0.0422068,
+    "job": "measure",
+    "runnerOS": "Windows",
+    "beforePostSeconds": 6.4521394,
+    "restoreSeconds": 5.9359084,
+    "workload": "build-v2",
+    "sample": 1,
+    "runId": "37319456778",
+    "cacheHit": "true",
+    "phase": "warm",
+    "variant": "baseline"
+  },
+  {
+    "beforePostSeconds": 6.1217217,
+    "restoreSeconds": 5.6275973,
+    "buildSeconds": 0.4139803,
+    "variant": "baseline",
+    "job": "measure",
+    "inventory": {
+      "modules": {
+        "bytes": 166244119,
+        "files": 4191
+      },
+      "build": {
+        "bytes": 138703034,
+        "files": 1770
+      }
+    },
+    "imageVersion": "20260925.250.1",
+    "workload": "build-v2",
+    "source": {
+      "slug": "client_golang",
+      "repository": "prometheus/client_golang",
+      "tag": "v1.24.1",
+      "sha": "d6087ee482e06716ee21dc03819432d5d40f72db",
+      "requirements": 23,
+      "packages": [
+        "./prometheus/..."
+      ]
+    },
+    "version": "go version go1.26.7 windows/amd64",
+    "runnerOS": "Windows",
+    "runnerArch": "X64",
+    "cacheHit": "true",
+    "sample": 10,
+    "downloadSeconds": 0.0401143,
+    "project": "client_golang",
+    "cpus": 4,
+    "phase": "warm",
+    "runId": "37319456778"
+  },
+  {
+    "variant": "baseline",
+    "buildSeconds": 0.4191727,
+    "source": {
+      "slug": "client_golang",
+      "repository": "prometheus/client_golang",
+      "tag": "v1.24.1",
+      "sha": "d6087ee482e06716ee21dc03819432d5d40f72db",
+      "requirements": 23,
+      "packages": [
+        "./prometheus/..."
+      ]
+    },
+    "imageVersion": "20260925.250.1",
+    "beforePostSeconds": 6.1053612,
+    "phase": "warm",
+    "cacheHit": "true",
+    "job": "measure",
+    "runnerArch": "X64",
+    "project": "client_golang",
+    "inventory": {
+      "modules": {
+        "files": 4191,
+        "bytes": 166244119
+      },
+      "build": {
+        "files": 1770,
+        "bytes": 138703034
+      }
+    },
+    "workload": "build-v2",
+    "runId": "37319456778",
+    "sample": 2,
+    "cpus": 4,
+    "downloadSeconds": 0.0403533,
+    "restoreSeconds": 5.6053289,
+    "version": "go version go1.26.7 windows/amd64",
+    "runnerOS": "Windows"
+  },
+  {
+    "inventory": {
+      "modules": {
+        "files": 4191,
+        "bytes": 166244119
+      },
+      "build": {
+        "files": 1770,
+        "bytes": 138703034
+      }
+    },
+    "phase": "warm",
+    "sample": 3,
+    "buildSeconds": 0.4077169,
+    "version": "go version go1.26.7 windows/amd64",
+    "cpus": 4,
+    "source": {
+      "slug": "client_golang",
+      "repository": "prometheus/client_golang",
+      "tag": "v1.24.1",
+      "sha": "d6087ee482e06716ee21dc03819432d5d40f72db",
+      "requirements": 23,
+      "packages": [
+        "./prometheus/..."
+      ]
+    },
+    "job": "measure",
+    "cacheHit": "true",
+    "beforePostSeconds": 5.8036842,
+    "restoreSeconds": 5.316017,
+    "runId": "37319456778",
+    "runnerOS": "Windows",
+    "imageVersion": "20260925.250.1",
+    "workload": "build-v2",
+    "variant": "baseline",
+    "downloadSeconds": 0.0410791,
+    "project": "client_golang",
+    "runnerArch": "X64"
+  },
+  {
+    "inventory": {
+      "build": {
+        "files": 1770,
+        "bytes": 138703034
+      },
+      "modules": {
+        "files": 4191,
+        "bytes": 166244119
+      }
+    },
+    "cacheHit": "true",
+    "runnerOS": "Windows",
+    "imageVersion": "20260925.250.1",
+    "phase": "warm",
+    "job": "measure",
+    "project": "client_golang",
+    "sample": 4,
+    "workload": "build-v2",
+    "variant": "baseline",
+    "version": "go version go1.26.7 windows/amd64",
+    "restoreSeconds": 5.1768818,
+    "source": {
+      "slug": "client_golang",
+      "repository": "prometheus/client_golang",
+      "tag": "v1.24.1",
+      "sha": "d6087ee482e06716ee21dc03819432d5d40f72db",
+      "requirements": 23,
+      "packages": [
+        "./prometheus/..."
+      ]
+    },
+    "cpus": 4,
+    "runnerArch": "X64",
+    "runId": "37319456778",
+    "buildSeconds": 0.4188063,
+    "downloadSeconds": 0.0408766,
+    "beforePostSeconds": 5.6761577
+  },
+  {
+    "source": {
+      "slug": "client_golang",
+      "repository": "prometheus/client_golang",
+      "tag": "v1.24.1",
+      "sha": "d6087ee482e06716ee21dc03819432d5d40f72db",
+      "requirements": 23,
+      "packages": [
+        "./prometheus/..."
+      ]
+    },
+    "runnerOS": "Windows",
+    "buildSeconds": 0.46232,
+    "cpus": 4,
+    "job": "measure",
+    "phase": "warm",
+    "restoreSeconds": 5.9241671,
+    "workload": "build-v2",
+    "inventory": {
+      "modules": {
+        "bytes": 166244119,
+        "files": 4191
+      },
+      "build": {
+        "bytes": 138703034,
+        "files": 1770
+      }
+    },
+    "variant": "baseline",
+    "version": "go version go1.26.7 windows/amd64",
+    "runId": "37319456778",
+    "downloadSeconds": 0.0406216,
+    "runnerArch": "X64",
+    "beforePostSeconds": 6.4655621,
+    "imageVersion": "20260925.250.1",
+    "cacheHit": "true",
+    "project": "client_golang",
+    "sample": 5
+  },
+  {
+    "cacheHit": "true",
+    "phase": "warm",
+    "inventory": {
+      "build": {
+        "bytes": 138703034,
+        "files": 1770
+      },
+      "modules": {
+        "bytes": 166244119,
+        "files": 4191
+      }
+    },
+    "project": "client_golang",
+    "source": {
+      "slug": "client_golang",
+      "repository": "prometheus/client_golang",
+      "tag": "v1.24.1",
+      "sha": "d6087ee482e06716ee21dc03819432d5d40f72db",
+      "requirements": 23,
+      "packages": [
+        "./prometheus/..."
+      ]
+    },
+    "runnerArch": "X64",
+    "job": "measure",
+    "restoreSeconds": 5.7507442,
+    "runnerOS": "Windows",
+    "workload": "build-v2",
+    "buildSeconds": 0.4162252,
+    "runId": "37319456778",
+    "version": "go version go1.26.7 windows/amd64",
+    "variant": "baseline",
+    "imageVersion": "20260925.250.1",
+    "beforePostSeconds": 6.2443009,
+    "cpus": 4,
+    "downloadSeconds": 0.0401772,
+    "sample": 6
+  },
+  {
+    "source": {
+      "slug": "client_golang",
+      "repository": "prometheus/client_golang",
+      "tag": "v1.24.1",
+      "sha": "d6087ee482e06716ee21dc03819432d5d40f72db",
+      "requirements": 23,
+      "packages": [
+        "./prometheus/..."
+      ]
+    },
+    "sample": 7,
+    "job": "measure",
+    "cpus": 4,
+    "cacheHit": "true",
+    "runId": "37319456778",
+    "variant": "baseline",
+    "runnerArch": "X64",
+    "inventory": {
+      "modules": {
+        "bytes": 166244119,
+        "files": 4191
+      },
+      "build": {
+        "bytes": 138703034,
+        "files": 1770
+      }
+    },
+    "version": "go version go1.26.7 windows/amd64",
+    "imageVersion": "20260925.250.1",
+    "restoreSeconds": 5.4993313,
+    "phase": "warm",
+    "buildSeconds": 0.4162588,
+    "runnerOS": "Windows",
+    "downloadSeconds": 0.040448,
+    "beforePostSeconds": 5.9948522,
+    "workload": "build-v2",
+    "project": "client_golang"
+  },
+  {
+    "phase": "warm",
+    "version": "go version go1.26.7 windows/amd64",
+    "buildSeconds": 0.4178167,
+    "cacheHit": "true",
+    "downloadSeconds": 0.0401028,
+    "beforePostSeconds": 5.6239258,
+    "project": "client_golang",
+    "runnerOS": "Windows",
+    "runnerArch": "X64",
+    "inventory": {
+      "build": {
+        "files": 1770,
+        "bytes": 138703034
+      },
+      "modules": {
+        "files": 4191,
+        "bytes": 166244119
+      }
+    },
+    "workload": "build-v2",
+    "cpus": 4,
+    "imageVersion": "20260925.250.1",
+    "variant": "baseline",
+    "job": "measure",
+    "sample": 8,
+    "runId": "37319456778",
+    "restoreSeconds": 5.1273987,
+    "source": {
+      "slug": "client_golang",
+      "repository": "prometheus/client_golang",
+      "tag": "v1.24.1",
+      "sha": "d6087ee482e06716ee21dc03819432d5d40f72db",
+      "requirements": 23,
+      "packages": [
+        "./prometheus/..."
+      ]
+    }
+  },
+  {
+    "source": {
+      "slug": "client_golang",
+      "repository": "prometheus/client_golang",
+      "tag": "v1.24.1",
+      "sha": "d6087ee482e06716ee21dc03819432d5d40f72db",
+      "requirements": 23,
+      "packages": [
+        "./prometheus/..."
+      ]
+    },
+    "project": "client_golang",
+    "inventory": {
+      "modules": {
+        "files": 4191,
+        "bytes": 166244119
+      },
+      "build": {
+        "files": 1770,
+        "bytes": 138703034
+      }
+    },
+    "workload": "build-v2",
+    "buildSeconds": 0.4104189,
+    "sample": 9,
+    "runnerOS": "Windows",
+    "runId": "37319456778",
+    "cacheHit": "true",
+    "downloadSeconds": 0.0413226,
+    "phase": "warm",
+    "imageVersion": "20260925.250.1",
+    "version": "go version go1.26.7 windows/amd64",
+    "runnerArch": "X64",
+    "variant": "baseline",
+    "beforePostSeconds": 6.440772,
+    "restoreSeconds": 5.9509265,
+    "job": "measure",
+    "cpus": 4
+  },
+  {
+    "runnerOS": "Windows",
+    "inventory": {
+      "modules": {
+        "bytes": 166244119,
+        "files": 4191
+      },
+      "build": {
+        "bytes": 138703034,
+        "files": 1770
+      }
+    },
+    "phase": "warm",
+    "source": {
+      "slug": "client_golang",
+      "repository": "prometheus/client_golang",
+      "tag": "v1.24.1",
+      "sha": "d6087ee482e06716ee21dc03819432d5d40f72db",
+      "requirements": 23,
+      "packages": [
+        "./prometheus/..."
+      ]
+    },
+    "project": "client_golang",
+    "beforePostSeconds": 6.335399,
+    "runnerArch": "X64",
+    "buildSeconds": 0.4131609,
+    "version": "go version go1.26.7 windows/amd64",
+    "imageVersion": "20260925.250.1",
+    "job": "measure",
+    "sample": 1,
+    "workload": "build-v2",
+    "cpus": 4,
+    "cacheHit": "true",
+    "variant": "split",
+    "downloadSeconds": 0.0406032,
+    "runId": "37319456778",
+    "restoreSeconds": 5.8465123
+  },
+  {
+    "runnerArch": "X64",
+    "runnerOS": "Windows",
+    "phase": "warm",
+    "beforePostSeconds": 6.4018974,
+    "cacheHit": "true",
+    "project": "client_golang",
+    "runId": "37319456778",
+    "source": {
+      "slug": "client_golang",
+      "repository": "prometheus/client_golang",
+      "tag": "v1.24.1",
+      "sha": "d6087ee482e06716ee21dc03819432d5d40f72db",
+      "requirements": 23,
+      "packages": [
+        "./prometheus/..."
+      ]
+    },
+    "sample": 10,
+    "buildSeconds": 0.3941864,
+    "version": "go version go1.26.7 windows/amd64",
+    "inventory": {
+      "modules": {
+        "bytes": 166244119,
+        "files": 4191
+      },
+      "build": {
+        "bytes": 138703034,
+        "files": 1770
+      }
+    },
+    "restoreSeconds": 5.9333851,
+    "variant": "split",
+    "cpus": 4,
+    "imageVersion": "20260925.250.1",
+    "job": "measure",
+    "downloadSeconds": 0.0378827,
+    "workload": "build-v2"
+  },
+  {
+    "restoreSeconds": 5.7691365,
+    "source": {
+      "slug": "client_golang",
+      "repository": "prometheus/client_golang",
+      "tag": "v1.24.1",
+      "sha": "d6087ee482e06716ee21dc03819432d5d40f72db",
+      "requirements": 23,
+      "packages": [
+        "./prometheus/..."
+      ]
+    },
+    "sample": 2,
+    "runnerOS": "Windows",
+    "buildSeconds": 0.3923147,
+    "inventory": {
+      "modules": {
+        "bytes": 166244119,
+        "files": 4191
+      },
+      "build": {
+        "bytes": 138703034,
+        "files": 1770
+      }
+    },
+    "imageVersion": "20260925.250.1",
+    "beforePostSeconds": 6.2360701,
+    "runnerArch": "X64",
+    "runId": "37319456778",
+    "cacheHit": "true",
+    "version": "go version go1.26.7 windows/amd64",
+    "workload": "build-v2",
+    "variant": "split",
+    "job": "measure",
+    "project": "client_golang",
+    "cpus": 4,
+    "phase": "warm",
+    "downloadSeconds": 0.0381324
+  },
+  {
+    "restoreSeconds": 5.8696703,
+    "inventory": {
+      "modules": {
+        "bytes": 166244119,
+        "files": 4191
+      },
+      "build": {
+        "bytes": 138703034,
+        "files": 1770
+      }
+    },
+    "downloadSeconds": 0.0380681,
+    "variant": "split",
+    "source": {
+      "slug": "client_golang",
+      "repository": "prometheus/client_golang",
+      "tag": "v1.24.1",
+      "sha": "d6087ee482e06716ee21dc03819432d5d40f72db",
+      "requirements": 23,
+      "packages": [
+        "./prometheus/..."
+      ]
+    },
+    "project": "client_golang",
+    "cpus": 4,
+    "version": "go version go1.26.7 windows/amd64",
+    "runnerArch": "X64",
+    "imageVersion": "20260925.250.1",
+    "sample": 3,
+    "job": "measure",
+    "cacheHit": "true",
+    "phase": "warm",
+    "buildSeconds": 0.3957593,
+    "runId": "37319456778",
+    "workload": "build-v2",
+    "beforePostSeconds": 6.3396797,
+    "runnerOS": "Windows"
+  },
+  {
+    "project": "client_golang",
+    "sample": 4,
+    "version": "go version go1.26.7 windows/amd64",
+    "source": {
+      "slug": "client_golang",
+      "repository": "prometheus/client_golang",
+      "tag": "v1.24.1",
+      "sha": "d6087ee482e06716ee21dc03819432d5d40f72db",
+      "requirements": 23,
+      "packages": [
+        "./prometheus/..."
+      ]
+    },
+    "imageVersion": "20260925.250.1",
+    "variant": "split",
+    "runId": "37319456778",
+    "beforePostSeconds": 6.1502743,
+    "workload": "build-v2",
+    "buildSeconds": 0.3853473,
+    "downloadSeconds": 0.0368103,
+    "job": "measure",
+    "cpus": 4,
+    "inventory": {
+      "build": {
+        "files": 1770,
+        "bytes": 138703034
+      },
+      "modules": {
+        "files": 4191,
+        "bytes": 166244119
+      }
+    },
+    "phase": "warm",
+    "runnerArch": "X64",
+    "restoreSeconds": 5.6897984,
+    "cacheHit": "true",
+    "runnerOS": "Windows"
+  },
+  {
+    "runId": "37319456778",
+    "source": {
+      "slug": "client_golang",
+      "repository": "prometheus/client_golang",
+      "tag": "v1.24.1",
+      "sha": "d6087ee482e06716ee21dc03819432d5d40f72db",
+      "requirements": 23,
+      "packages": [
+        "./prometheus/..."
+      ]
+    },
+    "beforePostSeconds": 6.1845062,
+    "runnerOS": "Windows",
+    "version": "go version go1.26.7 windows/amd64",
+    "job": "measure",
+    "variant": "split",
+    "inventory": {
+      "build": {
+        "files": 1770,
+        "bytes": 138703034
+      },
+      "modules": {
+        "files": 4191,
+        "bytes": 166244119
+      }
+    },
+    "runnerArch": "X64",
+    "restoreSeconds": 5.6672272,
+    "downloadSeconds": 0.0368898,
+    "phase": "warm",
+    "workload": "build-v2",
+    "cpus": 4,
+    "cacheHit": "true",
+    "project": "client_golang",
+    "buildSeconds": 0.4406938,
+    "sample": 5,
+    "imageVersion": "20260925.250.1"
+  },
+  {
+    "job": "measure",
+    "phase": "warm",
+    "downloadSeconds": 0.0375325,
+    "restoreSeconds": 5.7854635,
+    "cpus": 4,
+    "beforePostSeconds": 6.3428102,
+    "runnerArch": "X64",
+    "workload": "build-v2",
+    "sample": 6,
+    "runId": "37319456778",
+    "source": {
+      "slug": "client_golang",
+      "repository": "prometheus/client_golang",
+      "tag": "v1.24.1",
+      "sha": "d6087ee482e06716ee21dc03819432d5d40f72db",
+      "requirements": 23,
+      "packages": [
+        "./prometheus/..."
+      ]
+    },
+    "inventory": {
+      "build": {
+        "files": 1770,
+        "bytes": 138703034
+      },
+      "modules": {
+        "files": 4191,
+        "bytes": 166244119
+      }
+    },
+    "variant": "split",
+    "imageVersion": "20260925.250.1",
+    "runnerOS": "Windows",
+    "buildSeconds": 0.4839043,
+    "version": "go version go1.26.7 windows/amd64",
+    "cacheHit": "true",
+    "project": "client_golang"
+  },
+  {
+    "runId": "37319456778",
+    "cacheHit": "true",
+    "variant": "split",
+    "sample": 7,
+    "source": {
+      "slug": "client_golang",
+      "repository": "prometheus/client_golang",
+      "tag": "v1.24.1",
+      "sha": "d6087ee482e06716ee21dc03819432d5d40f72db",
+      "requirements": 23,
+      "packages": [
+        "./prometheus/..."
+      ]
+    },
+    "buildSeconds": 0.3912736,
+    "beforePostSeconds": 6.4069867,
+    "downloadSeconds": 0.0376545,
+    "cpus": 4,
+    "version": "go version go1.26.7 windows/amd64",
+    "inventory": {
+      "modules": {
+        "bytes": 166244119,
+        "files": 4191
+      },
+      "build": {
+        "bytes": 138703034,
+        "files": 1770
+      }
+    },
+    "runnerOS": "Windows",
+    "restoreSeconds": 5.9420262,
+    "project": "client_golang",
+    "phase": "warm",
+    "workload": "build-v2",
+    "imageVersion": "20260925.250.1",
+    "job": "measure",
+    "runnerArch": "X64"
+  },
+  {
+    "beforePostSeconds": 6.3831863,
+    "downloadSeconds": 0.0385261,
+    "runId": "37319456778",
+    "runnerOS": "Windows",
+    "job": "measure",
+    "project": "client_golang",
+    "source": {
+      "slug": "client_golang",
+      "repository": "prometheus/client_golang",
+      "tag": "v1.24.1",
+      "sha": "d6087ee482e06716ee21dc03819432d5d40f72db",
+      "requirements": 23,
+      "packages": [
+        "./prometheus/..."
+      ]
+    },
+    "restoreSeconds": 5.9225523,
+    "phase": "warm",
+    "variant": "split",
+    "cpus": 4,
+    "workload": "build-v2",
+    "inventory": {
+      "build": {
+        "bytes": 138703034,
+        "files": 1770
+      },
+      "modules": {
+        "bytes": 166244119,
+        "files": 4191
+      }
+    },
+    "version": "go version go1.26.7 windows/amd64",
+    "runnerArch": "X64",
+    "imageVersion": "20260925.250.1",
+    "sample": 8,
+    "buildSeconds": 0.38676,
+    "cacheHit": "true"
+  },
+  {
+    "workload": "build-v2",
+    "restoreSeconds": 6.0046368,
+    "variant": "split",
+    "sample": 9,
+    "runnerArch": "X64",
+    "runId": "37319456778",
+    "runnerOS": "Windows",
+    "beforePostSeconds": 6.4673336,
+    "imageVersion": "20260925.250.1",
+    "source": {
+      "slug": "client_golang",
+      "repository": "prometheus/client_golang",
+      "tag": "v1.24.1",
+      "sha": "d6087ee482e06716ee21dc03819432d5d40f72db",
+      "requirements": 23,
+      "packages": [
+        "./prometheus/..."
+      ]
+    },
+    "version": "go version go1.26.7 windows/amd64",
+    "buildSeconds": 0.388445,
+    "downloadSeconds": 0.038546,
+    "job": "measure",
+    "phase": "warm",
+    "cacheHit": "true",
+    "project": "client_golang",
+    "inventory": {
+      "build": {
+        "files": 1770,
+        "bytes": 138703034
+      },
+      "modules": {
+        "files": 4191,
+        "bytes": 166244119
+      }
+    },
+    "cpus": 4
+  },
+  {
+    "inventory": {
+      "modules": {
+        "files": 257,
+        "bytes": 1859788
+      },
+      "build": {
+        "files": 682,
+        "bytes": 59850439
+      }
+    },
+    "phase": "warm",
+    "runnerArch": "X64",
+    "cacheHit": "true",
+    "project": "cobra",
+    "workload": "build-v2",
+    "version": "go version go1.26.7 windows/amd64",
+    "beforePostSeconds": 3.4041555,
+    "runnerOS": "Windows",
+    "job": "measure",
+    "restoreSeconds": 3.1610766,
+    "variant": "baseline",
+    "sample": 1,
+    "cpus": 4,
+    "source": {
+      "slug": "cobra",
+      "repository": "spf13/cobra",
+      "tag": "v1.10.2",
+      "sha": "88b30ab89da2d0d0abb153818746c5a2d30eccec",
+      "requirements": 4,
+      "packages": [
+        "./..."
+      ]
+    },
+    "runId": "37319456778",
+    "imageVersion": "20260925.250.1",
+    "downloadSeconds": 0.0218184,
+    "buildSeconds": 0.1663019
+  },
+  {
+    "runnerArch": "X64",
+    "beforePostSeconds": 2.9541542,
+    "downloadSeconds": 0.021804,
+    "imageVersion": "20260925.250.1",
+    "job": "measure",
+    "inventory": {
+      "build": {
+        "files": 682,
+        "bytes": 59850439
+      },
+      "modules": {
+        "files": 257,
+        "bytes": 1859788
+      }
+    },
+    "version": "go version go1.26.7 windows/amd64",
+    "cacheHit": "true",
+    "buildSeconds": 0.1482809,
+    "runId": "37319456778",
+    "cpus": 4,
+    "phase": "warm",
+    "variant": "baseline",
+    "runnerOS": "Windows",
+    "source": {
+      "slug": "cobra",
+      "repository": "spf13/cobra",
+      "tag": "v1.10.2",
+      "sha": "88b30ab89da2d0d0abb153818746c5a2d30eccec",
+      "requirements": 4,
+      "packages": [
+        "./..."
+      ]
+    },
+    "restoreSeconds": 2.7554321,
+    "sample": 10,
+    "workload": "build-v2",
+    "project": "cobra"
+  },
+  {
+    "version": "go version go1.26.7 windows/amd64",
+    "sample": 2,
+    "runnerOS": "Windows",
+    "phase": "warm",
+    "buildSeconds": 0.147492,
+    "inventory": {
+      "modules": {
+        "files": 257,
+        "bytes": 1859788
+      },
+      "build": {
+        "files": 682,
+        "bytes": 59850439
+      }
+    },
+    "cpus": 4,
+    "project": "cobra",
+    "imageVersion": "20260925.250.1",
+    "restoreSeconds": 2.0807558,
+    "runId": "37319456778",
+    "workload": "build-v2",
+    "downloadSeconds": 0.0200518,
+    "job": "measure",
+    "cacheHit": "true",
+    "source": {
+      "slug": "cobra",
+      "repository": "spf13/cobra",
+      "tag": "v1.10.2",
+      "sha": "88b30ab89da2d0d0abb153818746c5a2d30eccec",
+      "requirements": 4,
+      "packages": [
+        "./..."
+      ]
+    },
+    "variant": "baseline",
+    "beforePostSeconds": 2.2727209,
+    "runnerArch": "X64"
+  },
+  {
+    "job": "measure",
+    "cpus": 4,
+    "workload": "build-v2",
+    "runnerArch": "X64",
+    "sample": 3,
+    "runnerOS": "Windows",
+    "buildSeconds": 0.151409,
+    "source": {
+      "slug": "cobra",
+      "repository": "spf13/cobra",
+      "tag": "v1.10.2",
+      "sha": "88b30ab89da2d0d0abb153818746c5a2d30eccec",
+      "requirements": 4,
+      "packages": [
+        "./..."
+      ]
+    },
+    "inventory": {
+      "modules": {
+        "files": 257,
+        "bytes": 1859788
+      },
+      "build": {
+        "files": 682,
+        "bytes": 59850439
+      }
+    },
+    "restoreSeconds": 2.9578674,
+    "imageVersion": "20260925.250.1",
+    "downloadSeconds": 0.0219179,
+    "cacheHit": "true",
+    "version": "go version go1.26.7 windows/amd64",
+    "variant": "baseline",
+    "project": "cobra",
+    "phase": "warm",
+    "runId": "37319456778",
+    "beforePostSeconds": 3.1565102
+  },
+  {
+    "buildSeconds": 0.1403415,
+    "runnerOS": "Windows",
+    "imageVersion": "20260925.250.1",
+    "cpus": 4,
+    "phase": "warm",
+    "job": "measure",
+    "beforePostSeconds": 3.0378463,
+    "cacheHit": "true",
+    "project": "cobra",
+    "runnerArch": "X64",
+    "variant": "baseline",
+    "version": "go version go1.26.7 windows/amd64",
+    "sample": 4,
+    "downloadSeconds": 0.019872,
+    "runId": "37319456778",
+    "restoreSeconds": 2.8539415,
+    "source": {
+      "slug": "cobra",
+      "repository": "spf13/cobra",
+      "tag": "v1.10.2",
+      "sha": "88b30ab89da2d0d0abb153818746c5a2d30eccec",
+      "requirements": 4,
+      "packages": [
+        "./..."
+      ]
+    },
+    "workload": "build-v2",
+    "inventory": {
+      "modules": {
+        "files": 257,
+        "bytes": 1859788
+      },
+      "build": {
+        "files": 682,
+        "bytes": 59850439
+      }
+    }
+  },
+  {
+    "imageVersion": "20260925.250.1",
+    "variant": "baseline",
+    "project": "cobra",
+    "phase": "warm",
+    "source": {
+      "slug": "cobra",
+      "repository": "spf13/cobra",
+      "tag": "v1.10.2",
+      "sha": "88b30ab89da2d0d0abb153818746c5a2d30eccec",
+      "requirements": 4,
+      "packages": [
+        "./..."
+      ]
+    },
+    "runId": "37319456778",
+    "cpus": 4,
+    "sample": 5,
+    "workload": "build-v2",
+    "restoreSeconds": 2.6774498,
+    "downloadSeconds": 0.0191906,
+    "cacheHit": "true",
+    "runnerArch": "X64",
+    "buildSeconds": 0.1405405,
+    "job": "measure",
+    "inventory": {
+      "build": {
+        "bytes": 59850439,
+        "files": 682
+      },
+      "modules": {
+        "bytes": 1859788,
+        "files": 257
+      }
+    },
+    "beforePostSeconds": 2.860598,
+    "version": "go version go1.26.7 windows/amd64",
+    "runnerOS": "Windows"
+  },
+  {
+    "variant": "baseline",
+    "inventory": {
+      "modules": {
+        "bytes": 1859788,
+        "files": 257
+      },
+      "build": {
+        "bytes": 59850439,
+        "files": 682
+      }
+    },
+    "restoreSeconds": 2.8725799,
+    "downloadSeconds": 0.0216087,
+    "runnerOS": "Windows",
+    "version": "go version go1.26.7 windows/amd64",
+    "beforePostSeconds": 3.0795806,
+    "runnerArch": "X64",
+    "cpus": 4,
+    "job": "measure",
+    "project": "cobra",
+    "source": {
+      "slug": "cobra",
+      "repository": "spf13/cobra",
+      "tag": "v1.10.2",
+      "sha": "88b30ab89da2d0d0abb153818746c5a2d30eccec",
+      "requirements": 4,
+      "packages": [
+        "./..."
+      ]
+    },
+    "phase": "warm",
+    "cacheHit": "true",
+    "buildSeconds": 0.1533775,
+    "imageVersion": "20260925.250.1",
+    "sample": 6,
+    "workload": "build-v2",
+    "runId": "37319456778"
+  },
+  {
+    "phase": "warm",
+    "project": "cobra",
+    "variant": "baseline",
+    "restoreSeconds": 2.8913938,
+    "workload": "build-v2",
+    "buildSeconds": 0.151334,
+    "cacheHit": "true",
+    "version": "go version go1.26.7 windows/amd64",
+    "runnerArch": "X64",
+    "beforePostSeconds": 3.0882722,
+    "inventory": {
+      "build": {
+        "files": 682,
+        "bytes": 59850439
+      },
+      "modules": {
+        "files": 257,
+        "bytes": 1859788
+      }
+    },
+    "job": "measure",
+    "runnerOS": "Windows",
+    "sample": 7,
+    "imageVersion": "20260925.250.1",
+    "downloadSeconds": 0.0205485,
+    "runId": "37319456778",
+    "source": {
+      "slug": "cobra",
+      "repository": "spf13/cobra",
+      "tag": "v1.10.2",
+      "sha": "88b30ab89da2d0d0abb153818746c5a2d30eccec",
+      "requirements": 4,
+      "packages": [
+        "./..."
+      ]
+    },
+    "cpus": 4
+  },
+  {
+    "downloadSeconds": 0.0239447,
+    "runnerArch": "X64",
+    "cacheHit": "true",
+    "project": "cobra",
+    "buildSeconds": 0.1642657,
+    "runId": "37319456778",
+    "cpus": 4,
+    "restoreSeconds": 2.9086304,
+    "beforePostSeconds": 3.1231346,
+    "job": "measure",
+    "variant": "baseline",
+    "source": {
+      "slug": "cobra",
+      "repository": "spf13/cobra",
+      "tag": "v1.10.2",
+      "sha": "88b30ab89da2d0d0abb153818746c5a2d30eccec",
+      "requirements": 4,
+      "packages": [
+        "./..."
+      ]
+    },
+    "workload": "build-v2",
+    "phase": "warm",
+    "inventory": {
+      "build": {
+        "files": 682,
+        "bytes": 59850439
+      },
+      "modules": {
+        "files": 257,
+        "bytes": 1859788
+      }
+    },
+    "runnerOS": "Windows",
+    "sample": 8,
+    "version": "go version go1.26.7 windows/amd64",
+    "imageVersion": "20260925.250.1"
+  },
+  {
+    "workload": "build-v2",
+    "runnerArch": "X64",
+    "project": "cobra",
+    "inventory": {
+      "modules": {
+        "files": 257,
+        "bytes": 1859788
+      },
+      "build": {
+        "files": 682,
+        "bytes": 59850439
+      }
+    },
+    "variant": "baseline",
+    "job": "measure",
+    "cacheHit": "true",
+    "runnerOS": "Windows",
+    "restoreSeconds": 2.8631054,
+    "cpus": 4,
+    "downloadSeconds": 0.0207059,
+    "runId": "37319456778",
+    "sample": 9,
+    "source": {
+      "slug": "cobra",
+      "repository": "spf13/cobra",
+      "tag": "v1.10.2",
+      "sha": "88b30ab89da2d0d0abb153818746c5a2d30eccec",
+      "requirements": 4,
+      "packages": [
+        "./..."
+      ]
+    },
+    "phase": "warm",
+    "buildSeconds": 0.1606623,
+    "version": "go version go1.26.7 windows/amd64",
+    "imageVersion": "20260925.250.1",
+    "beforePostSeconds": 3.0696752
+  },
+  {
+    "runnerArch": "X64",
+    "runId": "37319456778",
+    "phase": "warm",
+    "beforePostSeconds": 3.1516236,
+    "cacheHit": "true",
+    "inventory": {
+      "modules": {
+        "bytes": 1859788,
+        "files": 257
+      },
+      "build": {
+        "bytes": 59850439,
+        "files": 682
+      }
+    },
+    "buildSeconds": 0.2113509,
+    "cpus": 4,
+    "workload": "build-v2",
+    "source": {
+      "slug": "cobra",
+      "repository": "spf13/cobra",
+      "tag": "v1.10.2",
+      "sha": "88b30ab89da2d0d0abb153818746c5a2d30eccec",
+      "requirements": 4,
+      "packages": [
+        "./..."
+      ]
+    },
+    "runnerOS": "Windows",
+    "variant": "split",
+    "sample": 1,
+    "restoreSeconds": 2.8673715,
+    "imageVersion": "20260925.250.1",
+    "project": "cobra",
+    "version": "go version go1.26.7 windows/amd64",
+    "job": "measure",
+    "downloadSeconds": 0.0285141
+  },
+  {
+    "workload": "build-v2",
+    "buildSeconds": 0.2030553,
+    "phase": "warm",
+    "runnerOS": "Windows",
+    "inventory": {
+      "modules": {
+        "bytes": 1859788,
+        "files": 257
+      },
+      "build": {
+        "bytes": 59850439,
+        "files": 682
+      }
+    },
+    "version": "go version go1.26.7 windows/amd64",
+    "project": "cobra",
+    "runnerArch": "X64",
+    "sample": 10,
+    "job": "measure",
+    "source": {
+      "slug": "cobra",
+      "repository": "spf13/cobra",
+      "tag": "v1.10.2",
+      "sha": "88b30ab89da2d0d0abb153818746c5a2d30eccec",
+      "requirements": 4,
+      "packages": [
+        "./..."
+      ]
+    },
+    "cacheHit": "true",
+    "imageVersion": "20260925.250.1",
+    "downloadSeconds": 0.0281392,
+    "cpus": 4,
+    "runId": "37319456778",
+    "variant": "split",
+    "beforePostSeconds": 3.3754711,
+    "restoreSeconds": 3.1136783
+  },
+  {
+    "variant": "split",
+    "version": "go version go1.26.7 windows/amd64",
+    "restoreSeconds": 2.5660026,
+    "source": {
+      "slug": "cobra",
+      "repository": "spf13/cobra",
+      "tag": "v1.10.2",
+      "sha": "88b30ab89da2d0d0abb153818746c5a2d30eccec",
+      "requirements": 4,
+      "packages": [
+        "./..."
+      ]
+    },
+    "imageVersion": "20260925.250.1",
+    "workload": "build-v2",
+    "sample": 2,
+    "runId": "37319456778",
+    "inventory": {
+      "build": {
+        "files": 682,
+        "bytes": 59850439
+      },
+      "modules": {
+        "files": 257,
+        "bytes": 1859788
+      }
+    },
+    "buildSeconds": 0.2031233,
+    "cacheHit": "true",
+    "runnerOS": "Windows",
+    "cpus": 4,
+    "runnerArch": "X64",
+    "beforePostSeconds": 2.8270827,
+    "downloadSeconds": 0.027199,
+    "project": "cobra",
+    "job": "measure",
+    "phase": "warm"
+  },
+  {
+    "project": "cobra",
+    "runnerOS": "Windows",
+    "downloadSeconds": 0.0319642,
+    "variant": "split",
+    "restoreSeconds": 3.091736,
+    "buildSeconds": 0.2852635,
+    "version": "go version go1.26.7 windows/amd64",
+    "job": "measure",
+    "source": {
+      "slug": "cobra",
+      "repository": "spf13/cobra",
+      "tag": "v1.10.2",
+      "sha": "88b30ab89da2d0d0abb153818746c5a2d30eccec",
+      "requirements": 4,
+      "packages": [
+        "./..."
+      ]
+    },
+    "sample": 3,
+    "cacheHit": "true",
+    "workload": "build-v2",
+    "imageVersion": "20260925.250.1",
+    "runId": "37319456778",
+    "inventory": {
+      "modules": {
+        "bytes": 1859788,
+        "files": 257
+      },
+      "build": {
+        "bytes": 59850439,
+        "files": 682
+      }
+    },
+    "beforePostSeconds": 3.440481,
+    "runnerArch": "X64",
+    "phase": "warm",
+    "cpus": 4
+  },
+  {
+    "cpus": 4,
+    "project": "cobra",
+    "buildSeconds": 0.2200515,
+    "version": "go version go1.26.7 windows/amd64",
+    "runnerArch": "X64",
+    "beforePostSeconds": 3.0884583,
+    "workload": "build-v2",
+    "phase": "warm",
+    "sample": 4,
+    "restoreSeconds": 2.8042226,
+    "downloadSeconds": 0.0336293,
+    "runId": "37319456778",
+    "runnerOS": "Windows",
+    "job": "measure",
+    "inventory": {
+      "modules": {
+        "files": 257,
+        "bytes": 1859788
+      },
+      "build": {
+        "files": 682,
+        "bytes": 59850439
+      }
+    },
+    "variant": "split",
+    "source": {
+      "slug": "cobra",
+      "repository": "spf13/cobra",
+      "tag": "v1.10.2",
+      "sha": "88b30ab89da2d0d0abb153818746c5a2d30eccec",
+      "requirements": 4,
+      "packages": [
+        "./..."
+      ]
+    },
+    "cacheHit": "true",
+    "imageVersion": "20260925.250.1"
+  },
+  {
+    "cacheHit": "true",
+    "buildSeconds": 0.1931929,
+    "job": "measure",
+    "cpus": 4,
+    "inventory": {
+      "modules": {
+        "files": 257,
+        "bytes": 1859788
+      },
+      "build": {
+        "files": 682,
+        "bytes": 59850439
+      }
+    },
+    "runnerOS": "Windows",
+    "workload": "build-v2",
+    "sample": 5,
+    "runnerArch": "X64",
+    "source": {
+      "slug": "cobra",
+      "repository": "spf13/cobra",
+      "tag": "v1.10.2",
+      "sha": "88b30ab89da2d0d0abb153818746c5a2d30eccec",
+      "requirements": 4,
+      "packages": [
+        "./..."
+      ]
+    },
+    "project": "cobra",
+    "restoreSeconds": 3.4485826,
+    "downloadSeconds": 0.0263337,
+    "variant": "split",
+    "runId": "37319456778",
+    "imageVersion": "20260925.250.1",
+    "version": "go version go1.26.7 windows/amd64",
+    "phase": "warm",
+    "beforePostSeconds": 3.698609
+  },
+  {
+    "version": "go version go1.26.7 windows/amd64",
+    "runnerOS": "Windows",
+    "phase": "warm",
+    "runnerArch": "X64",
+    "workload": "build-v2",
+    "beforePostSeconds": 3.3196365,
+    "downloadSeconds": 0.0275001,
+    "project": "cobra",
+    "job": "measure",
+    "imageVersion": "20260925.250.1",
+    "restoreSeconds": 3.019998,
+    "sample": 6,
+    "runId": "37319456778",
+    "source": {
+      "slug": "cobra",
+      "repository": "spf13/cobra",
+      "tag": "v1.10.2",
+      "sha": "88b30ab89da2d0d0abb153818746c5a2d30eccec",
+      "requirements": 4,
+      "packages": [
+        "./..."
+      ]
+    },
+    "variant": "split",
+    "cpus": 4,
+    "inventory": {
+      "build": {
+        "bytes": 59850439,
+        "files": 682
+      },
+      "modules": {
+        "bytes": 1859788,
+        "files": 257
+      }
+    },
+    "cacheHit": "true",
+    "buildSeconds": 0.2385452
+  },
+  {
+    "version": "go version go1.26.7 windows/amd64",
+    "workload": "build-v2",
+    "phase": "warm",
+    "runnerOS": "Windows",
+    "runId": "37319456778",
+    "job": "measure",
+    "restoreSeconds": 6.2335874,
+    "source": {
+      "slug": "cobra",
+      "repository": "spf13/cobra",
+      "tag": "v1.10.2",
+      "sha": "88b30ab89da2d0d0abb153818746c5a2d30eccec",
+      "requirements": 4,
+      "packages": [
+        "./..."
+      ]
+    },
+    "sample": 7,
+    "inventory": {
+      "modules": {
+        "bytes": 1859788,
+        "files": 257
+      },
+      "build": {
+        "bytes": 59850439,
+        "files": 682
+      }
+    },
+    "beforePostSeconds": 6.5854532,
+    "variant": "split",
+    "imageVersion": "20260925.250.1",
+    "cpus": 4,
+    "buildSeconds": 0.2941452,
+    "runnerArch": "X64",
+    "cacheHit": "true",
+    "downloadSeconds": 0.0265819,
+    "project": "cobra"
+  },
+  {
+    "phase": "warm",
+    "beforePostSeconds": 3.1842674,
+    "job": "measure",
+    "workload": "build-v2",
+    "source": {
+      "slug": "cobra",
+      "repository": "spf13/cobra",
+      "tag": "v1.10.2",
+      "sha": "88b30ab89da2d0d0abb153818746c5a2d30eccec",
+      "requirements": 4,
+      "packages": [
+        "./..."
+      ]
+    },
+    "restoreSeconds": 2.9018444,
+    "project": "cobra",
+    "imageVersion": "20260925.250.1",
+    "buildSeconds": 0.225615,
+    "runnerOS": "Windows",
+    "cacheHit": "true",
+    "cpus": 4,
+    "version": "go version go1.26.7 windows/amd64",
+    "variant": "split",
+    "inventory": {
+      "build": {
+        "bytes": 59850439,
+        "files": 682
+      },
+      "modules": {
+        "bytes": 1859788,
+        "files": 257
+      }
+    },
+    "downloadSeconds": 0.0264494,
+    "runnerArch": "X64",
+    "runId": "37319456778",
+    "sample": 8
+  },
+  {
+    "inventory": {
+      "build": {
+        "bytes": 59850439,
+        "files": 682
+      },
+      "modules": {
+        "bytes": 1859788,
+        "files": 257
+      }
+    },
+    "sample": 9,
+    "imageVersion": "20260925.250.1",
+    "job": "measure",
+    "buildSeconds": 0.1995327,
+    "project": "cobra",
+    "beforePostSeconds": 2.8245807,
+    "variant": "split",
+    "runId": "37319456778",
+    "workload": "build-v2",
+    "phase": "warm",
+    "restoreSeconds": 2.568138,
+    "downloadSeconds": 0.0271508,
+    "runnerOS": "Windows",
+    "cacheHit": "true",
+    "version": "go version go1.26.7 windows/amd64",
+    "cpus": 4,
+    "runnerArch": "X64",
+    "source": {
+      "slug": "cobra",
+      "repository": "spf13/cobra",
+      "tag": "v1.10.2",
+      "sha": "88b30ab89da2d0d0abb153818746c5a2d30eccec",
+      "requirements": 4,
+      "packages": [
+        "./..."
+      ]
+    }
+  },
+  {
+    "workload": "build-v2",
+    "beforePostSeconds": 9.4365507,
+    "runnerArch": "X64",
+    "buildSeconds": 0.404854,
+    "restoreSeconds": 8.9511777,
+    "project": "gin",
+    "cpus": 4,
+    "variant": "baseline",
+    "source": {
+      "slug": "gin",
+      "repository": "gin-gonic/gin",
+      "tag": "v1.12.0",
+      "sha": "73726dc606796a025971fe451f0aa6f1b9b847f6",
+      "requirements": 34,
+      "packages": [
+        "./..."
+      ]
+    },
+    "sample": 1,
+    "imageVersion": "20260925.250.1",
+    "runId": "37319456778",
+    "runnerOS": "Windows",
+    "job": "measure",
+    "version": "go version go1.26.7 windows/amd64",
+    "phase": "warm",
+    "cacheHit": "true",
+    "inventory": {
+      "modules": {
+        "files": 9243,
+        "bytes": 185257820
+      },
+      "build": {
+        "files": 2008,
+        "bytes": 214511299
+      }
+    },
+    "downloadSeconds": 0.0428518
+  },
+  {
+    "imageVersion": "20260925.250.1",
+    "variant": "baseline",
+    "beforePostSeconds": 8.6218313,
+    "runnerArch": "X64",
+    "inventory": {
+      "modules": {
+        "bytes": 185257820,
+        "files": 9243
+      },
+      "build": {
+        "bytes": 214511299,
+        "files": 2008
+      }
+    },
+    "restoreSeconds": 8.1472099,
+    "phase": "warm",
+    "cpus": 4,
+    "workload": "build-v2",
+    "downloadSeconds": 0.0402406,
+    "runId": "37319456778",
+    "cacheHit": "true",
+    "buildSeconds": 0.3996176,
+    "sample": 10,
+    "source": {
+      "slug": "gin",
+      "repository": "gin-gonic/gin",
+      "tag": "v1.12.0",
+      "sha": "73726dc606796a025971fe451f0aa6f1b9b847f6",
+      "requirements": 34,
+      "packages": [
+        "./..."
+      ]
+    },
+    "job": "measure",
+    "version": "go version go1.26.7 windows/amd64",
+    "runnerOS": "Windows",
+    "project": "gin"
+  },
+  {
+    "version": "go version go1.26.7 windows/amd64",
+    "source": {
+      "slug": "gin",
+      "repository": "gin-gonic/gin",
+      "tag": "v1.12.0",
+      "sha": "73726dc606796a025971fe451f0aa6f1b9b847f6",
+      "requirements": 34,
+      "packages": [
+        "./..."
+      ]
+    },
+    "cacheHit": "true",
+    "cpus": 4,
+    "inventory": {
+      "modules": {
+        "bytes": 185257820,
+        "files": 9243
+      },
+      "build": {
+        "bytes": 214511299,
+        "files": 2008
+      }
+    },
+    "imageVersion": "20260925.250.1",
+    "project": "gin",
+    "variant": "baseline",
+    "runnerArch": "X64",
+    "phase": "warm",
+    "runnerOS": "Windows",
+    "restoreSeconds": 9.99077,
+    "runId": "37319456778",
+    "job": "measure",
+    "beforePostSeconds": 10.4642606,
+    "sample": 2,
+    "buildSeconds": 0.3970485,
+    "workload": "build-v2",
+    "downloadSeconds": 0.0406441
+  },
+  {
+    "job": "measure",
+    "runnerOS": "Windows",
+    "imageVersion": "20260925.250.1",
+    "buildSeconds": 0.4030735,
+    "variant": "baseline",
+    "runnerArch": "X64",
+    "version": "go version go1.26.7 windows/amd64",
+    "workload": "build-v2",
+    "project": "gin",
+    "sample": 3,
+    "restoreSeconds": 7.56326,
+    "cacheHit": "true",
+    "cpus": 4,
+    "phase": "warm",
+    "inventory": {
+      "build": {
+        "files": 2008,
+        "bytes": 214511299
+      },
+      "modules": {
+        "files": 9243,
+        "bytes": 185257820
+      }
+    },
+    "runId": "37319456778",
+    "beforePostSeconds": 8.0448615,
+    "downloadSeconds": 0.0418455,
+    "source": {
+      "slug": "gin",
+      "repository": "gin-gonic/gin",
+      "tag": "v1.12.0",
+      "sha": "73726dc606796a025971fe451f0aa6f1b9b847f6",
+      "requirements": 34,
+      "packages": [
+        "./..."
+      ]
+    }
+  },
+  {
+    "inventory": {
+      "build": {
+        "bytes": 214511299,
+        "files": 2008
+      },
+      "modules": {
+        "bytes": 185257820,
+        "files": 9243
+      }
+    },
+    "restoreSeconds": 8.2714433,
+    "phase": "warm",
+    "buildSeconds": 0.415729,
+    "beforePostSeconds": 8.7614742,
+    "source": {
+      "slug": "gin",
+      "repository": "gin-gonic/gin",
+      "tag": "v1.12.0",
+      "sha": "73726dc606796a025971fe451f0aa6f1b9b847f6",
+      "requirements": 34,
+      "packages": [
+        "./..."
+      ]
+    },
+    "project": "gin",
+    "runnerArch": "X64",
+    "version": "go version go1.26.7 windows/amd64",
+    "cacheHit": "true",
+    "job": "measure",
+    "downloadSeconds": 0.0401287,
+    "imageVersion": "20260925.250.1",
+    "runnerOS": "Windows",
+    "workload": "build-v2",
+    "sample": 4,
+    "runId": "37319456778",
+    "variant": "baseline",
+    "cpus": 4
+  },
+  {
+    "variant": "baseline",
+    "runId": "37319456778",
+    "inventory": {
+      "build": {
+        "bytes": 214511299,
+        "files": 2008
+      },
+      "modules": {
+        "bytes": 185257820,
+        "files": 9243
+      }
+    },
+    "runnerOS": "Windows",
+    "restoreSeconds": 8.0009799,
+    "version": "go version go1.26.7 windows/amd64",
+    "cpus": 4,
+    "runnerArch": "X64",
+    "imageVersion": "20260925.250.1",
+    "downloadSeconds": 0.0424413,
+    "phase": "warm",
+    "sample": 5,
+    "cacheHit": "true",
+    "job": "measure",
+    "buildSeconds": 0.386553,
+    "beforePostSeconds": 8.4667548,
+    "workload": "build-v2",
+    "source": {
+      "slug": "gin",
+      "repository": "gin-gonic/gin",
+      "tag": "v1.12.0",
+      "sha": "73726dc606796a025971fe451f0aa6f1b9b847f6",
+      "requirements": 34,
+      "packages": [
+        "./..."
+      ]
+    },
+    "project": "gin"
+  },
+  {
+    "cpus": 4,
+    "downloadSeconds": 0.0443422,
+    "workload": "build-v2",
+    "sample": 6,
+    "imageVersion": "20260925.250.1",
+    "runnerOS": "Windows",
+    "job": "measure",
+    "source": {
+      "slug": "gin",
+      "repository": "gin-gonic/gin",
+      "tag": "v1.12.0",
+      "sha": "73726dc606796a025971fe451f0aa6f1b9b847f6",
+      "requirements": 34,
+      "packages": [
+        "./..."
+      ]
+    },
+    "restoreSeconds": 8.0229836,
+    "variant": "baseline",
+    "beforePostSeconds": 8.484122,
+    "inventory": {
+      "build": {
+        "files": 2008,
+        "bytes": 214511299
+      },
+      "modules": {
+        "files": 9243,
+        "bytes": 185257820
+      }
+    },
+    "runId": "37319456778",
+    "runnerArch": "X64",
+    "cacheHit": "true",
+    "phase": "warm",
+    "version": "go version go1.26.7 windows/amd64",
+    "buildSeconds": 0.3826829,
+    "project": "gin"
+  },
+  {
+    "buildSeconds": 0.5684606,
+    "inventory": {
+      "modules": {
+        "files": 9243,
+        "bytes": 185257820
+      },
+      "build": {
+        "files": 2008,
+        "bytes": 214511299
+      }
+    },
+    "beforePostSeconds": 8.6183652,
+    "source": {
+      "slug": "gin",
+      "repository": "gin-gonic/gin",
+      "tag": "v1.12.0",
+      "sha": "73726dc606796a025971fe451f0aa6f1b9b847f6",
+      "requirements": 34,
+      "packages": [
+        "./..."
+      ]
+    },
+    "variant": "baseline",
+    "sample": 7,
+    "downloadSeconds": 0.0481315,
+    "phase": "warm",
+    "imageVersion": "20260925.250.1",
+    "project": "gin",
+    "runnerArch": "X64",
+    "runId": "37319456778",
+    "cacheHit": "true",
+    "restoreSeconds": 7.9664849,
+    "job": "measure",
+    "workload": "build-v2",
+    "runnerOS": "Windows",
+    "version": "go version go1.26.7 windows/amd64",
+    "cpus": 4
+  },
+  {
+    "buildSeconds": 0.4117289,
+    "workload": "build-v2",
+    "phase": "warm",
+    "sample": 8,
+    "source": {
+      "slug": "gin",
+      "repository": "gin-gonic/gin",
+      "tag": "v1.12.0",
+      "sha": "73726dc606796a025971fe451f0aa6f1b9b847f6",
+      "requirements": 34,
+      "packages": [
+        "./..."
+      ]
+    },
+    "runnerArch": "X64",
+    "job": "measure",
+    "cpus": 4,
+    "cacheHit": "true",
+    "runId": "37319456778",
+    "runnerOS": "Windows",
+    "beforePostSeconds": 8.9857713,
+    "version": "go version go1.26.7 windows/amd64",
+    "restoreSeconds": 8.5002107,
+    "downloadSeconds": 0.0400473,
+    "variant": "baseline",
+    "inventory": {
+      "modules": {
+        "files": 9243,
+        "bytes": 185257820
+      },
+      "build": {
+        "files": 2008,
+        "bytes": 214511299
+      }
+    },
+    "imageVersion": "20260925.250.1",
+    "project": "gin"
+  },
+  {
+    "runId": "37319456778",
+    "restoreSeconds": 8.4528164,
+    "job": "measure",
+    "buildSeconds": 0.3815593,
+    "downloadSeconds": 0.0387025,
+    "sample": 9,
+    "imageVersion": "20260925.250.1",
+    "runnerOS": "Windows",
+    "phase": "warm",
+    "beforePostSeconds": 8.9084423,
+    "cacheHit": "true",
+    "project": "gin",
+    "variant": "baseline",
+    "version": "go version go1.26.7 windows/amd64",
+    "inventory": {
+      "modules": {
+        "bytes": 185257820,
+        "files": 9243
+      },
+      "build": {
+        "bytes": 214511299,
+        "files": 2008
+      }
+    },
+    "cpus": 4,
+    "workload": "build-v2",
+    "source": {
+      "slug": "gin",
+      "repository": "gin-gonic/gin",
+      "tag": "v1.12.0",
+      "sha": "73726dc606796a025971fe451f0aa6f1b9b847f6",
+      "requirements": 34,
+      "packages": [
+        "./..."
+      ]
+    },
+    "runnerArch": "X64"
+  },
+  {
+    "version": "go version go1.26.7 windows/amd64",
+    "project": "gin",
+    "runnerOS": "Windows",
+    "downloadSeconds": 0.0461589,
+    "variant": "split",
+    "runnerArch": "X64",
+    "buildSeconds": 0.4200351,
+    "sample": 1,
+    "workload": "build-v2",
+    "job": "measure",
+    "imageVersion": "20260925.250.1",
+    "cpus": 4,
+    "beforePostSeconds": 7.7718714,
+    "inventory": {
+      "build": {
+        "files": 2008,
+        "bytes": 214511299
+      },
+      "modules": {
+        "files": 9243,
+        "bytes": 185257820
+      }
+    },
+    "source": {
+      "slug": "gin",
+      "repository": "gin-gonic/gin",
+      "tag": "v1.12.0",
+      "sha": "73726dc606796a025971fe451f0aa6f1b9b847f6",
+      "requirements": 34,
+      "packages": [
+        "./..."
+      ]
+    },
+    "restoreSeconds": 7.2670942,
+    "runId": "37319456778",
+    "phase": "warm",
+    "cacheHit": "true"
+  },
+  {
+    "sample": 10,
+    "source": {
+      "slug": "gin",
+      "repository": "gin-gonic/gin",
+      "tag": "v1.12.0",
+      "sha": "73726dc606796a025971fe451f0aa6f1b9b847f6",
+      "requirements": 34,
+      "packages": [
+        "./..."
+      ]
+    },
+    "runnerOS": "Windows",
+    "restoreSeconds": 7.5767114,
+    "variant": "split",
+    "imageVersion": "20260925.250.1",
+    "job": "measure",
+    "runId": "37319456778",
+    "beforePostSeconds": 8.0728688,
+    "cpus": 4,
+    "downloadSeconds": 0.0444811,
+    "version": "go version go1.26.7 windows/amd64",
+    "cacheHit": "true",
+    "workload": "build-v2",
+    "buildSeconds": 0.4019567,
+    "runnerArch": "X64",
+    "phase": "warm",
+    "inventory": {
+      "modules": {
+        "bytes": 185257820,
+        "files": 9243
+      },
+      "build": {
+        "bytes": 214511299,
+        "files": 2008
+      }
+    },
+    "project": "gin"
+  },
+  {
+    "sample": 2,
+    "cpus": 4,
+    "phase": "warm",
+    "beforePostSeconds": 7.3870564,
+    "job": "measure",
+    "buildSeconds": 0.4740123,
+    "workload": "build-v2",
+    "variant": "split",
+    "restoreSeconds": 6.8271916,
+    "inventory": {
+      "modules": {
+        "files": 9243,
+        "bytes": 185257820
+      },
+      "build": {
+        "files": 2008,
+        "bytes": 214511299
+      }
+    },
+    "version": "go version go1.26.7 windows/amd64",
+    "cacheHit": "true",
+    "runnerArch": "X64",
+    "imageVersion": "20260925.250.1",
+    "project": "gin",
+    "runId": "37319456778",
+    "downloadSeconds": 0.0463148,
+    "runnerOS": "Windows",
+    "source": {
+      "slug": "gin",
+      "repository": "gin-gonic/gin",
+      "tag": "v1.12.0",
+      "sha": "73726dc606796a025971fe451f0aa6f1b9b847f6",
+      "requirements": 34,
+      "packages": [
+        "./..."
+      ]
+    }
+  },
+  {
+    "workload": "build-v2",
+    "phase": "warm",
+    "restoreSeconds": 6.9166107,
+    "source": {
+      "slug": "gin",
+      "repository": "gin-gonic/gin",
+      "tag": "v1.12.0",
+      "sha": "73726dc606796a025971fe451f0aa6f1b9b847f6",
+      "requirements": 34,
+      "packages": [
+        "./..."
+      ]
+    },
+    "cpus": 4,
+    "cacheHit": "true",
+    "runnerArch": "X64",
+    "beforePostSeconds": 7.4476427,
+    "sample": 3,
+    "downloadSeconds": 0.0456067,
+    "runnerOS": "Windows",
+    "inventory": {
+      "build": {
+        "bytes": 214511299,
+        "files": 2008
+      },
+      "modules": {
+        "bytes": 185257820,
+        "files": 9243
+      }
+    },
+    "runId": "37319456778",
+    "job": "measure",
+    "variant": "split",
+    "imageVersion": "20260925.250.1",
+    "version": "go version go1.26.7 windows/amd64",
+    "project": "gin",
+    "buildSeconds": 0.4476436
+  },
+  {
+    "inventory": {
+      "build": {
+        "files": 2008,
+        "bytes": 214511299
+      },
+      "modules": {
+        "files": 9243,
+        "bytes": 185257820
+      }
+    },
+    "version": "go version go1.26.7 windows/amd64",
+    "imageVersion": "20260925.250.1",
+    "cacheHit": "true",
+    "restoreSeconds": 6.4504578,
+    "runId": "37319456778",
+    "phase": "warm",
+    "cpus": 4,
+    "job": "measure",
+    "runnerOS": "Windows",
+    "variant": "split",
+    "workload": "build-v2",
+    "beforePostSeconds": 6.9407921,
+    "runnerArch": "X64",
+    "sample": 4,
+    "downloadSeconds": 0.0436169,
+    "project": "gin",
+    "buildSeconds": 0.4098514,
+    "source": {
+      "slug": "gin",
+      "repository": "gin-gonic/gin",
+      "tag": "v1.12.0",
+      "sha": "73726dc606796a025971fe451f0aa6f1b9b847f6",
+      "requirements": 34,
+      "packages": [
+        "./..."
+      ]
+    }
+  },
+  {
+    "cacheHit": "true",
+    "variant": "split",
+    "workload": "build-v2",
+    "sample": 5,
+    "imageVersion": "20260925.250.1",
+    "runnerOS": "Windows",
+    "restoreSeconds": 6.9885549,
+    "project": "gin",
+    "source": {
+      "slug": "gin",
+      "repository": "gin-gonic/gin",
+      "tag": "v1.12.0",
+      "sha": "73726dc606796a025971fe451f0aa6f1b9b847f6",
+      "requirements": 34,
+      "packages": [
+        "./..."
+      ]
+    },
+    "runId": "37319456778",
+    "downloadSeconds": 0.0443946,
+    "inventory": {
+      "build": {
+        "bytes": 214511299,
+        "files": 2008
+      },
+      "modules": {
+        "bytes": 185257820,
+        "files": 9243
+      }
+    },
+    "job": "measure",
+    "cpus": 4,
+    "runnerArch": "X64",
+    "buildSeconds": 0.4104099,
+    "version": "go version go1.26.7 windows/amd64",
+    "phase": "warm",
+    "beforePostSeconds": 7.4824259
+  },
+  {
+    "runnerArch": "X64",
+    "downloadSeconds": 0.0431731,
+    "restoreSeconds": 6.3856428,
+    "cpus": 4,
+    "variant": "split",
+    "cacheHit": "true",
+    "job": "measure",
+    "buildSeconds": 0.4281626,
+    "project": "gin",
+    "workload": "build-v2",
+    "inventory": {
+      "build": {
+        "bytes": 214511299,
+        "files": 2008
+      },
+      "modules": {
+        "bytes": 185257820,
+        "files": 9243
+      }
+    },
+    "runId": "37319456778",
+    "phase": "warm",
+    "version": "go version go1.26.7 windows/amd64",
+    "beforePostSeconds": 6.8936424,
+    "runnerOS": "Windows",
+    "source": {
+      "slug": "gin",
+      "repository": "gin-gonic/gin",
+      "tag": "v1.12.0",
+      "sha": "73726dc606796a025971fe451f0aa6f1b9b847f6",
+      "requirements": 34,
+      "packages": [
+        "./..."
+      ]
+    },
+    "imageVersion": "20260925.250.1",
+    "sample": 6
+  },
+  {
+    "inventory": {
+      "modules": {
+        "bytes": 185257820,
+        "files": 9243
+      },
+      "build": {
+        "bytes": 214511299,
+        "files": 2008
+      }
+    },
+    "runnerOS": "Windows",
+    "cacheHit": "true",
+    "project": "gin",
+    "phase": "warm",
+    "version": "go version go1.26.7 windows/amd64",
+    "imageVersion": "20260925.250.1",
+    "workload": "build-v2",
+    "runnerArch": "X64",
+    "beforePostSeconds": 7.5973092,
+    "downloadSeconds": 0.0508618,
+    "runId": "37319456778",
+    "cpus": 4,
+    "restoreSeconds": 7.0549082,
+    "sample": 7,
+    "source": {
+      "slug": "gin",
+      "repository": "gin-gonic/gin",
+      "tag": "v1.12.0",
+      "sha": "73726dc606796a025971fe451f0aa6f1b9b847f6",
+      "requirements": 34,
+      "packages": [
+        "./..."
+      ]
+    },
+    "buildSeconds": 0.4508041,
+    "job": "measure",
+    "variant": "split"
+  },
+  {
+    "cacheHit": "true",
+    "project": "gin",
+    "inventory": {
+      "modules": {
+        "bytes": 185257820,
+        "files": 9243
+      },
+      "build": {
+        "bytes": 214511299,
+        "files": 2008
+      }
+    },
+    "source": {
+      "slug": "gin",
+      "repository": "gin-gonic/gin",
+      "tag": "v1.12.0",
+      "sha": "73726dc606796a025971fe451f0aa6f1b9b847f6",
+      "requirements": 34,
+      "packages": [
+        "./..."
+      ]
+    },
+    "workload": "build-v2",
+    "cpus": 4,
+    "sample": 8,
+    "beforePostSeconds": 7.8125227,
+    "restoreSeconds": 7.2634693,
+    "phase": "warm",
+    "imageVersion": "20260925.250.1",
+    "buildSeconds": 0.4625435,
+    "runnerOS": "Windows",
+    "runnerArch": "X64",
+    "downloadSeconds": 0.0458929,
+    "runId": "37319456778",
+    "variant": "split",
+    "version": "go version go1.26.7 windows/amd64",
+    "job": "measure"
+  },
+  {
+    "source": {
+      "slug": "gin",
+      "repository": "gin-gonic/gin",
+      "tag": "v1.12.0",
+      "sha": "73726dc606796a025971fe451f0aa6f1b9b847f6",
+      "requirements": 34,
+      "packages": [
+        "./..."
+      ]
+    },
+    "cpus": 4,
+    "job": "measure",
+    "imageVersion": "20260925.250.1",
+    "downloadSeconds": 0.0476819,
+    "buildSeconds": 0.4094558,
+    "runId": "37319456778",
+    "variant": "split",
+    "restoreSeconds": 7.520955,
+    "project": "gin",
+    "inventory": {
+      "modules": {
+        "files": 9243,
+        "bytes": 185257820
+      },
+      "build": {
+        "files": 2008,
+        "bytes": 214511299
+      }
+    },
+    "workload": "build-v2",
+    "runnerOS": "Windows",
+    "sample": 9,
+    "runnerArch": "X64",
+    "version": "go version go1.26.7 windows/amd64",
+    "beforePostSeconds": 8.0202854,
+    "cacheHit": "true",
+    "phase": "warm"
+  },
+  {
+    "restoreSeconds": 9.5630546,
+    "phase": "warm",
+    "buildSeconds": 0.5442554,
+    "job": "measure",
+    "variant": "baseline",
+    "runnerArch": "X64",
+    "project": "grpc",
+    "downloadSeconds": 0.043135,
+    "sample": 1,
+    "source": {
+      "slug": "grpc",
+      "repository": "grpc/grpc-go",
+      "tag": "v1.84.0",
+      "sha": "e84aa5ab15d1d2b29d54f838312ad490cb7551a8",
+      "requirements": 43,
+      "packages": [
+        "./codes",
+        "./metadata",
+        "./status",
+        "./credentials/...",
+        "./encoding/...",
+        "./resolver/...",
+        "./balancer/..."
+      ]
+    },
+    "runId": "37319456778",
+    "inventory": {
+      "build": {
+        "files": 3275,
+        "bytes": 252221800
+      },
+      "modules": {
+        "files": 11363,
+        "bytes": 604873641
+      }
+    },
+    "cacheHit": "true",
+    "version": "go version go1.26.7 windows/amd64",
+    "workload": "build-v2",
+    "imageVersion": "20260925.250.1",
+    "beforePostSeconds": 10.1844376,
+    "cpus": 4,
+    "runnerOS": "Windows"
+  },
+  {
+    "beforePostSeconds": 9.1745186,
+    "runnerArch": "X64",
+    "inventory": {
+      "modules": {
+        "files": 11363,
+        "bytes": 604873641
+      },
+      "build": {
+        "files": 3275,
+        "bytes": 252221800
+      }
+    },
+    "workload": "build-v2",
+    "runnerOS": "Windows",
+    "source": {
+      "slug": "grpc",
+      "repository": "grpc/grpc-go",
+      "tag": "v1.84.0",
+      "sha": "e84aa5ab15d1d2b29d54f838312ad490cb7551a8",
+      "requirements": 43,
+      "packages": [
+        "./codes",
+        "./metadata",
+        "./status",
+        "./credentials/...",
+        "./encoding/...",
+        "./resolver/...",
+        "./balancer/..."
+      ]
+    },
+    "runId": "37319456778",
+    "version": "go version go1.26.7 windows/amd64",
+    "imageVersion": "20260925.250.1",
+    "phase": "warm",
+    "project": "grpc",
+    "sample": 10,
+    "downloadSeconds": 0.0411647,
+    "job": "measure",
+    "cacheHit": "true",
+    "cpus": 4,
+    "buildSeconds": 0.5119449,
+    "restoreSeconds": 8.5871248,
+    "variant": "baseline"
+  },
+  {
+    "variant": "baseline",
+    "runnerArch": "X64",
+    "runnerOS": "Windows",
+    "project": "grpc",
+    "source": {
+      "slug": "grpc",
+      "repository": "grpc/grpc-go",
+      "tag": "v1.84.0",
+      "sha": "e84aa5ab15d1d2b29d54f838312ad490cb7551a8",
+      "requirements": 43,
+      "packages": [
+        "./codes",
+        "./metadata",
+        "./status",
+        "./credentials/...",
+        "./encoding/...",
+        "./resolver/...",
+        "./balancer/..."
+      ]
+    },
+    "sample": 2,
+    "cpus": 4,
+    "restoreSeconds": 8.3558015,
+    "workload": "build-v2",
+    "runId": "37319456778",
+    "phase": "warm",
+    "buildSeconds": 0.5241131,
+    "imageVersion": "20260925.250.1",
+    "job": "measure",
+    "inventory": {
+      "build": {
+        "bytes": 252221800,
+        "files": 3275
+      },
+      "modules": {
+        "bytes": 604873641,
+        "files": 11363
+      }
+    },
+    "cacheHit": "true",
+    "beforePostSeconds": 8.9583038,
+    "downloadSeconds": 0.0433905,
+    "version": "go version go1.26.7 windows/amd64"
+  },
+  {
+    "buildSeconds": 0.5363631,
+    "inventory": {
+      "modules": {
+        "bytes": 604873641,
+        "files": 11363
+      },
+      "build": {
+        "bytes": 252221800,
+        "files": 3275
+      }
+    },
+    "runId": "37319456778",
+    "cacheHit": "true",
+    "variant": "baseline",
+    "workload": "build-v2",
+    "restoreSeconds": 9.5366284,
+    "cpus": 4,
+    "imageVersion": "20260925.250.1",
+    "version": "go version go1.26.7 windows/amd64",
+    "phase": "warm",
+    "source": {
+      "slug": "grpc",
+      "repository": "grpc/grpc-go",
+      "tag": "v1.84.0",
+      "sha": "e84aa5ab15d1d2b29d54f838312ad490cb7551a8",
+      "requirements": 43,
+      "packages": [
+        "./codes",
+        "./metadata",
+        "./status",
+        "./credentials/...",
+        "./encoding/...",
+        "./resolver/...",
+        "./balancer/..."
+      ]
+    },
+    "sample": 3,
+    "runnerOS": "Windows",
+    "beforePostSeconds": 10.1527434,
+    "downloadSeconds": 0.0431097,
+    "runnerArch": "X64",
+    "project": "grpc",
+    "job": "measure"
+  },
+  {
+    "runnerArch": "X64",
+    "downloadSeconds": 0.0441201,
+    "inventory": {
+      "build": {
+        "bytes": 252221800,
+        "files": 3275
+      },
+      "modules": {
+        "bytes": 604873641,
+        "files": 11363
+      }
+    },
+    "workload": "build-v2",
+    "version": "go version go1.26.7 windows/amd64",
+    "buildSeconds": 0.5349472,
+    "cpus": 4,
+    "beforePostSeconds": 9.9049747,
+    "sample": 4,
+    "variant": "baseline",
+    "phase": "warm",
+    "restoreSeconds": 9.2876936,
+    "runId": "37319456778",
+    "job": "measure",
+    "cacheHit": "true",
+    "imageVersion": "20260925.250.1",
+    "runnerOS": "Windows",
+    "source": {
+      "slug": "grpc",
+      "repository": "grpc/grpc-go",
+      "tag": "v1.84.0",
+      "sha": "e84aa5ab15d1d2b29d54f838312ad490cb7551a8",
+      "requirements": 43,
+      "packages": [
+        "./codes",
+        "./metadata",
+        "./status",
+        "./credentials/...",
+        "./encoding/...",
+        "./resolver/...",
+        "./balancer/..."
+      ]
+    },
+    "project": "grpc"
+  },
+  {
+    "project": "grpc",
+    "workload": "build-v2",
+    "downloadSeconds": 0.0405504,
+    "version": "go version go1.26.7 windows/amd64",
+    "cpus": 4,
+    "phase": "warm",
+    "runnerArch": "X64",
+    "buildSeconds": 0.5417916,
+    "sample": 5,
+    "runnerOS": "Windows",
+    "inventory": {
+      "modules": {
+        "bytes": 604873641,
+        "files": 11363
+      },
+      "build": {
+        "bytes": 252221800,
+        "files": 3275
+      }
+    },
+    "job": "measure",
+    "variant": "baseline",
+    "source": {
+      "slug": "grpc",
+      "repository": "grpc/grpc-go",
+      "tag": "v1.84.0",
+      "sha": "e84aa5ab15d1d2b29d54f838312ad490cb7551a8",
+      "requirements": 43,
+      "packages": [
+        "./codes",
+        "./metadata",
+        "./status",
+        "./credentials/...",
+        "./encoding/...",
+        "./resolver/...",
+        "./balancer/..."
+      ]
+    },
+    "restoreSeconds": 10.603873,
+    "beforePostSeconds": 11.2204588,
+    "imageVersion": "20260925.250.1",
+    "cacheHit": "true",
+    "runId": "37319456778"
+  },
+  {
+    "runnerArch": "X64",
+    "cacheHit": "true",
+    "restoreSeconds": 8.9354493,
+    "buildSeconds": 0.5349027,
+    "workload": "build-v2",
+    "job": "measure",
+    "runnerOS": "Windows",
+    "variant": "baseline",
+    "sample": 6,
+    "runId": "37319456778",
+    "imageVersion": "20260925.250.1",
+    "source": {
+      "slug": "grpc",
+      "repository": "grpc/grpc-go",
+      "tag": "v1.84.0",
+      "sha": "e84aa5ab15d1d2b29d54f838312ad490cb7551a8",
+      "requirements": 43,
+      "packages": [
+        "./codes",
+        "./metadata",
+        "./status",
+        "./credentials/...",
+        "./encoding/...",
+        "./resolver/...",
+        "./balancer/..."
+      ]
+    },
+    "inventory": {
+      "build": {
+        "files": 3275,
+        "bytes": 252221800
+      },
+      "modules": {
+        "files": 11363,
+        "bytes": 604873641
+      }
+    },
+    "version": "go version go1.26.7 windows/amd64",
+    "downloadSeconds": 0.0405907,
+    "project": "grpc",
+    "beforePostSeconds": 9.5466379,
+    "cpus": 4,
+    "phase": "warm"
+  },
+  {
+    "inventory": {
+      "build": {
+        "files": 3275,
+        "bytes": 252221800
+      },
+      "modules": {
+        "files": 11363,
+        "bytes": 604873641
+      }
+    },
+    "runnerOS": "Windows",
+    "project": "grpc",
+    "downloadSeconds": 0.0411217,
+    "runId": "37319456778",
+    "buildSeconds": 0.5530407,
+    "cacheHit": "true",
+    "runnerArch": "X64",
+    "sample": 7,
+    "variant": "baseline",
+    "restoreSeconds": 10.9163075,
+    "job": "measure",
+    "source": {
+      "slug": "grpc",
+      "repository": "grpc/grpc-go",
+      "tag": "v1.84.0",
+      "sha": "e84aa5ab15d1d2b29d54f838312ad490cb7551a8",
+      "requirements": 43,
+      "packages": [
+        "./codes",
+        "./metadata",
+        "./status",
+        "./credentials/...",
+        "./encoding/...",
+        "./resolver/...",
+        "./balancer/..."
+      ]
+    },
+    "workload": "build-v2",
+    "phase": "warm",
+    "imageVersion": "20260925.250.1",
+    "beforePostSeconds": 11.5456577,
+    "version": "go version go1.26.7 windows/amd64",
+    "cpus": 4
+  },
+  {
+    "source": {
+      "slug": "grpc",
+      "repository": "grpc/grpc-go",
+      "tag": "v1.84.0",
+      "sha": "e84aa5ab15d1d2b29d54f838312ad490cb7551a8",
+      "requirements": 43,
+      "packages": [
+        "./codes",
+        "./metadata",
+        "./status",
+        "./credentials/...",
+        "./encoding/...",
+        "./resolver/...",
+        "./balancer/..."
+      ]
+    },
+    "job": "measure",
+    "runnerArch": "X64",
+    "imageVersion": "20260925.250.1",
+    "restoreSeconds": 9.5546505,
+    "beforePostSeconds": 10.1778758,
+    "buildSeconds": 0.5466105,
+    "runnerOS": "Windows",
+    "project": "grpc",
+    "sample": 8,
+    "inventory": {
+      "modules": {
+        "files": 11363,
+        "bytes": 604873641
+      },
+      "build": {
+        "files": 3275,
+        "bytes": 252221800
+      }
+    },
+    "cacheHit": "true",
+    "variant": "baseline",
+    "phase": "warm",
+    "cpus": 4,
+    "downloadSeconds": 0.042393,
+    "runId": "37319456778",
+    "workload": "build-v2",
+    "version": "go version go1.26.7 windows/amd64"
+  },
+  {
+    "source": {
+      "slug": "grpc",
+      "repository": "grpc/grpc-go",
+      "tag": "v1.84.0",
+      "sha": "e84aa5ab15d1d2b29d54f838312ad490cb7551a8",
+      "requirements": 43,
+      "packages": [
+        "./codes",
+        "./metadata",
+        "./status",
+        "./credentials/...",
+        "./encoding/...",
+        "./resolver/...",
+        "./balancer/..."
+      ]
+    },
+    "variant": "baseline",
+    "inventory": {
+      "modules": {
+        "files": 11363,
+        "bytes": 604873641
+      },
+      "build": {
+        "files": 3275,
+        "bytes": 252221800
+      }
+    },
+    "runId": "37319456778",
+    "runnerArch": "X64",
+    "workload": "build-v2",
+    "restoreSeconds": 8.612398,
+    "project": "grpc",
+    "cacheHit": "true",
+    "downloadSeconds": 0.0426769,
+    "cpus": 4,
+    "version": "go version go1.26.7 windows/amd64",
+    "phase": "warm",
+    "buildSeconds": 0.5260027,
+    "imageVersion": "20260925.250.1",
+    "runnerOS": "Windows",
+    "sample": 9,
+    "job": "measure",
+    "beforePostSeconds": 9.2212399
+  },
+  {
+    "workload": "build-v2",
+    "cacheHit": "true",
+    "version": "go version go1.26.7 windows/amd64",
+    "runId": "37319456778",
+    "runnerArch": "X64",
+    "phase": "warm",
+    "cpus": 4,
+    "downloadSeconds": 0.0495005,
+    "source": {
+      "slug": "grpc",
+      "repository": "grpc/grpc-go",
+      "tag": "v1.84.0",
+      "sha": "e84aa5ab15d1d2b29d54f838312ad490cb7551a8",
+      "requirements": 43,
+      "packages": [
+        "./codes",
+        "./metadata",
+        "./status",
+        "./credentials/...",
+        "./encoding/...",
+        "./resolver/...",
+        "./balancer/..."
+      ]
+    },
+    "job": "measure",
+    "runnerOS": "Windows",
+    "variant": "split",
+    "buildSeconds": 0.6699452,
+    "restoreSeconds": 10.3854047,
+    "inventory": {
+      "modules": {
+        "files": 11363,
+        "bytes": 604873641
+      },
+      "build": {
+        "files": 3275,
+        "bytes": 252221800
+      }
+    },
+    "project": "grpc",
+    "beforePostSeconds": 11.1447308,
+    "sample": 1,
+    "imageVersion": "20260925.250.1"
+  },
+  {
+    "source": {
+      "slug": "grpc",
+      "repository": "grpc/grpc-go",
+      "tag": "v1.84.0",
+      "sha": "e84aa5ab15d1d2b29d54f838312ad490cb7551a8",
+      "requirements": 43,
+      "packages": [
+        "./codes",
+        "./metadata",
+        "./status",
+        "./credentials/...",
+        "./encoding/...",
+        "./resolver/...",
+        "./balancer/..."
+      ]
+    },
+    "runId": "37319456778",
+    "job": "measure",
+    "downloadSeconds": 0.0405911,
+    "project": "grpc",
+    "inventory": {
+      "build": {
+        "files": 3275,
+        "bytes": 252221800
+      },
+      "modules": {
+        "files": 11363,
+        "bytes": 604873641
+      }
+    },
+    "variant": "split",
+    "cpus": 4,
+    "sample": 10,
+    "restoreSeconds": 7.8068978,
+    "workload": "build-v2",
+    "cacheHit": "true",
+    "runnerOS": "Windows",
+    "imageVersion": "20260925.250.1",
+    "beforePostSeconds": 8.4213368,
+    "runnerArch": "X64",
+    "phase": "warm",
+    "buildSeconds": 0.5385693,
+    "version": "go version go1.26.7 windows/amd64"
+  },
+  {
+    "imageVersion": "20260925.250.1",
+    "restoreSeconds": 8.6043461,
+    "project": "grpc",
+    "runnerOS": "Windows",
+    "sample": 2,
+    "variant": "split",
+    "inventory": {
+      "modules": {
+        "files": 11363,
+        "bytes": 604873641
+      },
+      "build": {
+        "files": 3275,
+        "bytes": 252221800
+      }
+    },
+    "phase": "warm",
+    "job": "measure",
+    "beforePostSeconds": 9.2016932,
+    "downloadSeconds": 0.044334,
+    "runnerArch": "X64",
+    "cpus": 4,
+    "cacheHit": "true",
+    "runId": "37319456778",
+    "source": {
+      "slug": "grpc",
+      "repository": "grpc/grpc-go",
+      "tag": "v1.84.0",
+      "sha": "e84aa5ab15d1d2b29d54f838312ad490cb7551a8",
+      "requirements": 43,
+      "packages": [
+        "./codes",
+        "./metadata",
+        "./status",
+        "./credentials/...",
+        "./encoding/...",
+        "./resolver/...",
+        "./balancer/..."
+      ]
+    },
+    "workload": "build-v2",
+    "version": "go version go1.26.7 windows/amd64",
+    "buildSeconds": 0.5190592
+  },
+  {
+    "variant": "split",
+    "downloadSeconds": 0.0408928,
+    "workload": "build-v2",
+    "version": "go version go1.26.7 windows/amd64",
+    "cpus": 4,
+    "job": "measure",
+    "runnerOS": "Windows",
+    "restoreSeconds": 8.6847012,
+    "phase": "warm",
+    "runId": "37319456778",
+    "inventory": {
+      "modules": {
+        "files": 11363,
+        "bytes": 604873641
+      },
+      "build": {
+        "files": 3275,
+        "bytes": 252221800
+      }
+    },
+    "cacheHit": "true",
+    "buildSeconds": 0.5133681,
+    "source": {
+      "slug": "grpc",
+      "repository": "grpc/grpc-go",
+      "tag": "v1.84.0",
+      "sha": "e84aa5ab15d1d2b29d54f838312ad490cb7551a8",
+      "requirements": 43,
+      "packages": [
+        "./codes",
+        "./metadata",
+        "./status",
+        "./credentials/...",
+        "./encoding/...",
+        "./resolver/...",
+        "./balancer/..."
+      ]
+    },
+    "imageVersion": "20260925.250.1",
+    "sample": 3,
+    "runnerArch": "X64",
+    "beforePostSeconds": 9.2736492,
+    "project": "grpc"
+  },
+  {
+    "source": {
+      "slug": "grpc",
+      "repository": "grpc/grpc-go",
+      "tag": "v1.84.0",
+      "sha": "e84aa5ab15d1d2b29d54f838312ad490cb7551a8",
+      "requirements": 43,
+      "packages": [
+        "./codes",
+        "./metadata",
+        "./status",
+        "./credentials/...",
+        "./encoding/...",
+        "./resolver/...",
+        "./balancer/..."
+      ]
+    },
+    "runnerArch": "X64",
+    "restoreSeconds": 8.3078891,
+    "cpus": 4,
+    "workload": "build-v2",
+    "downloadSeconds": 0.040994,
+    "variant": "split",
+    "runId": "37319456778",
+    "version": "go version go1.26.7 windows/amd64",
+    "cacheHit": "true",
+    "runnerOS": "Windows",
+    "job": "measure",
+    "phase": "warm",
+    "inventory": {
+      "build": {
+        "files": 3275,
+        "bytes": 252221800
+      },
+      "modules": {
+        "files": 11363,
+        "bytes": 604873641
+      }
+    },
+    "project": "grpc",
+    "beforePostSeconds": 8.8986542,
+    "buildSeconds": 0.5144694,
+    "imageVersion": "20260925.250.1",
+    "sample": 4
+  },
+  {
+    "project": "grpc",
+    "cpus": 4,
+    "inventory": {
+      "modules": {
+        "files": 11363,
+        "bytes": 604873641
+      },
+      "build": {
+        "files": 3275,
+        "bytes": 252221800
+      }
+    },
+    "runnerArch": "X64",
+    "variant": "split",
+    "version": "go version go1.26.7 windows/amd64",
+    "phase": "warm",
+    "cacheHit": "true",
+    "runnerOS": "Windows",
+    "beforePostSeconds": 8.796327,
+    "workload": "build-v2",
+    "runId": "37319456778",
+    "restoreSeconds": 8.1813396,
+    "buildSeconds": 0.5390785,
+    "sample": 5,
+    "source": {
+      "slug": "grpc",
+      "repository": "grpc/grpc-go",
+      "tag": "v1.84.0",
+      "sha": "e84aa5ab15d1d2b29d54f838312ad490cb7551a8",
+      "requirements": 43,
+      "packages": [
+        "./codes",
+        "./metadata",
+        "./status",
+        "./credentials/...",
+        "./encoding/...",
+        "./resolver/...",
+        "./balancer/..."
+      ]
+    },
+    "downloadSeconds": 0.0410621,
+    "imageVersion": "20260925.250.1",
+    "job": "measure"
+  },
+  {
+    "downloadSeconds": 0.0672875,
+    "runnerOS": "Windows",
+    "version": "go version go1.26.7 windows/amd64",
+    "beforePostSeconds": 9.313856,
+    "source": {
+      "slug": "grpc",
+      "repository": "grpc/grpc-go",
+      "tag": "v1.84.0",
+      "sha": "e84aa5ab15d1d2b29d54f838312ad490cb7551a8",
+      "requirements": 43,
+      "packages": [
+        "./codes",
+        "./metadata",
+        "./status",
+        "./credentials/...",
+        "./encoding/...",
+        "./resolver/...",
+        "./balancer/..."
+      ]
+    },
+    "runnerArch": "X64",
+    "imageVersion": "20260925.250.1",
+    "job": "measure",
+    "cpus": 4,
+    "project": "grpc",
+    "phase": "warm",
+    "cacheHit": "true",
+    "workload": "build-v2",
+    "buildSeconds": 0.6089954,
+    "sample": 6,
+    "restoreSeconds": 8.6012783,
+    "variant": "split",
+    "inventory": {
+      "modules": {
+        "files": 11363,
+        "bytes": 604873641
+      },
+      "build": {
+        "files": 3275,
+        "bytes": 252221800
+      }
+    },
+    "runId": "37319456778"
+  },
+  {
+    "job": "measure",
+    "inventory": {
+      "modules": {
+        "bytes": 604873641,
+        "files": 11363
+      },
+      "build": {
+        "bytes": 252221800,
+        "files": 3275
+      }
+    },
+    "restoreSeconds": 8.560307,
+    "workload": "build-v2",
+    "phase": "warm",
+    "sample": 7,
+    "variant": "split",
+    "downloadSeconds": 0.0423837,
+    "runId": "37319456778",
+    "cpus": 4,
+    "source": {
+      "slug": "grpc",
+      "repository": "grpc/grpc-go",
+      "tag": "v1.84.0",
+      "sha": "e84aa5ab15d1d2b29d54f838312ad490cb7551a8",
+      "requirements": 43,
+      "packages": [
+        "./codes",
+        "./metadata",
+        "./status",
+        "./credentials/...",
+        "./encoding/...",
+        "./resolver/...",
+        "./balancer/..."
+      ]
+    },
+    "project": "grpc",
+    "cacheHit": "true",
+    "runnerOS": "Windows",
+    "imageVersion": "20260925.250.1",
+    "runnerArch": "X64",
+    "buildSeconds": 2.8991734,
+    "version": "go version go1.26.7 windows/amd64",
+    "beforePostSeconds": 11.5371641
+  },
+  {
+    "variant": "split",
+    "phase": "warm",
+    "runnerOS": "Windows",
+    "runnerArch": "X64",
+    "job": "measure",
+    "cpus": 4,
+    "restoreSeconds": 8.0157641,
+    "version": "go version go1.26.7 windows/amd64",
+    "cacheHit": "true",
+    "inventory": {
+      "modules": {
+        "files": 11363,
+        "bytes": 604873641
+      },
+      "build": {
+        "files": 3275,
+        "bytes": 252221800
+      }
+    },
+    "downloadSeconds": 0.042194,
+    "runId": "37319456778",
+    "project": "grpc",
+    "source": {
+      "slug": "grpc",
+      "repository": "grpc/grpc-go",
+      "tag": "v1.84.0",
+      "sha": "e84aa5ab15d1d2b29d54f838312ad490cb7551a8",
+      "requirements": 43,
+      "packages": [
+        "./codes",
+        "./metadata",
+        "./status",
+        "./credentials/...",
+        "./encoding/...",
+        "./resolver/...",
+        "./balancer/..."
+      ]
+    },
+    "buildSeconds": 0.5872314,
+    "workload": "build-v2",
+    "sample": 8,
+    "beforePostSeconds": 8.6810155,
+    "imageVersion": "20260925.250.1"
+  },
+  {
+    "sample": 9,
+    "restoreSeconds": 7.9624539,
+    "variant": "split",
+    "source": {
+      "slug": "grpc",
+      "repository": "grpc/grpc-go",
+      "tag": "v1.84.0",
+      "sha": "e84aa5ab15d1d2b29d54f838312ad490cb7551a8",
+      "requirements": 43,
+      "packages": [
+        "./codes",
+        "./metadata",
+        "./status",
+        "./credentials/...",
+        "./encoding/...",
+        "./resolver/...",
+        "./balancer/..."
+      ]
+    },
+    "project": "grpc",
+    "phase": "warm",
+    "version": "go version go1.26.7 windows/amd64",
+    "cacheHit": "true",
+    "runnerArch": "X64",
+    "inventory": {
+      "build": {
+        "files": 3275,
+        "bytes": 252221800
+      },
+      "modules": {
+        "files": 11363,
+        "bytes": 604873641
+      }
+    },
+    "runnerOS": "Windows",
+    "downloadSeconds": 0.0410961,
+    "job": "measure",
+    "imageVersion": "20260925.250.1",
+    "runId": "37319456778",
+    "beforePostSeconds": 8.5539707,
+    "cpus": 4,
+    "workload": "build-v2",
+    "buildSeconds": 0.5154182
+  },
+  {
+    "sample": 1,
+    "cacheHit": "true",
+    "beforePostSeconds": 19.785346,
+    "cpus": 4,
+    "workload": "build-v2",
+    "job": "measure",
+    "version": "go version go1.26.7 windows/amd64",
+    "phase": "warm",
+    "buildSeconds": 0.5151498,
+    "inventory": {
+      "build": {
+        "files": 3849,
+        "bytes": 393664832
+      },
+      "modules": {
+        "files": 38485,
+        "bytes": 984712171
+      }
+    },
+    "restoreSeconds": 19.1528108,
+    "downloadSeconds": 0.0883962,
+    "variant": "baseline",
+    "project": "hugo",
+    "runId": "37319456778",
+    "source": {
+      "slug": "hugo",
+      "repository": "gohugoio/hugo",
+      "tag": "v0.159.0",
+      "sha": "2ed7d193cfdfcf11808fb2a921a9429423b0ebe9",
+      "requirements": 184,
+      "packages": [
+        "./common/...",
+        "./parser/...",
+        "./tpl/strings",
+        "./tpl/math"
+      ]
+    },
+    "runnerOS": "Windows",
+    "imageVersion": "20260925.250.1",
+    "runnerArch": "X64"
+  },
+  {
+    "workload": "build-v2",
+    "restoreSeconds": 17.2652481,
+    "imageVersion": "20260925.250.1",
+    "source": {
+      "slug": "hugo",
+      "repository": "gohugoio/hugo",
+      "tag": "v0.159.0",
+      "sha": "2ed7d193cfdfcf11808fb2a921a9429423b0ebe9",
+      "requirements": 184,
+      "packages": [
+        "./common/...",
+        "./parser/...",
+        "./tpl/strings",
+        "./tpl/math"
+      ]
+    },
+    "variant": "baseline",
+    "job": "measure",
+    "runnerArch": "X64",
+    "runnerOS": "Windows",
+    "cacheHit": "true",
+    "phase": "warm",
+    "runId": "37319456778",
+    "beforePostSeconds": 17.9793878,
+    "inventory": {
+      "build": {
+        "bytes": 393664832,
+        "files": 3849
+      },
+      "modules": {
+        "bytes": 984712171,
+        "files": 38485
+      }
+    },
+    "sample": 10,
+    "downloadSeconds": 0.1177113,
+    "buildSeconds": 0.5619057,
+    "version": "go version go1.26.7 windows/amd64",
+    "project": "hugo",
+    "cpus": 4
+  },
+  {
+    "workload": "build-v2",
+    "sample": 2,
+    "inventory": {
+      "modules": {
+        "bytes": 984712171,
+        "files": 38485
+      },
+      "build": {
+        "bytes": 393664832,
+        "files": 3849
+      }
+    },
+    "runId": "37319456778",
+    "beforePostSeconds": 16.9621152,
+    "job": "measure",
+    "cacheHit": "true",
+    "runnerArch": "X64",
+    "downloadSeconds": 0.0990519,
+    "variant": "baseline",
+    "cpus": 4,
+    "source": {
+      "slug": "hugo",
+      "repository": "gohugoio/hugo",
+      "tag": "v0.159.0",
+      "sha": "2ed7d193cfdfcf11808fb2a921a9429423b0ebe9",
+      "requirements": 184,
+      "packages": [
+        "./common/...",
+        "./parser/...",
+        "./tpl/strings",
+        "./tpl/math"
+      ]
+    },
+    "runnerOS": "Windows",
+    "phase": "warm",
+    "restoreSeconds": 16.2102102,
+    "buildSeconds": 0.6224254,
+    "imageVersion": "20260925.250.1",
+    "version": "go version go1.26.7 windows/amd64",
+    "project": "hugo"
+  },
+  {
+    "variant": "baseline",
+    "version": "go version go1.26.7 windows/amd64",
+    "restoreSeconds": 16.79851,
+    "buildSeconds": 0.5013355,
+    "project": "hugo",
+    "cacheHit": "true",
+    "runnerOS": "Windows",
+    "beforePostSeconds": 17.4326001,
+    "phase": "warm",
+    "cpus": 4,
+    "job": "measure",
+    "imageVersion": "20260925.250.1",
+    "sample": 3,
+    "runId": "37319456778",
+    "workload": "build-v2",
+    "inventory": {
+      "modules": {
+        "bytes": 984712171,
+        "files": 38485
+      },
+      "build": {
+        "bytes": 393664832,
+        "files": 3849
+      }
+    },
+    "downloadSeconds": 0.0943925,
+    "source": {
+      "slug": "hugo",
+      "repository": "gohugoio/hugo",
+      "tag": "v0.159.0",
+      "sha": "2ed7d193cfdfcf11808fb2a921a9429423b0ebe9",
+      "requirements": 184,
+      "packages": [
+        "./common/...",
+        "./parser/...",
+        "./tpl/strings",
+        "./tpl/math"
+      ]
+    },
+    "runnerArch": "X64"
+  },
+  {
+    "imageVersion": "20260925.250.1",
+    "runnerOS": "Windows",
+    "project": "hugo",
+    "job": "measure",
+    "runId": "37319456778",
+    "inventory": {
+      "build": {
+        "bytes": 393664832,
+        "files": 3849
+      },
+      "modules": {
+        "bytes": 984712171,
+        "files": 38485
+      }
+    },
+    "cpus": 4,
+    "source": {
+      "slug": "hugo",
+      "repository": "gohugoio/hugo",
+      "tag": "v0.159.0",
+      "sha": "2ed7d193cfdfcf11808fb2a921a9429423b0ebe9",
+      "requirements": 184,
+      "packages": [
+        "./common/...",
+        "./parser/...",
+        "./tpl/strings",
+        "./tpl/math"
+      ]
+    },
+    "workload": "build-v2",
+    "sample": 4,
+    "phase": "warm",
+    "restoreSeconds": 15.9464184,
+    "version": "go version go1.26.7 windows/amd64",
+    "variant": "baseline",
+    "buildSeconds": 0.4912671,
+    "downloadSeconds": 0.0911586,
+    "cacheHit": "true",
+    "runnerArch": "X64",
+    "beforePostSeconds": 16.5631476
+  },
+  {
+    "version": "go version go1.26.7 windows/amd64",
+    "cpus": 4,
+    "inventory": {
+      "modules": {
+        "bytes": 984712171,
+        "files": 38485
+      },
+      "build": {
+        "bytes": 393664832,
+        "files": 3849
+      }
+    },
+    "sample": 5,
+    "imageVersion": "20260925.250.1",
+    "phase": "warm",
+    "runnerOS": "Windows",
+    "buildSeconds": 0.4877501,
+    "downloadSeconds": 0.086558,
+    "project": "hugo",
+    "runId": "37319456778",
+    "restoreSeconds": 15.9334035,
+    "variant": "baseline",
+    "source": {
+      "slug": "hugo",
+      "repository": "gohugoio/hugo",
+      "tag": "v0.159.0",
+      "sha": "2ed7d193cfdfcf11808fb2a921a9429423b0ebe9",
+      "requirements": 184,
+      "packages": [
+        "./common/...",
+        "./parser/...",
+        "./tpl/strings",
+        "./tpl/math"
+      ]
+    },
+    "job": "measure",
+    "workload": "build-v2",
+    "runnerArch": "X64",
+    "beforePostSeconds": 16.537367,
+    "cacheHit": "true"
+  },
+  {
+    "cpus": 4,
+    "version": "go version go1.26.7 windows/amd64",
+    "sample": 6,
+    "inventory": {
+      "modules": {
+        "files": 38485,
+        "bytes": 984712171
+      },
+      "build": {
+        "files": 3849,
+        "bytes": 393664832
+      }
+    },
+    "project": "hugo",
+    "buildSeconds": 0.5216093,
+    "source": {
+      "slug": "hugo",
+      "repository": "gohugoio/hugo",
+      "tag": "v0.159.0",
+      "sha": "2ed7d193cfdfcf11808fb2a921a9429423b0ebe9",
+      "requirements": 184,
+      "packages": [
+        "./common/...",
+        "./parser/...",
+        "./tpl/strings",
+        "./tpl/math"
+      ]
+    },
+    "runnerArch": "X64",
+    "job": "measure",
+    "restoreSeconds": 16.4787805,
+    "runnerOS": "Windows",
+    "beforePostSeconds": 17.1320486,
+    "downloadSeconds": 0.1000047,
+    "variant": "baseline",
+    "imageVersion": "20260925.250.1",
+    "runId": "37319456778",
+    "workload": "build-v2",
+    "cacheHit": "true",
+    "phase": "warm"
+  },
+  {
+    "variant": "baseline",
+    "imageVersion": "20260925.250.1",
+    "source": {
+      "slug": "hugo",
+      "repository": "gohugoio/hugo",
+      "tag": "v0.159.0",
+      "sha": "2ed7d193cfdfcf11808fb2a921a9429423b0ebe9",
+      "requirements": 184,
+      "packages": [
+        "./common/...",
+        "./parser/...",
+        "./tpl/strings",
+        "./tpl/math"
+      ]
+    },
+    "cpus": 4,
+    "job": "measure",
+    "project": "hugo",
+    "version": "go version go1.26.7 windows/amd64",
+    "sample": 7,
+    "cacheHit": "true",
+    "inventory": {
+      "build": {
+        "bytes": 393664832,
+        "files": 3849
+      },
+      "modules": {
+        "bytes": 984712171,
+        "files": 38485
+      }
+    },
+    "workload": "build-v2",
+    "runnerArch": "X64",
+    "beforePostSeconds": 17.1237474,
+    "buildSeconds": 0.5312816,
+    "runnerOS": "Windows",
+    "phase": "warm",
+    "restoreSeconds": 16.4662692,
+    "runId": "37319456778",
+    "downloadSeconds": 0.0973675
+  },
+  {
+    "restoreSeconds": 16.8567416,
+    "inventory": {
+      "build": {
+        "bytes": 393664832,
+        "files": 3849
+      },
+      "modules": {
+        "bytes": 984712171,
+        "files": 38485
+      }
+    },
+    "variant": "baseline",
+    "workload": "build-v2",
+    "phase": "warm",
+    "buildSeconds": 0.5090842,
+    "sample": 8,
+    "cpus": 4,
+    "downloadSeconds": 0.0880686,
+    "version": "go version go1.26.7 windows/amd64",
+    "runId": "37319456778",
+    "beforePostSeconds": 17.4839186,
+    "imageVersion": "20260925.250.1",
+    "source": {
+      "slug": "hugo",
+      "repository": "gohugoio/hugo",
+      "tag": "v0.159.0",
+      "sha": "2ed7d193cfdfcf11808fb2a921a9429423b0ebe9",
+      "requirements": 184,
+      "packages": [
+        "./common/...",
+        "./parser/...",
+        "./tpl/strings",
+        "./tpl/math"
+      ]
+    },
+    "project": "hugo",
+    "job": "measure",
+    "runnerArch": "X64",
+    "cacheHit": "true",
+    "runnerOS": "Windows"
+  },
+  {
+    "runnerArch": "X64",
+    "runnerOS": "Windows",
+    "inventory": {
+      "modules": {
+        "files": 38485,
+        "bytes": 984712171
+      },
+      "build": {
+        "files": 3849,
+        "bytes": 393664832
+      }
+    },
+    "phase": "warm",
+    "job": "measure",
+    "workload": "build-v2",
+    "source": {
+      "slug": "hugo",
+      "repository": "gohugoio/hugo",
+      "tag": "v0.159.0",
+      "sha": "2ed7d193cfdfcf11808fb2a921a9429423b0ebe9",
+      "requirements": 184,
+      "packages": [
+        "./common/...",
+        "./parser/...",
+        "./tpl/strings",
+        "./tpl/math"
+      ]
+    },
+    "downloadSeconds": 0.095592,
+    "variant": "baseline",
+    "cpus": 4,
+    "restoreSeconds": 17.1594599,
+    "version": "go version go1.26.7 windows/amd64",
+    "beforePostSeconds": 17.8048587,
+    "runId": "37319456778",
+    "cacheHit": "true",
+    "sample": 9,
+    "project": "hugo",
+    "imageVersion": "20260925.250.1",
+    "buildSeconds": 0.5172209
+  },
+  {
+    "runId": "37319456778",
+    "job": "measure",
+    "cacheHit": "true",
+    "inventory": {
+      "build": {
+        "files": 3849,
+        "bytes": 393664832
+      },
+      "modules": {
+        "files": 38485,
+        "bytes": 984712171
+      }
+    },
+    "sample": 1,
+    "phase": "warm",
+    "project": "hugo",
+    "variant": "split",
+    "version": "go version go1.26.7 windows/amd64",
+    "runnerOS": "Windows",
+    "runnerArch": "X64",
+    "source": {
+      "slug": "hugo",
+      "repository": "gohugoio/hugo",
+      "tag": "v0.159.0",
+      "sha": "2ed7d193cfdfcf11808fb2a921a9429423b0ebe9",
+      "requirements": 184,
+      "packages": [
+        "./common/...",
+        "./parser/...",
+        "./tpl/strings",
+        "./tpl/math"
+      ]
+    },
+    "beforePostSeconds": 14.5678595,
+    "restoreSeconds": 14.0523784,
+    "buildSeconds": 0.4161519,
+    "downloadSeconds": 0.0669653,
+    "workload": "build-v2",
+    "imageVersion": "20260925.250.1",
+    "cpus": 4
+  },
+  {
+    "source": {
+      "slug": "hugo",
+      "repository": "gohugoio/hugo",
+      "tag": "v0.159.0",
+      "sha": "2ed7d193cfdfcf11808fb2a921a9429423b0ebe9",
+      "requirements": 184,
+      "packages": [
+        "./common/...",
+        "./parser/...",
+        "./tpl/strings",
+        "./tpl/math"
+      ]
+    },
+    "downloadSeconds": 0.0632444,
+    "inventory": {
+      "modules": {
+        "files": 38485,
+        "bytes": 984712171
+      },
+      "build": {
+        "files": 3849,
+        "bytes": 393664832
+      }
+    },
+    "version": "go version go1.26.7 windows/amd64",
+    "sample": 10,
+    "imageVersion": "20260925.250.1",
+    "cacheHit": "true",
+    "workload": "build-v2",
+    "runnerOS": "Windows",
+    "phase": "warm",
+    "job": "measure",
+    "buildSeconds": 0.3596587,
+    "beforePostSeconds": 13.3730394,
+    "project": "hugo",
+    "runId": "37319456778",
+    "cpus": 4,
+    "restoreSeconds": 12.907327,
+    "runnerArch": "X64",
+    "variant": "split"
+  },
+  {
+    "cacheHit": "true",
+    "project": "hugo",
+    "sample": 2,
+    "source": {
+      "slug": "hugo",
+      "repository": "gohugoio/hugo",
+      "tag": "v0.159.0",
+      "sha": "2ed7d193cfdfcf11808fb2a921a9429423b0ebe9",
+      "requirements": 184,
+      "packages": [
+        "./common/...",
+        "./parser/...",
+        "./tpl/strings",
+        "./tpl/math"
+      ]
+    },
+    "restoreSeconds": 12.8763039,
+    "downloadSeconds": 0.0630072,
+    "version": "go version go1.26.7 windows/amd64",
+    "runnerArch": "X64",
+    "workload": "build-v2",
+    "buildSeconds": 0.3690788,
+    "variant": "split",
+    "cpus": 4,
+    "runnerOS": "Windows",
+    "phase": "warm",
+    "beforePostSeconds": 13.3384772,
+    "inventory": {
+      "modules": {
+        "files": 38485,
+        "bytes": 984712171
+      },
+      "build": {
+        "files": 3849,
+        "bytes": 393664832
+      }
+    },
+    "job": "measure",
+    "runId": "37319456778",
+    "imageVersion": "20260925.250.1"
+  },
+  {
+    "version": "go version go1.26.7 windows/amd64",
+    "runId": "37319456778",
+    "imageVersion": "20260925.250.1",
+    "cacheHit": "true",
+    "runnerOS": "Windows",
+    "runnerArch": "X64",
+    "beforePostSeconds": 12.6827575,
+    "job": "measure",
+    "downloadSeconds": 0.0685751,
+    "workload": "build-v2",
+    "project": "hugo",
+    "restoreSeconds": 12.2176254,
+    "inventory": {
+      "build": {
+        "files": 3849,
+        "bytes": 393664832
+      },
+      "modules": {
+        "files": 38485,
+        "bytes": 984712171
+      }
+    },
+    "buildSeconds": 0.3698769,
+    "phase": "warm",
+    "sample": 3,
+    "cpus": 4,
+    "source": {
+      "slug": "hugo",
+      "repository": "gohugoio/hugo",
+      "tag": "v0.159.0",
+      "sha": "2ed7d193cfdfcf11808fb2a921a9429423b0ebe9",
+      "requirements": 184,
+      "packages": [
+        "./common/...",
+        "./parser/...",
+        "./tpl/strings",
+        "./tpl/math"
+      ]
+    },
+    "variant": "split"
+  },
+  {
+    "restoreSeconds": 12.1250734,
+    "runnerOS": "Windows",
+    "variant": "split",
+    "imageVersion": "20260925.250.1",
+    "sample": 4,
+    "project": "hugo",
+    "downloadSeconds": 0.0614847,
+    "inventory": {
+      "modules": {
+        "bytes": 984712171,
+        "files": 38485
+      },
+      "build": {
+        "bytes": 393664832,
+        "files": 3849
+      }
+    },
+    "runnerArch": "X64",
+    "cpus": 4,
+    "job": "measure",
+    "beforePostSeconds": 12.6031125,
+    "source": {
+      "slug": "hugo",
+      "repository": "gohugoio/hugo",
+      "tag": "v0.159.0",
+      "sha": "2ed7d193cfdfcf11808fb2a921a9429423b0ebe9",
+      "requirements": 184,
+      "packages": [
+        "./common/...",
+        "./parser/...",
+        "./tpl/strings",
+        "./tpl/math"
+      ]
+    },
+    "cacheHit": "true",
+    "phase": "warm",
+    "buildSeconds": 0.3913025,
+    "workload": "build-v2",
+    "version": "go version go1.26.7 windows/amd64",
+    "runId": "37319456778"
+  },
+  {
+    "cacheHit": "true",
+    "downloadSeconds": 0.0618158,
+    "source": {
+      "slug": "hugo",
+      "repository": "gohugoio/hugo",
+      "tag": "v0.159.0",
+      "sha": "2ed7d193cfdfcf11808fb2a921a9429423b0ebe9",
+      "requirements": 184,
+      "packages": [
+        "./common/...",
+        "./parser/...",
+        "./tpl/strings",
+        "./tpl/math"
+      ]
+    },
+    "job": "measure",
+    "sample": 5,
+    "workload": "build-v2",
+    "runnerArch": "X64",
+    "restoreSeconds": 12.1688862,
+    "runId": "37319456778",
+    "cpus": 4,
+    "runnerOS": "Windows",
+    "variant": "split",
+    "project": "hugo",
+    "buildSeconds": 0.4183106,
+    "phase": "warm",
+    "beforePostSeconds": 12.6733989,
+    "version": "go version go1.26.7 windows/amd64",
+    "inventory": {
+      "modules": {
+        "bytes": 984712171,
+        "files": 38485
+      },
+      "build": {
+        "bytes": 393664832,
+        "files": 3849
+      }
+    },
+    "imageVersion": "20260925.250.1"
+  },
+  {
+    "project": "hugo",
+    "sample": 6,
+    "workload": "build-v2",
+    "phase": "warm",
+    "runnerArch": "X64",
+    "restoreSeconds": 13.1022903,
+    "buildSeconds": 0.3455133,
+    "imageVersion": "20260925.250.1",
+    "cpus": 4,
+    "variant": "split",
+    "downloadSeconds": 0.0636801,
+    "version": "go version go1.26.7 windows/amd64",
+    "inventory": {
+      "build": {
+        "files": 3849,
+        "bytes": 393664832
+      },
+      "modules": {
+        "files": 38485,
+        "bytes": 984712171
+      }
+    },
+    "job": "measure",
+    "runId": "37319456778",
+    "cacheHit": "true",
+    "runnerOS": "Windows",
+    "source": {
+      "slug": "hugo",
+      "repository": "gohugoio/hugo",
+      "tag": "v0.159.0",
+      "sha": "2ed7d193cfdfcf11808fb2a921a9429423b0ebe9",
+      "requirements": 184,
+      "packages": [
+        "./common/...",
+        "./parser/...",
+        "./tpl/strings",
+        "./tpl/math"
+      ]
+    },
+    "beforePostSeconds": 13.5363912
+  },
+  {
+    "variant": "split",
+    "restoreSeconds": 12.7149705,
+    "workload": "build-v2",
+    "downloadSeconds": 0.0652484,
+    "source": {
+      "slug": "hugo",
+      "repository": "gohugoio/hugo",
+      "tag": "v0.159.0",
+      "sha": "2ed7d193cfdfcf11808fb2a921a9429423b0ebe9",
+      "requirements": 184,
+      "packages": [
+        "./common/...",
+        "./parser/...",
+        "./tpl/strings",
+        "./tpl/math"
+      ]
+    },
+    "phase": "warm",
+    "beforePostSeconds": 13.1665725,
+    "runId": "37319456778",
+    "sample": 7,
+    "inventory": {
+      "build": {
+        "bytes": 393664832,
+        "files": 3849
+      },
+      "modules": {
+        "bytes": 984712171,
+        "files": 38485
+      }
+    },
+    "cacheHit": "true",
+    "runnerOS": "Windows",
+    "imageVersion": "20260925.250.1",
+    "cpus": 4,
+    "version": "go version go1.26.7 windows/amd64",
+    "job": "measure",
+    "project": "hugo",
+    "buildSeconds": 0.361134,
+    "runnerArch": "X64"
+  },
+  {
+    "variant": "split",
+    "job": "measure",
+    "cacheHit": "true",
+    "runnerArch": "X64",
+    "beforePostSeconds": 13.1461207,
+    "workload": "build-v2",
+    "downloadSeconds": 0.0719116,
+    "cpus": 4,
+    "runnerOS": "Windows",
+    "restoreSeconds": 12.6404035,
+    "inventory": {
+      "modules": {
+        "files": 38485,
+        "bytes": 984712171
+      },
+      "build": {
+        "files": 3849,
+        "bytes": 393664832
+      }
+    },
+    "version": "go version go1.26.7 windows/amd64",
+    "imageVersion": "20260925.250.1",
+    "sample": 8,
+    "buildSeconds": 0.3945754,
+    "source": {
+      "slug": "hugo",
+      "repository": "gohugoio/hugo",
+      "tag": "v0.159.0",
+      "sha": "2ed7d193cfdfcf11808fb2a921a9429423b0ebe9",
+      "requirements": 184,
+      "packages": [
+        "./common/...",
+        "./parser/...",
+        "./tpl/strings",
+        "./tpl/math"
+      ]
+    },
+    "project": "hugo",
+    "runId": "37319456778",
+    "phase": "warm"
+  },
+  {
+    "downloadSeconds": 0.0856517,
+    "phase": "warm",
+    "source": {
+      "slug": "hugo",
+      "repository": "gohugoio/hugo",
+      "tag": "v0.159.0",
+      "sha": "2ed7d193cfdfcf11808fb2a921a9429423b0ebe9",
+      "requirements": 184,
+      "packages": [
+        "./common/...",
+        "./parser/...",
+        "./tpl/strings",
+        "./tpl/math"
+      ]
+    },
+    "workload": "build-v2",
+    "runnerArch": "X64",
+    "project": "hugo",
+    "cpus": 4,
+    "job": "measure",
+    "buildSeconds": 0.4038136,
+    "cacheHit": "true",
+    "restoreSeconds": 12.5414979,
+    "version": "go version go1.26.7 windows/amd64",
+    "beforePostSeconds": 13.0810624,
+    "runId": "37319456778",
+    "imageVersion": "20260925.250.1",
+    "runnerOS": "Windows",
+    "inventory": {
+      "modules": {
+        "files": 38485,
+        "bytes": 984712171
+      },
+      "build": {
+        "files": 3849,
+        "bytes": 393664832
+      }
+    },
+    "sample": 9,
+    "variant": "split"
+  },
+  {
+    "buildSeconds": 0.5327105,
+    "version": "go version go1.26.7 windows/amd64",
+    "inventory": {
+      "build": {
+        "bytes": 257469650,
+        "files": 2730
+      },
+      "modules": {
+        "bytes": 2796434435,
+        "files": 147447
+      }
+    },
+    "runId": "37319456778",
+    "job": "measure",
+    "downloadSeconds": 0.402944,
+    "project": "prometheus",
+    "beforePostSeconds": 56.2053383,
+    "runnerArch": "X64",
+    "cacheHit": "true",
+    "sample": 1,
+    "workload": "build-v2",
+    "runnerOS": "Windows",
+    "source": {
+      "slug": "prometheus",
+      "repository": "prometheus/prometheus",
+      "tag": "v3.15.0",
+      "sha": "5241a27fe3c6983549fccc32f6e65917408c63cd",
+      "requirements": 251,
+      "packages": [
+        "./model/...",
+        "./promql/parser/...",
+        "./util/strutil/..."
+      ]
+    },
+    "variant": "baseline",
+    "cpus": 4,
+    "phase": "warm",
+    "imageVersion": "20260925.250.1",
+    "restoreSeconds": 55.2355688
+  },
+  {
+    "inventory": {
+      "build": {
+        "bytes": 257469650,
+        "files": 2730
+      },
+      "modules": {
+        "bytes": 2796434435,
+        "files": 147447
+      }
+    },
+    "downloadSeconds": 0.238844,
+    "restoreSeconds": 66.5111514,
+    "workload": "build-v2",
+    "runId": "37319456778",
+    "sample": 10,
+    "cacheHit": "true",
+    "beforePostSeconds": 67.2887106,
+    "variant": "baseline",
+    "version": "go version go1.26.7 windows/amd64",
+    "phase": "warm",
+    "buildSeconds": 0.4990001,
+    "cpus": 4,
+    "source": {
+      "slug": "prometheus",
+      "repository": "prometheus/prometheus",
+      "tag": "v3.15.0",
+      "sha": "5241a27fe3c6983549fccc32f6e65917408c63cd",
+      "requirements": 251,
+      "packages": [
+        "./model/...",
+        "./promql/parser/...",
+        "./util/strutil/..."
+      ]
+    },
+    "project": "prometheus",
+    "imageVersion": "20260925.250.1",
+    "runnerOS": "Windows",
+    "runnerArch": "X64",
+    "job": "measure"
+  },
+  {
+    "job": "measure",
+    "imageVersion": "20260925.250.1",
+    "downloadSeconds": 0.3303219,
+    "cacheHit": "true",
+    "version": "go version go1.26.7 windows/amd64",
+    "buildSeconds": 0.4678924,
+    "runnerArch": "X64",
+    "workload": "build-v2",
+    "variant": "baseline",
+    "source": {
+      "slug": "prometheus",
+      "repository": "prometheus/prometheus",
+      "tag": "v3.15.0",
+      "sha": "5241a27fe3c6983549fccc32f6e65917408c63cd",
+      "requirements": 251,
+      "packages": [
+        "./model/...",
+        "./promql/parser/...",
+        "./util/strutil/..."
+      ]
+    },
+    "sample": 2,
+    "restoreSeconds": 55.2727483,
+    "beforePostSeconds": 56.1305365,
+    "runId": "37319456778",
+    "inventory": {
+      "build": {
+        "files": 2730,
+        "bytes": 257469650
+      },
+      "modules": {
+        "files": 147447,
+        "bytes": 2796434435
+      }
+    },
+    "cpus": 4,
+    "runnerOS": "Windows",
+    "phase": "warm",
+    "project": "prometheus"
+  },
+  {
+    "beforePostSeconds": 55.9167721,
+    "downloadSeconds": 0.2140418,
+    "phase": "warm",
+    "variant": "baseline",
+    "runnerArch": "X64",
+    "job": "measure",
+    "project": "prometheus",
+    "restoreSeconds": 55.1302341,
+    "version": "go version go1.26.7 windows/amd64",
+    "workload": "build-v2",
+    "source": {
+      "slug": "prometheus",
+      "repository": "prometheus/prometheus",
+      "tag": "v3.15.0",
+      "sha": "5241a27fe3c6983549fccc32f6e65917408c63cd",
+      "requirements": 251,
+      "packages": [
+        "./model/...",
+        "./promql/parser/...",
+        "./util/strutil/..."
+      ]
+    },
+    "buildSeconds": 0.5383817,
+    "cacheHit": "true",
+    "cpus": 4,
+    "runId": "37319456778",
+    "imageVersion": "20260925.250.1",
+    "inventory": {
+      "modules": {
+        "files": 147447,
+        "bytes": 2796434435
+      },
+      "build": {
+        "files": 2730,
+        "bytes": 257469650
+      }
+    },
+    "sample": 3,
+    "runnerOS": "Windows"
+  },
+  {
+    "cacheHit": "true",
+    "workload": "build-v2",
+    "version": "go version go1.26.7 windows/amd64",
+    "job": "measure",
+    "imageVersion": "20260925.250.1",
+    "runnerOS": "Windows",
+    "variant": "baseline",
+    "beforePostSeconds": 57.1827257,
+    "source": {
+      "slug": "prometheus",
+      "repository": "prometheus/prometheus",
+      "tag": "v3.15.0",
+      "sha": "5241a27fe3c6983549fccc32f6e65917408c63cd",
+      "requirements": 251,
+      "packages": [
+        "./model/...",
+        "./promql/parser/...",
+        "./util/strutil/..."
+      ]
+    },
+    "runId": "37319456778",
+    "runnerArch": "X64",
+    "inventory": {
+      "build": {
+        "bytes": 257469650,
+        "files": 2730
+      },
+      "modules": {
+        "bytes": 2796434435,
+        "files": 147447
+      }
+    },
+    "cpus": 4,
+    "restoreSeconds": 56.4352006,
+    "project": "prometheus",
+    "buildSeconds": 0.4783038,
+    "phase": "warm",
+    "sample": 4,
+    "downloadSeconds": 0.2291057
+  },
+  {
+    "imageVersion": "20260925.250.1",
+    "runnerOS": "Windows",
+    "cacheHit": "true",
+    "cpus": 4,
+    "buildSeconds": 0.522612,
+    "source": {
+      "slug": "prometheus",
+      "repository": "prometheus/prometheus",
+      "tag": "v3.15.0",
+      "sha": "5241a27fe3c6983549fccc32f6e65917408c63cd",
+      "requirements": 251,
+      "packages": [
+        "./model/...",
+        "./promql/parser/...",
+        "./util/strutil/..."
+      ]
+    },
+    "variant": "baseline",
+    "workload": "build-v2",
+    "inventory": {
+      "build": {
+        "bytes": 257469650,
+        "files": 2730
+      },
+      "modules": {
+        "bytes": 2796434435,
+        "files": 147447
+      }
+    },
+    "version": "go version go1.26.7 windows/amd64",
+    "project": "prometheus",
+    "job": "measure",
+    "runnerArch": "X64",
+    "phase": "warm",
+    "downloadSeconds": 0.3087817,
+    "sample": 5,
+    "beforePostSeconds": 59.9127133,
+    "restoreSeconds": 59.0360854,
+    "runId": "37319456778"
+  },
+  {
+    "job": "measure",
+    "source": {
+      "slug": "prometheus",
+      "repository": "prometheus/prometheus",
+      "tag": "v3.15.0",
+      "sha": "5241a27fe3c6983549fccc32f6e65917408c63cd",
+      "requirements": 251,
+      "packages": [
+        "./model/...",
+        "./promql/parser/...",
+        "./util/strutil/..."
+      ]
+    },
+    "version": "go version go1.26.7 windows/amd64",
+    "project": "prometheus",
+    "runnerArch": "X64",
+    "inventory": {
+      "build": {
+        "bytes": 257469650,
+        "files": 2730
+      },
+      "modules": {
+        "bytes": 2796434435,
+        "files": 147447
+      }
+    },
+    "downloadSeconds": 0.2403147,
+    "sample": 6,
+    "beforePostSeconds": 59.939449,
+    "runnerOS": "Windows",
+    "variant": "baseline",
+    "phase": "warm",
+    "restoreSeconds": 59.0086842,
+    "cacheHit": "true",
+    "buildSeconds": 0.6521074,
+    "cpus": 4,
+    "workload": "build-v2",
+    "imageVersion": "20260925.250.1",
+    "runId": "37319456778"
+  },
+  {
+    "imageVersion": "20260925.250.1",
+    "beforePostSeconds": 58.420161,
+    "sample": 7,
+    "job": "measure",
+    "workload": "build-v2",
+    "buildSeconds": 0.4754341,
+    "runnerOS": "Windows",
+    "runnerArch": "X64",
+    "variant": "baseline",
+    "source": {
+      "slug": "prometheus",
+      "repository": "prometheus/prometheus",
+      "tag": "v3.15.0",
+      "sha": "5241a27fe3c6983549fccc32f6e65917408c63cd",
+      "requirements": 251,
+      "packages": [
+        "./model/...",
+        "./promql/parser/...",
+        "./util/strutil/..."
+      ]
+    },
+    "phase": "warm",
+    "cacheHit": "true",
+    "cpus": 4,
+    "project": "prometheus",
+    "inventory": {
+      "build": {
+        "bytes": 257469650,
+        "files": 2730
+      },
+      "modules": {
+        "bytes": 2796434435,
+        "files": 147447
+      }
+    },
+    "version": "go version go1.26.7 windows/amd64",
+    "runId": "37319456778",
+    "restoreSeconds": 57.6765891,
+    "downloadSeconds": 0.2272305
+  },
+  {
+    "runnerArch": "X64",
+    "downloadSeconds": 0.2737453,
+    "runId": "37319456778",
+    "restoreSeconds": 57.842466,
+    "variant": "baseline",
+    "imageVersion": "20260925.250.1",
+    "beforePostSeconds": 58.7168248,
+    "job": "measure",
+    "project": "prometheus",
+    "inventory": {
+      "build": {
+        "files": 2730,
+        "bytes": 257469650
+      },
+      "modules": {
+        "files": 147447,
+        "bytes": 2796434435
+      }
+    },
+    "phase": "warm",
+    "buildSeconds": 0.5602616,
+    "source": {
+      "slug": "prometheus",
+      "repository": "prometheus/prometheus",
+      "tag": "v3.15.0",
+      "sha": "5241a27fe3c6983549fccc32f6e65917408c63cd",
+      "requirements": 251,
+      "packages": [
+        "./model/...",
+        "./promql/parser/...",
+        "./util/strutil/..."
+      ]
+    },
+    "cpus": 4,
+    "workload": "build-v2",
+    "sample": 8,
+    "version": "go version go1.26.7 windows/amd64",
+    "cacheHit": "true",
+    "runnerOS": "Windows"
+  },
+  {
+    "cacheHit": "true",
+    "sample": 9,
+    "phase": "warm",
+    "job": "measure",
+    "cpus": 4,
+    "project": "prometheus",
+    "runnerArch": "X64",
+    "variant": "baseline",
+    "downloadSeconds": 0.354674,
+    "imageVersion": "20260925.250.1",
+    "restoreSeconds": 55.9113268,
+    "runId": "37319456778",
+    "version": "go version go1.26.7 windows/amd64",
+    "beforePostSeconds": 56.9468286,
+    "inventory": {
+      "modules": {
+        "files": 147447,
+        "bytes": 2796434435
+      },
+      "build": {
+        "files": 2730,
+        "bytes": 257469650
+      }
+    },
+    "buildSeconds": 0.6217629,
+    "workload": "build-v2",
+    "source": {
+      "slug": "prometheus",
+      "repository": "prometheus/prometheus",
+      "tag": "v3.15.0",
+      "sha": "5241a27fe3c6983549fccc32f6e65917408c63cd",
+      "requirements": 251,
+      "packages": [
+        "./model/...",
+        "./promql/parser/...",
+        "./util/strutil/..."
+      ]
+    },
+    "runnerOS": "Windows"
+  },
+  {
+    "runnerArch": "X64",
+    "sample": 1,
+    "runnerOS": "Windows",
+    "cacheHit": "true",
+    "version": "go version go1.26.7 windows/amd64",
+    "beforePostSeconds": 64.3314288,
+    "inventory": {
+      "modules": {
+        "bytes": 2796379363,
+        "files": 147440
+      },
+      "build": {
+        "bytes": 257469650,
+        "files": 2730
+      }
+    },
+    "project": "prometheus",
+    "runId": "37319456778",
+    "variant": "split",
+    "job": "measure",
+    "workload": "build-v2",
+    "imageVersion": "20260925.250.1",
+    "phase": "warm",
+    "buildSeconds": 0.6248571,
+    "source": {
+      "slug": "prometheus",
+      "repository": "prometheus/prometheus",
+      "tag": "v3.15.0",
+      "sha": "5241a27fe3c6983549fccc32f6e65917408c63cd",
+      "requirements": 251,
+      "packages": [
+        "./model/...",
+        "./promql/parser/...",
+        "./util/strutil/..."
+      ]
+    },
+    "restoreSeconds": 63.1825593,
+    "downloadSeconds": 0.4791794,
+    "cpus": 4
+  },
+  {
+    "runId": "37319456778",
+    "buildSeconds": 0.6737721,
+    "variant": "split",
+    "workload": "build-v2",
+    "inventory": {
+      "modules": {
+        "files": 147440,
+        "bytes": 2796379363
+      },
+      "build": {
+        "files": 2730,
+        "bytes": 257469650
+      }
+    },
+    "sample": 10,
+    "phase": "warm",
+    "runnerArch": "X64",
+    "restoreSeconds": 64.2133417,
+    "project": "prometheus",
+    "job": "measure",
+    "beforePostSeconds": 65.3102883,
+    "version": "go version go1.26.7 windows/amd64",
+    "cpus": 4,
+    "source": {
+      "slug": "prometheus",
+      "repository": "prometheus/prometheus",
+      "tag": "v3.15.0",
+      "sha": "5241a27fe3c6983549fccc32f6e65917408c63cd",
+      "requirements": 251,
+      "packages": [
+        "./model/...",
+        "./promql/parser/...",
+        "./util/strutil/..."
+      ]
+    },
+    "imageVersion": "20260925.250.1",
+    "cacheHit": "true",
+    "downloadSeconds": 0.385746,
+    "runnerOS": "Windows"
+  },
+  {
+    "cacheHit": "true",
+    "variant": "split",
+    "imageVersion": "20260925.250.1",
+    "cpus": 4,
+    "buildSeconds": 0.5859221,
+    "runId": "37319456778",
+    "project": "prometheus",
+    "job": "measure",
+    "version": "go version go1.26.7 windows/amd64",
+    "downloadSeconds": 0.2427928,
+    "beforePostSeconds": 64.6832958,
+    "inventory": {
+      "build": {
+        "bytes": 257469650,
+        "files": 2730
+      },
+      "modules": {
+        "bytes": 2796379363,
+        "files": 147440
+      }
+    },
+    "runnerOS": "Windows",
+    "workload": "build-v2",
+    "phase": "warm",
+    "source": {
+      "slug": "prometheus",
+      "repository": "prometheus/prometheus",
+      "tag": "v3.15.0",
+      "sha": "5241a27fe3c6983549fccc32f6e65917408c63cd",
+      "requirements": 251,
+      "packages": [
+        "./model/...",
+        "./promql/parser/...",
+        "./util/strutil/..."
+      ]
+    },
+    "restoreSeconds": 63.8194628,
+    "sample": 2,
+    "runnerArch": "X64"
+  },
+  {
+    "beforePostSeconds": 62.1897761,
+    "runnerArch": "X64",
+    "downloadSeconds": 0.2504774,
+    "job": "measure",
+    "phase": "warm",
+    "variant": "split",
+    "runId": "37319456778",
+    "buildSeconds": 0.8093329,
+    "version": "go version go1.26.7 windows/amd64",
+    "workload": "build-v2",
+    "imageVersion": "20260925.250.1",
+    "cacheHit": "true",
+    "sample": 3,
+    "project": "prometheus",
+    "cpus": 4,
+    "restoreSeconds": 61.0944833,
+    "runnerOS": "Windows",
+    "source": {
+      "slug": "prometheus",
+      "repository": "prometheus/prometheus",
+      "tag": "v3.15.0",
+      "sha": "5241a27fe3c6983549fccc32f6e65917408c63cd",
+      "requirements": 251,
+      "packages": [
+        "./model/...",
+        "./promql/parser/...",
+        "./util/strutil/..."
+      ]
+    },
+    "inventory": {
+      "modules": {
+        "bytes": 2796379363,
+        "files": 147440
+      },
+      "build": {
+        "bytes": 257469650,
+        "files": 2730
+      }
+    }
+  },
+  {
+    "downloadSeconds": 0.2516984,
+    "cpus": 4,
+    "runnerArch": "X64",
+    "project": "prometheus",
+    "runId": "37319456778",
+    "cacheHit": "true",
+    "variant": "split",
+    "runnerOS": "Windows",
+    "job": "measure",
+    "restoreSeconds": 60.2040393,
+    "buildSeconds": 0.5272344,
+    "workload": "build-v2",
+    "phase": "warm",
+    "version": "go version go1.26.7 windows/amd64",
+    "sample": 4,
+    "beforePostSeconds": 61.0217143,
+    "imageVersion": "20260925.250.1",
+    "inventory": {
+      "modules": {
+        "files": 147440,
+        "bytes": 2796379363
+      },
+      "build": {
+        "files": 2730,
+        "bytes": 257469650
+      }
+    },
+    "source": {
+      "slug": "prometheus",
+      "repository": "prometheus/prometheus",
+      "tag": "v3.15.0",
+      "sha": "5241a27fe3c6983549fccc32f6e65917408c63cd",
+      "requirements": 251,
+      "packages": [
+        "./model/...",
+        "./promql/parser/...",
+        "./util/strutil/..."
+      ]
+    }
+  },
+  {
+    "cacheHit": "true",
+    "version": "go version go1.26.7 windows/amd64",
+    "project": "prometheus",
+    "sample": 5,
+    "restoreSeconds": 65.224098,
+    "runId": "37319456778",
+    "variant": "split",
+    "inventory": {
+      "modules": {
+        "files": 147440,
+        "bytes": 2796379363
+      },
+      "build": {
+        "files": 2730,
+        "bytes": 257469650
+      }
+    },
+    "imageVersion": "20260925.250.1",
+    "workload": "build-v2",
+    "source": {
+      "slug": "prometheus",
+      "repository": "prometheus/prometheus",
+      "tag": "v3.15.0",
+      "sha": "5241a27fe3c6983549fccc32f6e65917408c63cd",
+      "requirements": 251,
+      "packages": [
+        "./model/...",
+        "./promql/parser/...",
+        "./util/strutil/..."
+      ]
+    },
+    "beforePostSeconds": 66.270271,
+    "buildSeconds": 0.5304904,
+    "downloadSeconds": 0.4381447,
+    "phase": "warm",
+    "runnerArch": "X64",
+    "runnerOS": "Windows",
+    "cpus": 4,
+    "job": "measure"
+  },
+  {
+    "inventory": {
+      "build": {
+        "bytes": 257469650,
+        "files": 2730
+      },
+      "modules": {
+        "bytes": 2796379363,
+        "files": 147440
+      }
+    },
+    "version": "go version go1.26.7 windows/amd64",
+    "runnerOS": "Windows",
+    "variant": "split",
+    "workload": "build-v2",
+    "cacheHit": "true",
+    "buildSeconds": 0.7402693,
+    "runId": "37319456778",
+    "imageVersion": "20260925.250.1",
+    "runnerArch": "X64",
+    "beforePostSeconds": 62.6803756,
+    "restoreSeconds": 61.5975649,
+    "source": {
+      "slug": "prometheus",
+      "repository": "prometheus/prometheus",
+      "tag": "v3.15.0",
+      "sha": "5241a27fe3c6983549fccc32f6e65917408c63cd",
+      "requirements": 251,
+      "packages": [
+        "./model/...",
+        "./promql/parser/...",
+        "./util/strutil/..."
+      ]
+    },
+    "job": "measure",
+    "phase": "warm",
+    "project": "prometheus",
+    "downloadSeconds": 0.3061323,
+    "cpus": 4,
+    "sample": 6
+  },
+  {
+    "runnerArch": "X64",
+    "buildSeconds": 0.5433637,
+    "cacheHit": "true",
+    "sample": 7,
+    "version": "go version go1.26.7 windows/amd64",
+    "project": "prometheus",
+    "runnerOS": "Windows",
+    "phase": "warm",
+    "job": "measure",
+    "runId": "37319456778",
+    "source": {
+      "slug": "prometheus",
+      "repository": "prometheus/prometheus",
+      "tag": "v3.15.0",
+      "sha": "5241a27fe3c6983549fccc32f6e65917408c63cd",
+      "requirements": 251,
+      "packages": [
+        "./model/...",
+        "./promql/parser/...",
+        "./util/strutil/..."
+      ]
+    },
+    "imageVersion": "20260925.250.1",
+    "inventory": {
+      "build": {
+        "bytes": 257469650,
+        "files": 2730
+      },
+      "modules": {
+        "bytes": 2796379363,
+        "files": 147440
+      }
+    },
+    "variant": "split",
+    "cpus": 4,
+    "beforePostSeconds": 62.2820974,
+    "restoreSeconds": 61.4319899,
+    "downloadSeconds": 0.2700988,
+    "workload": "build-v2"
+  },
+  {
+    "downloadSeconds": 0.257573,
+    "beforePostSeconds": 63.2883446,
+    "cacheHit": "true",
+    "job": "measure",
+    "phase": "warm",
+    "imageVersion": "20260925.250.1",
+    "runnerArch": "X64",
+    "runnerOS": "Windows",
+    "variant": "split",
+    "cpus": 4,
+    "sample": 8,
+    "restoreSeconds": 62.437549,
+    "runId": "37319456778",
+    "inventory": {
+      "modules": {
+        "bytes": 2796379363,
+        "files": 147440
+      },
+      "build": {
+        "bytes": 257469650,
+        "files": 2730
+      }
+    },
+    "buildSeconds": 0.5577425,
+    "source": {
+      "slug": "prometheus",
+      "repository": "prometheus/prometheus",
+      "tag": "v3.15.0",
+      "sha": "5241a27fe3c6983549fccc32f6e65917408c63cd",
+      "requirements": 251,
+      "packages": [
+        "./model/...",
+        "./promql/parser/...",
+        "./util/strutil/..."
+      ]
+    },
+    "project": "prometheus",
+    "workload": "build-v2",
+    "version": "go version go1.26.7 windows/amd64"
+  },
+  {
+    "project": "prometheus",
+    "phase": "warm",
+    "restoreSeconds": 60.8492518,
+    "runnerArch": "X64",
+    "cacheHit": "true",
+    "job": "measure",
+    "sample": 9,
+    "imageVersion": "20260925.250.1",
+    "buildSeconds": 0.6288314,
+    "workload": "build-v2",
+    "runnerOS": "Windows",
+    "inventory": {
+      "modules": {
+        "files": 147440,
+        "bytes": 2796379363
+      },
+      "build": {
+        "files": 2730,
+        "bytes": 257469650
+      }
+    },
+    "runId": "37319456778",
+    "source": {
+      "slug": "prometheus",
+      "repository": "prometheus/prometheus",
+      "tag": "v3.15.0",
+      "sha": "5241a27fe3c6983549fccc32f6e65917408c63cd",
+      "requirements": 251,
+      "packages": [
+        "./model/...",
+        "./promql/parser/...",
+        "./util/strutil/..."
+      ]
+    },
+    "beforePostSeconds": 61.7916641,
+    "variant": "split",
+    "cpus": 4,
+    "downloadSeconds": 0.2776203,
+    "version": "go version go1.26.7 windows/amd64"
+  },
+  {
+    "inventory": {
+      "build": {
+        "bytes": 123603027,
+        "files": 1648
+      },
+      "modules": {
+        "bytes": 68856951,
+        "files": 1889
+      }
+    },
+    "beforePostSeconds": 5.8781749,
+    "runId": "37319456778",
+    "job": "measure",
+    "cpus": 4,
+    "project": "viper",
+    "buildSeconds": 0.3249938,
+    "sample": 1,
+    "cacheHit": "true",
+    "runnerOS": "Windows",
+    "restoreSeconds": 5.4803828,
+    "version": "go version go1.26.7 windows/amd64",
+    "downloadSeconds": 0.0341174,
+    "imageVersion": "20260925.250.1",
+    "phase": "warm",
+    "variant": "baseline",
+    "runnerArch": "X64",
+    "workload": "build-v2",
+    "source": {
+      "slug": "viper",
+      "repository": "spf13/viper",
+      "tag": "v1.21.0",
+      "sha": "394040caccbdf5821fa6839386a35f0fb1b1ee9e",
+      "requirements": 17,
+      "packages": [
+        "./..."
+      ]
+    }
+  },
+  {
+    "buildSeconds": 0.3059906,
+    "version": "go version go1.26.7 windows/amd64",
+    "runId": "37319456778",
+    "job": "measure",
+    "project": "viper",
+    "beforePostSeconds": 5.2620369,
+    "cacheHit": "true",
+    "sample": 10,
+    "runnerOS": "Windows",
+    "variant": "baseline",
+    "inventory": {
+      "build": {
+        "files": 1648,
+        "bytes": 123603027
+      },
+      "modules": {
+        "files": 1889,
+        "bytes": 68856951
+      }
+    },
+    "downloadSeconds": 0.0340864,
+    "source": {
+      "slug": "viper",
+      "repository": "spf13/viper",
+      "tag": "v1.21.0",
+      "sha": "394040caccbdf5821fa6839386a35f0fb1b1ee9e",
+      "requirements": 17,
+      "packages": [
+        "./..."
+      ]
+    },
+    "runnerArch": "X64",
+    "cpus": 4,
+    "restoreSeconds": 4.8878698,
+    "phase": "warm",
+    "imageVersion": "20260925.250.1",
+    "workload": "build-v2"
+  },
+  {
+    "variant": "baseline",
+    "runId": "37319456778",
+    "restoreSeconds": 4.210594,
+    "job": "measure",
+    "cacheHit": "true",
+    "runnerArch": "X64",
+    "source": {
+      "slug": "viper",
+      "repository": "spf13/viper",
+      "tag": "v1.21.0",
+      "sha": "394040caccbdf5821fa6839386a35f0fb1b1ee9e",
+      "requirements": 17,
+      "packages": [
+        "./..."
+      ]
+    },
+    "beforePostSeconds": 4.5809875,
+    "project": "viper",
+    "cpus": 4,
+    "runnerOS": "Windows",
+    "workload": "build-v2",
+    "buildSeconds": 0.2969286,
+    "version": "go version go1.26.7 windows/amd64",
+    "phase": "warm",
+    "downloadSeconds": 0.03298,
+    "inventory": {
+      "modules": {
+        "bytes": 68856951,
+        "files": 1889
+      },
+      "build": {
+        "bytes": 123603027,
+        "files": 1648
+      }
+    },
+    "sample": 2,
+    "imageVersion": "20260925.250.1"
+  },
+  {
+    "sample": 3,
+    "cpus": 4,
+    "buildSeconds": 0.3000634,
+    "runId": "37319456778",
+    "phase": "warm",
+    "variant": "baseline",
+    "source": {
+      "slug": "viper",
+      "repository": "spf13/viper",
+      "tag": "v1.21.0",
+      "sha": "394040caccbdf5821fa6839386a35f0fb1b1ee9e",
+      "requirements": 17,
+      "packages": [
+        "./..."
+      ]
+    },
+    "beforePostSeconds": 5.5481697,
+    "workload": "build-v2",
+    "inventory": {
+      "build": {
+        "files": 1648,
+        "bytes": 123603027
+      },
+      "modules": {
+        "files": 1889,
+        "bytes": 68856951
+      }
+    },
+    "job": "measure",
+    "runnerArch": "X64",
+    "version": "go version go1.26.7 windows/amd64",
+    "imageVersion": "20260925.250.1",
+    "downloadSeconds": 0.0410798,
+    "runnerOS": "Windows",
+    "project": "viper",
+    "cacheHit": "true",
+    "restoreSeconds": 5.1713905
+  },
+  {
+    "sample": 4,
+    "runnerArch": "X64",
+    "runId": "37319456778",
+    "buildSeconds": 0.2981503,
+    "version": "go version go1.26.7 windows/amd64",
+    "cpus": 4,
+    "runnerOS": "Windows",
+    "imageVersion": "20260925.250.1",
+    "restoreSeconds": 5.3217354,
+    "cacheHit": "true",
+    "variant": "baseline",
+    "workload": "build-v2",
+    "phase": "warm",
+    "source": {
+      "slug": "viper",
+      "repository": "spf13/viper",
+      "tag": "v1.21.0",
+      "sha": "394040caccbdf5821fa6839386a35f0fb1b1ee9e",
+      "requirements": 17,
+      "packages": [
+        "./..."
+      ]
+    },
+    "beforePostSeconds": 5.6878156,
+    "project": "viper",
+    "inventory": {
+      "modules": {
+        "files": 1889,
+        "bytes": 68856951
+      },
+      "build": {
+        "files": 1648,
+        "bytes": 123603027
+      }
+    },
+    "job": "measure",
+    "downloadSeconds": 0.0333764
+  },
+  {
+    "version": "go version go1.26.7 windows/amd64",
+    "buildSeconds": 0.3117586,
+    "cacheHit": "true",
+    "job": "measure",
+    "runId": "37319456778",
+    "variant": "baseline",
+    "cpus": 4,
+    "beforePostSeconds": 5.5426433,
+    "runnerArch": "X64",
+    "inventory": {
+      "build": {
+        "files": 1648,
+        "bytes": 123603027
+      },
+      "modules": {
+        "files": 1889,
+        "bytes": 68856951
+      }
+    },
+    "source": {
+      "slug": "viper",
+      "repository": "spf13/viper",
+      "tag": "v1.21.0",
+      "sha": "394040caccbdf5821fa6839386a35f0fb1b1ee9e",
+      "requirements": 17,
+      "packages": [
+        "./..."
+      ]
+    },
+    "downloadSeconds": 0.0342809,
+    "restoreSeconds": 5.1617602,
+    "imageVersion": "20260925.250.1",
+    "runnerOS": "Windows",
+    "phase": "warm",
+    "sample": 5,
+    "workload": "build-v2",
+    "project": "viper"
+  },
+  {
+    "runnerArch": "X64",
+    "downloadSeconds": 0.0329149,
+    "sample": 6,
+    "runId": "37319456778",
+    "job": "measure",
+    "restoreSeconds": 4.9957977,
+    "source": {
+      "slug": "viper",
+      "repository": "spf13/viper",
+      "tag": "v1.21.0",
+      "sha": "394040caccbdf5821fa6839386a35f0fb1b1ee9e",
+      "requirements": 17,
+      "packages": [
+        "./..."
+      ]
+    },
+    "beforePostSeconds": 5.3781619,
+    "project": "viper",
+    "cpus": 4,
+    "workload": "build-v2",
+    "cacheHit": "true",
+    "inventory": {
+      "build": {
+        "bytes": 123603027,
+        "files": 1648
+      },
+      "modules": {
+        "bytes": 68856951,
+        "files": 1889
+      }
+    },
+    "version": "go version go1.26.7 windows/amd64",
+    "runnerOS": "Windows",
+    "phase": "warm",
+    "buildSeconds": 0.3153823,
+    "imageVersion": "20260925.250.1",
+    "variant": "baseline"
+  },
+  {
+    "job": "measure",
+    "imageVersion": "20260925.250.1",
+    "restoreSeconds": 4.9291018,
+    "phase": "warm",
+    "inventory": {
+      "build": {
+        "bytes": 123603027,
+        "files": 1648
+      },
+      "modules": {
+        "bytes": 68856951,
+        "files": 1889
+      }
+    },
+    "source": {
+      "slug": "viper",
+      "repository": "spf13/viper",
+      "tag": "v1.21.0",
+      "sha": "394040caccbdf5821fa6839386a35f0fb1b1ee9e",
+      "requirements": 17,
+      "packages": [
+        "./..."
+      ]
+    },
+    "downloadSeconds": 0.0338095,
+    "runId": "37319456778",
+    "runnerArch": "X64",
+    "runnerOS": "Windows",
+    "cacheHit": "true",
+    "project": "viper",
+    "buildSeconds": 0.3281477,
+    "version": "go version go1.26.7 windows/amd64",
+    "variant": "baseline",
+    "cpus": 4,
+    "sample": 7,
+    "beforePostSeconds": 5.3257716,
+    "workload": "build-v2"
+  },
+  {
+    "sample": 8,
+    "cacheHit": "true",
+    "runnerArch": "X64",
+    "buildSeconds": 0.3023211,
+    "imageVersion": "20260925.250.1",
+    "downloadSeconds": 0.0349105,
+    "beforePostSeconds": 5.3431173,
+    "runnerOS": "Windows",
+    "cpus": 4,
+    "inventory": {
+      "build": {
+        "files": 1648,
+        "bytes": 123603027
+      },
+      "modules": {
+        "files": 1889,
+        "bytes": 68856951
+      }
+    },
+    "variant": "baseline",
+    "version": "go version go1.26.7 windows/amd64",
+    "project": "viper",
+    "phase": "warm",
+    "source": {
+      "slug": "viper",
+      "repository": "spf13/viper",
+      "tag": "v1.21.0",
+      "sha": "394040caccbdf5821fa6839386a35f0fb1b1ee9e",
+      "requirements": 17,
+      "packages": [
+        "./..."
+      ]
+    },
+    "restoreSeconds": 4.9714656,
+    "job": "measure",
+    "runId": "37319456778",
+    "workload": "build-v2"
+  },
+  {
+    "cpus": 4,
+    "job": "measure",
+    "cacheHit": "true",
+    "runnerArch": "X64",
+    "source": {
+      "slug": "viper",
+      "repository": "spf13/viper",
+      "tag": "v1.21.0",
+      "sha": "394040caccbdf5821fa6839386a35f0fb1b1ee9e",
+      "requirements": 17,
+      "packages": [
+        "./..."
+      ]
+    },
+    "sample": 9,
+    "variant": "baseline",
+    "project": "viper",
+    "inventory": {
+      "build": {
+        "files": 1648,
+        "bytes": 123603027
+      },
+      "modules": {
+        "files": 1889,
+        "bytes": 68856951
+      }
+    },
+    "workload": "build-v2",
+    "downloadSeconds": 0.033734,
+    "version": "go version go1.26.7 windows/amd64",
+    "runnerOS": "Windows",
+    "beforePostSeconds": 5.2586203,
+    "restoreSeconds": 4.8870882,
+    "imageVersion": "20260925.250.1",
+    "phase": "warm",
+    "buildSeconds": 0.3040115,
+    "runId": "37319456778"
+  },
+  {
+    "job": "measure",
+    "buildSeconds": 0.4886009,
+    "downloadSeconds": 0.0397809,
+    "runnerArch": "X64",
+    "restoreSeconds": 3.6943122,
+    "runId": "37319456778",
+    "source": {
+      "slug": "viper",
+      "repository": "spf13/viper",
+      "tag": "v1.21.0",
+      "sha": "394040caccbdf5821fa6839386a35f0fb1b1ee9e",
+      "requirements": 17,
+      "packages": [
+        "./..."
+      ]
+    },
+    "runnerOS": "Windows",
+    "cacheHit": "true",
+    "version": "go version go1.26.7 windows/amd64",
+    "variant": "split",
+    "project": "viper",
+    "phase": "warm",
+    "inventory": {
+      "build": {
+        "bytes": 123603027,
+        "files": 1648
+      },
+      "modules": {
+        "bytes": 68856951,
+        "files": 1889
+      }
+    },
+    "workload": "build-v2",
+    "imageVersion": "20260925.250.1",
+    "cpus": 4,
+    "sample": 1,
+    "beforePostSeconds": 4.2676139
+  },
+  {
+    "version": "go version go1.26.7 windows/amd64",
+    "job": "measure",
+    "workload": "build-v2",
+    "source": {
+      "slug": "viper",
+      "repository": "spf13/viper",
+      "tag": "v1.21.0",
+      "sha": "394040caccbdf5821fa6839386a35f0fb1b1ee9e",
+      "requirements": 17,
+      "packages": [
+        "./..."
+      ]
+    },
+    "runId": "37319456778",
+    "variant": "split",
+    "runnerArch": "X64",
+    "inventory": {
+      "modules": {
+        "bytes": 68856951,
+        "files": 1889
+      },
+      "build": {
+        "bytes": 123603027,
+        "files": 1648
+      }
+    },
+    "project": "viper",
+    "restoreSeconds": 4.1728836,
+    "cpus": 4,
+    "sample": 10,
+    "cacheHit": "true",
+    "phase": "warm",
+    "downloadSeconds": 0.0372471,
+    "imageVersion": "20260925.250.1",
+    "runnerOS": "Windows",
+    "beforePostSeconds": 4.60629,
+    "buildSeconds": 0.3588774
+  },
+  {
+    "version": "go version go1.26.7 windows/amd64",
+    "buildSeconds": 0.4199097,
+    "job": "measure",
+    "runId": "37319456778",
+    "runnerOS": "Windows",
+    "phase": "warm",
+    "workload": "build-v2",
+    "variant": "split",
+    "cacheHit": "true",
+    "imageVersion": "20260925.250.1",
+    "beforePostSeconds": 4.6336421,
+    "restoreSeconds": 4.1376538,
+    "project": "viper",
+    "downloadSeconds": 0.0379927,
+    "runnerArch": "X64",
+    "source": {
+      "slug": "viper",
+      "repository": "spf13/viper",
+      "tag": "v1.21.0",
+      "sha": "394040caccbdf5821fa6839386a35f0fb1b1ee9e",
+      "requirements": 17,
+      "packages": [
+        "./..."
+      ]
+    },
+    "sample": 2,
+    "cpus": 4,
+    "inventory": {
+      "build": {
+        "files": 1648,
+        "bytes": 123603027
+      },
+      "modules": {
+        "files": 1889,
+        "bytes": 68856951
+      }
+    }
+  },
+  {
+    "inventory": {
+      "modules": {
+        "files": 1889,
+        "bytes": 68856951
+      },
+      "build": {
+        "files": 1648,
+        "bytes": 123603027
+      }
+    },
+    "imageVersion": "20260925.250.1",
+    "version": "go version go1.26.7 windows/amd64",
+    "runId": "37319456778",
+    "buildSeconds": 0.4005218,
+    "project": "viper",
+    "downloadSeconds": 0.0390965,
+    "runnerArch": "X64",
+    "workload": "build-v2",
+    "job": "measure",
+    "cpus": 4,
+    "restoreSeconds": 3.4716853,
+    "cacheHit": "true",
+    "sample": 3,
+    "runnerOS": "Windows",
+    "phase": "warm",
+    "source": {
+      "slug": "viper",
+      "repository": "spf13/viper",
+      "tag": "v1.21.0",
+      "sha": "394040caccbdf5821fa6839386a35f0fb1b1ee9e",
+      "requirements": 17,
+      "packages": [
+        "./..."
+      ]
+    },
+    "variant": "split",
+    "beforePostSeconds": 3.9498846
+  },
+  {
+    "runId": "37319456778",
+    "sample": 4,
+    "downloadSeconds": 0.0377112,
+    "job": "measure",
+    "buildSeconds": 0.353702,
+    "phase": "warm",
+    "source": {
+      "slug": "viper",
+      "repository": "spf13/viper",
+      "tag": "v1.21.0",
+      "sha": "394040caccbdf5821fa6839386a35f0fb1b1ee9e",
+      "requirements": 17,
+      "packages": [
+        "./..."
+      ]
+    },
+    "beforePostSeconds": 4.0925073,
+    "variant": "split",
+    "cacheHit": "true",
+    "project": "viper",
+    "runnerArch": "X64",
+    "restoreSeconds": 3.6634734,
+    "imageVersion": "20260925.250.1",
+    "runnerOS": "Windows",
+    "cpus": 4,
+    "version": "go version go1.26.7 windows/amd64",
+    "inventory": {
+      "build": {
+        "bytes": 123603027,
+        "files": 1648
+      },
+      "modules": {
+        "bytes": 68856951,
+        "files": 1889
+      }
+    },
+    "workload": "build-v2"
+  },
+  {
+    "runnerOS": "Windows",
+    "job": "measure",
+    "runId": "37319456778",
+    "inventory": {
+      "build": {
+        "bytes": 123603027,
+        "files": 1648
+      },
+      "modules": {
+        "bytes": 68856951,
+        "files": 1889
+      }
+    },
+    "cacheHit": "true",
+    "phase": "warm",
+    "source": {
+      "slug": "viper",
+      "repository": "spf13/viper",
+      "tag": "v1.21.0",
+      "sha": "394040caccbdf5821fa6839386a35f0fb1b1ee9e",
+      "requirements": 17,
+      "packages": [
+        "./..."
+      ]
+    },
+    "variant": "split",
+    "beforePostSeconds": 4.3721881,
+    "buildSeconds": 0.3548637,
+    "project": "viper",
+    "imageVersion": "20260925.250.1",
+    "version": "go version go1.26.7 windows/amd64",
+    "downloadSeconds": 0.0393688,
+    "sample": 5,
+    "workload": "build-v2",
+    "cpus": 4,
+    "restoreSeconds": 3.9403827,
+    "runnerArch": "X64"
+  },
+  {
+    "runId": "37319456778",
+    "restoreSeconds": 4.2187003,
+    "workload": "build-v2",
+    "source": {
+      "slug": "viper",
+      "repository": "spf13/viper",
+      "tag": "v1.21.0",
+      "sha": "394040caccbdf5821fa6839386a35f0fb1b1ee9e",
+      "requirements": 17,
+      "packages": [
+        "./..."
+      ]
+    },
+    "downloadSeconds": 0.0379555,
+    "beforePostSeconds": 4.6560543,
+    "sample": 6,
+    "cpus": 4,
+    "buildSeconds": 0.3609821,
+    "version": "go version go1.26.7 windows/amd64",
+    "imageVersion": "20260925.250.1",
+    "runnerArch": "X64",
+    "inventory": {
+      "modules": {
+        "bytes": 68856951,
+        "files": 1889
+      },
+      "build": {
+        "bytes": 123603027,
+        "files": 1648
+      }
+    },
+    "job": "measure",
+    "runnerOS": "Windows",
+    "project": "viper",
+    "phase": "warm",
+    "cacheHit": "true",
+    "variant": "split"
+  },
+  {
+    "beforePostSeconds": 3.9481361,
+    "runnerOS": "Windows",
+    "workload": "build-v2",
+    "phase": "warm",
+    "downloadSeconds": 0.0392333,
+    "job": "measure",
+    "version": "go version go1.26.7 windows/amd64",
+    "variant": "split",
+    "cpus": 4,
+    "buildSeconds": 0.3553904,
+    "runId": "37319456778",
+    "restoreSeconds": 3.514952,
+    "runnerArch": "X64",
+    "project": "viper",
+    "imageVersion": "20260925.250.1",
+    "inventory": {
+      "modules": {
+        "bytes": 68856951,
+        "files": 1889
+      },
+      "build": {
+        "bytes": 123603027,
+        "files": 1648
+      }
+    },
+    "cacheHit": "true",
+    "sample": 7,
+    "source": {
+      "slug": "viper",
+      "repository": "spf13/viper",
+      "tag": "v1.21.0",
+      "sha": "394040caccbdf5821fa6839386a35f0fb1b1ee9e",
+      "requirements": 17,
+      "packages": [
+        "./..."
+      ]
+    }
+  },
+  {
+    "project": "viper",
+    "runId": "37319456778",
+    "variant": "split",
+    "job": "measure",
+    "restoreSeconds": 3.7404672,
+    "version": "go version go1.26.7 windows/amd64",
+    "downloadSeconds": 0.0368399,
+    "runnerArch": "X64",
+    "cpus": 4,
+    "beforePostSeconds": 4.1877978,
+    "buildSeconds": 0.3727819,
+    "inventory": {
+      "build": {
+        "files": 1648,
+        "bytes": 123603027
+      },
+      "modules": {
+        "files": 1889,
+        "bytes": 68856951
+      }
+    },
+    "imageVersion": "20260925.250.1",
+    "sample": 8,
+    "phase": "warm",
+    "runnerOS": "Windows",
+    "cacheHit": "true",
+    "workload": "build-v2",
+    "source": {
+      "slug": "viper",
+      "repository": "spf13/viper",
+      "tag": "v1.21.0",
+      "sha": "394040caccbdf5821fa6839386a35f0fb1b1ee9e",
+      "requirements": 17,
+      "packages": [
+        "./..."
+      ]
+    }
+  },
+  {
+    "source": {
+      "slug": "viper",
+      "repository": "spf13/viper",
+      "tag": "v1.21.0",
+      "sha": "394040caccbdf5821fa6839386a35f0fb1b1ee9e",
+      "requirements": 17,
+      "packages": [
+        "./..."
+      ]
+    },
+    "cacheHit": "true",
+    "downloadSeconds": 0.0377125,
+    "inventory": {
+      "build": {
+        "bytes": 123603027,
+        "files": 1648
+      },
+      "modules": {
+        "bytes": 68856951,
+        "files": 1889
+      }
+    },
+    "job": "measure",
+    "runnerOS": "Windows",
+    "runnerArch": "X64",
+    "workload": "build-v2",
+    "variant": "split",
+    "phase": "warm",
+    "buildSeconds": 0.348808,
+    "project": "viper",
+    "runId": "37319456778",
+    "imageVersion": "20260925.250.1",
+    "version": "go version go1.26.7 windows/amd64",
+    "beforePostSeconds": 4.3686496,
+    "sample": 9,
+    "restoreSeconds": 3.9458266,
+    "cpus": 4
+  },
+  {
+    "version": "go version go1.26.8 windows/amd64",
+    "runnerOS": "Windows",
+    "beforePostSeconds": 32.2592245,
+    "sample": 1,
+    "runnerArch": "X64",
+    "cacheHit": "false",
+    "imageVersion": "20260925.250.1",
+    "source": {
+      "slug": "client_golang",
+      "repository": "prometheus/client_golang",
+      "tag": "v1.24.1",
+      "sha": "d6087ee482e06716ee21dc03819432d5d40f72db",
+      "requirements": 23,
+      "packages": [
+        "./prometheus/..."
+      ]
+    },
+    "phase": "upgrade",
+    "cpus": 4,
+    "buildSeconds": 27.5743786,
+    "job": "measure",
+    "downloadSeconds": 2.0174069,
+    "restoreSeconds": 2.6317481,
+    "project": "client_golang",
+    "inventory": {
+      "modules": {
+        "files": 4191,
+        "bytes": 166244119
+      },
+      "build": {
+        "files": 1755,
+        "bytes": 138700626
+      }
+    },
+    "runId": "37322876950",
+    "workload": "build-v2",
+    "variant": "baseline"
+  },
+  {
+    "job": "measure",
+    "phase": "upgrade",
+    "buildSeconds": 26.057212,
+    "cpus": 4,
+    "project": "client_golang",
+    "cacheHit": "false",
+    "downloadSeconds": 0.1288713,
+    "runnerArch": "X64",
+    "restoreSeconds": 4.2703265,
+    "workload": "build-v2",
+    "beforePostSeconds": 30.477709,
+    "runId": "37322876950",
+    "version": "go version go1.26.8 windows/amd64",
+    "inventory": {
+      "modules": {
+        "bytes": 166244119,
+        "files": 4191
+      },
+      "build": {
+        "bytes": 138700626,
+        "files": 1755
+      }
+    },
+    "runnerOS": "Windows",
+    "imageVersion": "20260925.250.1",
+    "source": {
+      "slug": "client_golang",
+      "repository": "prometheus/client_golang",
+      "tag": "v1.24.1",
+      "sha": "d6087ee482e06716ee21dc03819432d5d40f72db",
+      "requirements": 23,
+      "packages": [
+        "./prometheus/..."
+      ]
+    },
+    "sample": 1,
+    "variant": "split"
+  },
+  {
+    "sample": 1,
+    "version": "go version go1.26.8 windows/amd64",
+    "variant": "baseline",
+    "runId": "37322876950",
+    "restoreSeconds": 2.0646233,
+    "runnerArch": "X64",
+    "runnerOS": "Windows",
+    "buildSeconds": 19.311407,
+    "cacheHit": "false",
+    "source": {
+      "slug": "cobra",
+      "repository": "spf13/cobra",
+      "tag": "v1.10.2",
+      "sha": "88b30ab89da2d0d0abb153818746c5a2d30eccec",
+      "requirements": 4,
+      "packages": [
+        "./..."
+      ]
+    },
+    "job": "measure",
+    "project": "cobra",
+    "imageVersion": "20260925.250.1",
+    "workload": "build-v2",
+    "cpus": 4,
+    "inventory": {
+      "build": {
+        "bytes": 59850306,
+        "files": 680
+      },
+      "modules": {
+        "bytes": 1859788,
+        "files": 257
+      }
+    },
+    "phase": "upgrade",
+    "downloadSeconds": 0.5449318,
+    "beforePostSeconds": 21.9641116
+  },
+  {
+    "beforePostSeconds": 15.938974,
+    "version": "go version go1.26.8 windows/amd64",
+    "variant": "split",
+    "cacheHit": "false",
+    "buildSeconds": 13.2660007,
+    "restoreSeconds": 2.3309034,
+    "runnerOS": "Windows",
+    "sample": 1,
+    "phase": "upgrade",
+    "runnerArch": "X64",
+    "workload": "build-v2",
+    "job": "measure",
+    "runId": "37322876950",
+    "downloadSeconds": 0.2997566,
+    "inventory": {
+      "modules": {
+        "files": 257,
+        "bytes": 1859788
+      },
+      "build": {
+        "files": 680,
+        "bytes": 59850306
+      }
+    },
+    "source": {
+      "slug": "cobra",
+      "repository": "spf13/cobra",
+      "tag": "v1.10.2",
+      "sha": "88b30ab89da2d0d0abb153818746c5a2d30eccec",
+      "requirements": 4,
+      "packages": [
+        "./..."
+      ]
+    },
+    "imageVersion": "20260925.250.1",
+    "cpus": 4,
+    "project": "cobra"
+  },
+  {
+    "beforePostSeconds": 43.0335446,
+    "runnerArch": "X64",
+    "workload": "build-v2",
+    "cacheHit": "false",
+    "runnerOS": "Windows",
+    "runId": "37322876950",
+    "downloadSeconds": 2.9811989,
+    "source": {
+      "slug": "gin",
+      "repository": "gin-gonic/gin",
+      "tag": "v1.12.0",
+      "sha": "73726dc606796a025971fe451f0aa6f1b9b847f6",
+      "requirements": 34,
+      "packages": [
+        "./..."
+      ]
+    },
+    "cpus": 4,
+    "phase": "upgrade",
+    "restoreSeconds": 2.669361,
+    "job": "measure",
+    "imageVersion": "20260925.250.1",
+    "version": "go version go1.26.8 windows/amd64",
+    "sample": 1,
+    "variant": "baseline",
+    "inventory": {
+      "build": {
+        "files": 2001,
+        "bytes": 214510291
+      },
+      "modules": {
+        "files": 9243,
+        "bytes": 185257820
+      }
+    },
+    "project": "gin",
+    "buildSeconds": 37.3422603
+  },
+  {
+    "runId": "37322876950",
+    "project": "gin",
+    "source": {
+      "slug": "gin",
+      "repository": "gin-gonic/gin",
+      "tag": "v1.12.0",
+      "sha": "73726dc606796a025971fe451f0aa6f1b9b847f6",
+      "requirements": 34,
+      "packages": [
+        "./..."
+      ]
+    },
+    "runnerArch": "X64",
+    "runnerOS": "Windows",
+    "job": "measure",
+    "workload": "build-v2",
+    "cacheHit": "false",
+    "phase": "upgrade",
+    "version": "go version go1.26.8 windows/amd64",
+    "beforePostSeconds": 49.5955051,
+    "inventory": {
+      "modules": {
+        "files": 9243,
+        "bytes": 185257820
+      },
+      "build": {
+        "files": 2001,
+        "bytes": 214510291
+      }
+    },
+    "buildSeconds": 40.7667687,
+    "variant": "split",
+    "imageVersion": "20260925.250.1",
+    "cpus": 4,
+    "sample": 1,
+    "downloadSeconds": 0.0479516,
+    "restoreSeconds": 8.728534
+  },
+  {
+    "job": "measure",
+    "source": {
+      "slug": "grpc",
+      "repository": "grpc/grpc-go",
+      "tag": "v1.84.0",
+      "sha": "e84aa5ab15d1d2b29d54f838312ad490cb7551a8",
+      "requirements": 43,
+      "packages": [
+        "./codes",
+        "./metadata",
+        "./status",
+        "./credentials/...",
+        "./encoding/...",
+        "./resolver/...",
+        "./balancer/..."
+      ]
+    },
+    "cpus": 4,
+    "imageVersion": "20260925.250.1",
+    "beforePostSeconds": 56.1117687,
+    "project": "grpc",
+    "sample": 1,
+    "downloadSeconds": 6.2800903,
+    "variant": "baseline",
+    "workload": "build-v2",
+    "buildSeconds": 47.4308481,
+    "cacheHit": "false",
+    "version": "go version go1.26.8 windows/amd64",
+    "runnerOS": "Windows",
+    "phase": "upgrade",
+    "inventory": {
+      "modules": {
+        "bytes": 604873641,
+        "files": 11363
+      },
+      "build": {
+        "bytes": 252202242,
+        "files": 3162
+      }
+    },
+    "runnerArch": "X64",
+    "runId": "37322876950",
+    "restoreSeconds": 2.3683056
+  },
+  {
+    "imageVersion": "20260925.250.1",
+    "source": {
+      "slug": "grpc",
+      "repository": "grpc/grpc-go",
+      "tag": "v1.84.0",
+      "sha": "e84aa5ab15d1d2b29d54f838312ad490cb7551a8",
+      "requirements": 43,
+      "packages": [
+        "./codes",
+        "./metadata",
+        "./status",
+        "./credentials/...",
+        "./encoding/...",
+        "./resolver/...",
+        "./balancer/..."
+      ]
+    },
+    "variant": "split",
+    "project": "grpc",
+    "runnerArch": "X64",
+    "version": "go version go1.26.8 windows/amd64",
+    "phase": "upgrade",
+    "buildSeconds": 49.9255049,
+    "sample": 1,
+    "inventory": {
+      "modules": {
+        "files": 11363,
+        "bytes": 604873641
+      },
+      "build": {
+        "files": 3162,
+        "bytes": 252202242
+      }
+    },
+    "restoreSeconds": 6.9228164,
+    "cacheHit": "false",
+    "runnerOS": "Windows",
+    "cpus": 4,
+    "beforePostSeconds": 57.1421696,
+    "runId": "37322876950",
+    "downloadSeconds": 0.2703252,
+    "job": "measure",
+    "workload": "build-v2"
+  },
+  {
+    "runId": "37322876950",
+    "source": {
+      "slug": "hugo",
+      "repository": "gohugoio/hugo",
+      "tag": "v0.159.0",
+      "sha": "2ed7d193cfdfcf11808fb2a921a9429423b0ebe9",
+      "requirements": 184,
+      "packages": [
+        "./common/...",
+        "./parser/...",
+        "./tpl/strings",
+        "./tpl/math"
+      ]
+    },
+    "sample": 1,
+    "job": "measure",
+    "runnerOS": "Windows",
+    "version": "go version go1.26.8 windows/amd64",
+    "inventory": {
+      "modules": {
+        "files": 38485,
+        "bytes": 984712171
+      },
+      "build": {
+        "files": 3730,
+        "bytes": 393644224
+      }
+    },
+    "imageVersion": "20260925.250.1",
+    "phase": "upgrade",
+    "runnerArch": "X64",
+    "cacheHit": "false",
+    "cpus": 4,
+    "workload": "build-v2",
+    "project": "hugo",
+    "downloadSeconds": 15.9902267,
+    "buildSeconds": 54.1432698,
+    "variant": "baseline",
+    "restoreSeconds": 2.250147,
+    "beforePostSeconds": 72.4171307
+  },
+  {
+    "runnerOS": "Windows",
+    "downloadSeconds": 0.3008328,
+    "restoreSeconds": 14.3725431,
+    "beforePostSeconds": 68.6968233,
+    "sample": 1,
+    "phase": "upgrade",
+    "project": "hugo",
+    "buildSeconds": 53.9776346,
+    "job": "measure",
+    "workload": "build-v2",
+    "imageVersion": "20260925.250.1",
+    "runnerArch": "X64",
+    "variant": "split",
+    "cpus": 4,
+    "inventory": {
+      "build": {
+        "bytes": 393644224,
+        "files": 3730
+      },
+      "modules": {
+        "bytes": 984712171,
+        "files": 38485
+      }
+    },
+    "runId": "37322876950",
+    "cacheHit": "false",
+    "source": {
+      "slug": "hugo",
+      "repository": "gohugoio/hugo",
+      "tag": "v0.159.0",
+      "sha": "2ed7d193cfdfcf11808fb2a921a9429423b0ebe9",
+      "requirements": 184,
+      "packages": [
+        "./common/...",
+        "./parser/...",
+        "./tpl/strings",
+        "./tpl/math"
+      ]
+    },
+    "version": "go version go1.26.8 windows/amd64"
+  },
+  {
+    "project": "prometheus",
+    "buildSeconds": 49.3854851,
+    "variant": "baseline",
+    "source": {
+      "slug": "prometheus",
+      "repository": "prometheus/prometheus",
+      "tag": "v3.15.0",
+      "sha": "5241a27fe3c6983549fccc32f6e65917408c63cd",
+      "requirements": 251,
+      "packages": [
+        "./model/...",
+        "./promql/parser/...",
+        "./util/strutil/..."
+      ]
+    },
+    "cacheHit": "false",
+    "beforePostSeconds": 89.1800706,
+    "runId": "37322876950",
+    "runnerArch": "X64",
+    "job": "measure",
+    "workload": "build-v2",
+    "sample": 1,
+    "downloadSeconds": 38.611526,
+    "cpus": 4,
+    "phase": "upgrade",
+    "inventory": {
+      "build": {
+        "bytes": 257464792,
+        "files": 2701
+      },
+      "modules": {
+        "bytes": 2796464419,
+        "files": 147451
+      }
+    },
+    "restoreSeconds": 1.1601535,
+    "imageVersion": "20260925.250.1",
+    "version": "go version go1.26.8 windows/amd64",
+    "runnerOS": "Windows"
+  },
+  {
+    "version": "go version go1.26.8 windows/amd64",
+    "workload": "build-v2",
+    "variant": "split",
+    "runnerOS": "Windows",
+    "project": "prometheus",
+    "beforePostSeconds": 130.429342,
+    "downloadSeconds": 1.3948543,
+    "sample": 1,
+    "source": {
+      "slug": "prometheus",
+      "repository": "prometheus/prometheus",
+      "tag": "v3.15.0",
+      "sha": "5241a27fe3c6983549fccc32f6e65917408c63cd",
+      "requirements": 251,
+      "packages": [
+        "./model/...",
+        "./promql/parser/...",
+        "./util/strutil/..."
+      ]
+    },
+    "phase": "upgrade",
+    "job": "measure",
+    "buildSeconds": 75.9267345,
+    "imageVersion": "20260925.250.1",
+    "runnerArch": "X64",
+    "cacheHit": "false",
+    "cpus": 4,
+    "runId": "37322876950",
+    "inventory": {
+      "modules": {
+        "files": 147442,
+        "bytes": 2796383683
+      },
+      "build": {
+        "files": 2701,
+        "bytes": 257464792
+      }
+    },
+    "restoreSeconds": 53.0810247
+  },
+  {
+    "sample": 1,
+    "source": {
+      "slug": "viper",
+      "repository": "spf13/viper",
+      "tag": "v1.21.0",
+      "sha": "394040caccbdf5821fa6839386a35f0fb1b1ee9e",
+      "requirements": 17,
+      "packages": [
+        "./..."
+      ]
+    },
+    "workload": "build-v2",
+    "runnerOS": "Windows",
+    "cpus": 4,
+    "variant": "baseline",
+    "downloadSeconds": 2.1123022,
+    "restoreSeconds": 1.5883506,
+    "phase": "upgrade",
+    "cacheHit": "false",
+    "runId": "37322876950",
+    "imageVersion": "20260925.250.1",
+    "runnerArch": "X64",
+    "buildSeconds": 50.4375154,
+    "job": "measure",
+    "project": "viper",
+    "beforePostSeconds": 54.1826312,
+    "inventory": {
+      "build": {
+        "bytes": 123602019,
+        "files": 1641
+      },
+      "modules": {
+        "bytes": 68856951,
+        "files": 1889
+      }
+    },
+    "version": "go version go1.26.8 windows/amd64"
+  },
+  {
+    "cacheHit": "false",
+    "job": "measure",
+    "beforePostSeconds": 29.0888992,
+    "inventory": {
+      "modules": {
+        "files": 1889,
+        "bytes": 68856951
+      },
+      "build": {
+        "files": 1641,
+        "bytes": 123602019
+      }
+    },
+    "variant": "split",
+    "runnerArch": "X64",
+    "runnerOS": "Windows",
+    "phase": "upgrade",
+    "restoreSeconds": 3.6184211,
+    "downloadSeconds": 0.1068026,
+    "workload": "build-v2",
+    "cpus": 4,
+    "runId": "37322876950",
+    "project": "viper",
+    "version": "go version go1.26.8 windows/amd64",
+    "source": {
+      "slug": "viper",
+      "repository": "spf13/viper",
+      "tag": "v1.21.0",
+      "sha": "394040caccbdf5821fa6839386a35f0fb1b1ee9e",
+      "requirements": 17,
+      "packages": [
+        "./..."
+      ]
+    },
+    "imageVersion": "20260925.250.1",
+    "sample": 1,
+    "buildSeconds": 25.3335081
+  }
+]

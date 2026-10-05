@@ -1,0 +1,716 @@
+[
+  {
+    "project": "cobra",
+    "variant": "baseline",
+    "phase": "seed",
+    "runId": 37318273231,
+    "jobId": 111790464888,
+    "conclusion": "success",
+    "postSeconds": 2.893,
+    "jobSeconds": 58,
+    "compressedBytes": [
+      14756765
+    ],
+    "uploadedBytes": 14756765,
+    "savedKeys": [
+      "setup-go-Windows-x64-go-1.26.7-0ff4231887221b860d1531a13149a4af156f73a3f5b05c037a9beacd61b69061"
+    ],
+    "failures": []
+  },
+  {
+    "project": "viper",
+    "variant": "split",
+    "phase": "seed",
+    "runId": 37318273231,
+    "jobId": 111790465176,
+    "conclusion": "success",
+    "postSeconds": 2.268,
+    "jobSeconds": 61,
+    "compressedBytes": [
+      22599533,
+      29222114
+    ],
+    "uploadedBytes": 51821647,
+    "savedKeys": [
+      "setup-go-modules-Windows-cdbe4eec444b2f1a8245ffd9d9df4911c57d3ed1ecc93f0d3ac1932914930bd6",
+      "setup-go-build-Windows-x64-go-1.26.7-cdbe4eec444b2f1a8245ffd9d9df4911c57d3ed1ecc93f0d3ac1932914930bd6"
+    ],
+    "failures": []
+  },
+  {
+    "project": "hugo",
+    "variant": "baseline",
+    "phase": "seed",
+    "runId": 37318273231,
+    "jobId": 111790465246,
+    "conclusion": "success",
+    "postSeconds": 9.088,
+    "jobSeconds": 96,
+    "compressedBytes": [
+      371257890
+    ],
+    "uploadedBytes": 371257890,
+    "savedKeys": [
+      "setup-go-Windows-x64-go-1.26.7-668a58539737b470748f5e1701f5e4e6afa9976bd9d79de24fe9fa14a88cbc57"
+    ],
+    "failures": []
+  },
+  {
+    "project": "grpc",
+    "variant": "split",
+    "phase": "seed",
+    "runId": 37318273231,
+    "jobId": 111790465260,
+    "conclusion": "success",
+    "postSeconds": 12.114,
+    "jobSeconds": 101,
+    "compressedBytes": [
+      55875574,
+      124574498
+    ],
+    "uploadedBytes": 180450072,
+    "savedKeys": [
+      "setup-go-build-Windows-x64-go-1.26.7-30b352221f382473dd0af55eacc951b004e128915efd742744cc2c47cf7bc54f",
+      "setup-go-modules-Windows-30b352221f382473dd0af55eacc951b004e128915efd742744cc2c47cf7bc54f"
+    ],
+    "failures": []
+  },
+  {
+    "project": "gin",
+    "variant": "split",
+    "phase": "seed",
+    "runId": 37318273231,
+    "jobId": 111790465270,
+    "conclusion": "success",
+    "postSeconds": 4.408,
+    "jobSeconds": 81,
+    "compressedBytes": [
+      46157516,
+      57004298
+    ],
+    "uploadedBytes": 103161814,
+    "savedKeys": [
+      "setup-go-build-Windows-x64-go-1.26.7-86a98ee14546903a86fa0b54af9fd44597fb08536cb9a2658d216657af9443df",
+      "setup-go-modules-Windows-86a98ee14546903a86fa0b54af9fd44597fb08536cb9a2658d216657af9443df"
+    ],
+    "failures": []
+  },
+  {
+    "project": "client_golang",
+    "variant": "baseline",
+    "phase": "seed",
+    "runId": 37318273231,
+    "jobId": 111790465273,
+    "conclusion": "success",
+    "postSeconds": 5.148,
+    "jobSeconds": 69,
+    "compressedBytes": [
+      129580235
+    ],
+    "uploadedBytes": 129580235,
+    "savedKeys": [
+      "setup-go-Windows-x64-go-1.26.7-04f8459f03329e739f26266754266e9af7b3b4606f5f4001deccda591dca7e3b"
+    ],
+    "failures": []
+  },
+  {
+    "project": "grpc",
+    "variant": "baseline",
+    "phase": "seed",
+    "runId": 37318273231,
+    "jobId": 111790465286,
+    "conclusion": "success",
+    "postSeconds": 7.559,
+    "jobSeconds": 93,
+    "compressedBytes": [
+      180554266
+    ],
+    "uploadedBytes": 180554266,
+    "savedKeys": [
+      "setup-go-Windows-x64-go-1.26.7-30b352221f382473dd0af55eacc951b004e128915efd742744cc2c47cf7bc54f"
+    ],
+    "failures": []
+  },
+  {
+    "project": "cobra",
+    "variant": "split",
+    "phase": "seed",
+    "runId": 37318273231,
+    "jobId": 111790465298,
+    "conclusion": "success",
+    "postSeconds": 1.746,
+    "jobSeconds": 62,
+    "compressedBytes": [
+      668333,
+      14073909
+    ],
+    "uploadedBytes": 14742242,
+    "savedKeys": [
+      "setup-go-modules-Windows-0ff4231887221b860d1531a13149a4af156f73a3f5b05c037a9beacd61b69061",
+      "setup-go-build-Windows-x64-go-1.26.7-0ff4231887221b860d1531a13149a4af156f73a3f5b05c037a9beacd61b69061"
+    ],
+    "failures": []
+  },
+  {
+    "project": "prometheus",
+    "variant": "split",
+    "phase": "seed",
+    "runId": 37318273231,
+    "jobId": 111790465300,
+    "conclusion": "success",
+    "postSeconds": 41.582,
+    "jobSeconds": 192,
+    "compressedBytes": [
+      58611303,
+      866658883
+    ],
+    "uploadedBytes": 925270186,
+    "savedKeys": [
+      "setup-go-build-Windows-x64-go-1.26.7-55bc726694ed9b0217457830a4860311937b8604085d4ffd2d58528600c50e30",
+      "setup-go-modules-Windows-55bc726694ed9b0217457830a4860311937b8604085d4ffd2d58528600c50e30"
+    ],
+    "failures": []
+  },
+  {
+    "project": "hugo",
+    "variant": "split",
+    "phase": "seed",
+    "runId": 37318273231,
+    "jobId": 111790465311,
+    "conclusion": "success",
+    "postSeconds": 14.985,
+    "jobSeconds": 137,
+    "compressedBytes": [
+      86617499,
+      284851952
+    ],
+    "uploadedBytes": 371469451,
+    "savedKeys": [
+      "setup-go-build-Windows-x64-go-1.26.7-668a58539737b470748f5e1701f5e4e6afa9976bd9d79de24fe9fa14a88cbc57",
+      "setup-go-modules-Windows-668a58539737b470748f5e1701f5e4e6afa9976bd9d79de24fe9fa14a88cbc57"
+    ],
+    "failures": []
+  },
+  {
+    "project": "gin",
+    "variant": "baseline",
+    "phase": "seed",
+    "runId": 37318273231,
+    "jobId": 111790465410,
+    "conclusion": "success",
+    "postSeconds": 7.487,
+    "jobSeconds": 104,
+    "compressedBytes": [
+      103130196
+    ],
+    "uploadedBytes": 103130196,
+    "savedKeys": [
+      "setup-go-Windows-x64-go-1.26.7-86a98ee14546903a86fa0b54af9fd44597fb08536cb9a2658d216657af9443df"
+    ],
+    "failures": []
+  },
+  {
+    "project": "prometheus",
+    "variant": "baseline",
+    "phase": "seed",
+    "runId": 37318273231,
+    "jobId": 111790465439,
+    "conclusion": "success",
+    "postSeconds": 35.877,
+    "jobSeconds": 157,
+    "compressedBytes": [
+      924999203
+    ],
+    "uploadedBytes": 924999203,
+    "savedKeys": [
+      "setup-go-Windows-x64-go-1.26.7-55bc726694ed9b0217457830a4860311937b8604085d4ffd2d58528600c50e30"
+    ],
+    "failures": []
+  },
+  {
+    "project": "viper",
+    "variant": "baseline",
+    "phase": "seed",
+    "runId": 37318273231,
+    "jobId": 111790465471,
+    "conclusion": "success",
+    "postSeconds": 4.47,
+    "jobSeconds": 80,
+    "compressedBytes": [
+      51767444
+    ],
+    "uploadedBytes": 51767444,
+    "savedKeys": [
+      "setup-go-Windows-x64-go-1.26.7-cdbe4eec444b2f1a8245ffd9d9df4911c57d3ed1ecc93f0d3ac1932914930bd6"
+    ],
+    "failures": []
+  },
+  {
+    "project": "client_golang",
+    "variant": "split",
+    "phase": "seed",
+    "runId": 37318273231,
+    "jobId": 111790465524,
+    "conclusion": "success",
+    "postSeconds": 4.683,
+    "jobSeconds": 73,
+    "compressedBytes": [
+      32155575,
+      97443573
+    ],
+    "uploadedBytes": 129599148,
+    "savedKeys": [
+      "setup-go-build-Windows-x64-go-1.26.7-04f8459f03329e739f26266754266e9af7b3b4606f5f4001deccda591dca7e3b",
+      "setup-go-modules-Windows-04f8459f03329e739f26266754266e9af7b3b4606f5f4001deccda591dca7e3b"
+    ],
+    "failures": []
+  },
+  {
+    "project": "grpc",
+    "variant": "baseline",
+    "phase": "warm",
+    "runId": 37319456778,
+    "jobId": 111794497851,
+    "conclusion": "success",
+    "postSeconds": 2.926,
+    "jobSeconds": 177,
+    "compressedBytes": [],
+    "uploadedBytes": 0,
+    "savedKeys": [],
+    "failures": []
+  },
+  {
+    "project": "hugo",
+    "variant": "baseline",
+    "phase": "warm",
+    "runId": 37319456778,
+    "jobId": 111794497937,
+    "conclusion": "success",
+    "postSeconds": 2.855,
+    "jobSeconds": 305,
+    "compressedBytes": [],
+    "uploadedBytes": 0,
+    "savedKeys": [],
+    "failures": []
+  },
+  {
+    "project": "gin",
+    "variant": "baseline",
+    "phase": "warm",
+    "runId": 37319456778,
+    "jobId": 111794497943,
+    "conclusion": "success",
+    "postSeconds": 3.0609999999999995,
+    "jobSeconds": 175,
+    "compressedBytes": [],
+    "uploadedBytes": 0,
+    "savedKeys": [],
+    "failures": []
+  },
+  {
+    "project": "client_golang",
+    "variant": "baseline",
+    "phase": "warm",
+    "runId": 37319456778,
+    "jobId": 111794497947,
+    "conclusion": "success",
+    "postSeconds": 3.282,
+    "jobSeconds": 124,
+    "compressedBytes": [],
+    "uploadedBytes": 0,
+    "savedKeys": [],
+    "failures": []
+  },
+  {
+    "project": "cobra",
+    "variant": "baseline",
+    "phase": "warm",
+    "runId": 37319456778,
+    "jobId": 111794497948,
+    "conclusion": "success",
+    "postSeconds": 1.9069999999999998,
+    "jobSeconds": 82,
+    "compressedBytes": [],
+    "uploadedBytes": 0,
+    "savedKeys": [],
+    "failures": []
+  },
+  {
+    "project": "cobra",
+    "variant": "split",
+    "phase": "warm",
+    "runId": 37319456778,
+    "jobId": 111794497959,
+    "conclusion": "success",
+    "postSeconds": 1.5750000000000002,
+    "jobSeconds": 95,
+    "compressedBytes": [],
+    "uploadedBytes": 0,
+    "savedKeys": [],
+    "failures": []
+  },
+  {
+    "project": "grpc",
+    "variant": "split",
+    "phase": "warm",
+    "runId": 37319456778,
+    "jobId": 111794497962,
+    "conclusion": "success",
+    "postSeconds": 1.709,
+    "jobSeconds": 201,
+    "compressedBytes": [],
+    "uploadedBytes": 0,
+    "savedKeys": [],
+    "failures": []
+  },
+  {
+    "project": "prometheus",
+    "variant": "split",
+    "phase": "warm",
+    "runId": 37319456778,
+    "jobId": 111794497996,
+    "conclusion": "success",
+    "postSeconds": 2.0580000000000003,
+    "jobSeconds": 1033,
+    "compressedBytes": [],
+    "uploadedBytes": 0,
+    "savedKeys": [],
+    "failures": []
+  },
+  {
+    "project": "prometheus",
+    "variant": "baseline",
+    "phase": "warm",
+    "runId": 37319456778,
+    "jobId": 111794498015,
+    "conclusion": "success",
+    "postSeconds": 3.187,
+    "jobSeconds": 945,
+    "compressedBytes": [],
+    "uploadedBytes": 0,
+    "savedKeys": [],
+    "failures": []
+  },
+  {
+    "project": "client_golang",
+    "variant": "split",
+    "phase": "warm",
+    "runId": 37319456778,
+    "jobId": 111794498037,
+    "conclusion": "success",
+    "postSeconds": 1.7229999999999999,
+    "jobSeconds": 130,
+    "compressedBytes": [],
+    "uploadedBytes": 0,
+    "savedKeys": [],
+    "failures": []
+  },
+  {
+    "project": "viper",
+    "variant": "baseline",
+    "phase": "warm",
+    "runId": 37319456778,
+    "jobId": 111794498066,
+    "conclusion": "success",
+    "postSeconds": 2.9569999999999994,
+    "jobSeconds": 106,
+    "compressedBytes": [],
+    "uploadedBytes": 0,
+    "savedKeys": [],
+    "failures": []
+  },
+  {
+    "project": "hugo",
+    "variant": "split",
+    "phase": "warm",
+    "runId": 37319456778,
+    "jobId": 111794498117,
+    "conclusion": "success",
+    "postSeconds": 1.224,
+    "jobSeconds": 256,
+    "compressedBytes": [],
+    "uploadedBytes": 0,
+    "savedKeys": [],
+    "failures": []
+  },
+  {
+    "project": "gin",
+    "variant": "split",
+    "phase": "warm",
+    "runId": 37319456778,
+    "jobId": 111794498155,
+    "conclusion": "success",
+    "postSeconds": 1.787,
+    "jobSeconds": 151,
+    "compressedBytes": [],
+    "uploadedBytes": 0,
+    "savedKeys": [],
+    "failures": []
+  },
+  {
+    "project": "viper",
+    "variant": "split",
+    "phase": "warm",
+    "runId": 37319456778,
+    "jobId": 111794498185,
+    "conclusion": "success",
+    "postSeconds": 1.817,
+    "jobSeconds": 97,
+    "compressedBytes": [],
+    "uploadedBytes": 0,
+    "savedKeys": [],
+    "failures": []
+  },
+  {
+    "project": "client_golang",
+    "variant": "baseline",
+    "phase": "upgrade",
+    "runId": 37322876950,
+    "jobId": 111806124858,
+    "conclusion": "success",
+    "postSeconds": 6.917,
+    "jobSeconds": 70,
+    "compressedBytes": [
+      129658594
+    ],
+    "uploadedBytes": 129658594,
+    "savedKeys": [
+      "setup-go-Windows-x64-go-1.26.8-04f8459f03329e739f26266754266e9af7b3b4606f5f4001deccda591dca7e3b"
+    ],
+    "failures": []
+  },
+  {
+    "project": "cobra",
+    "variant": "baseline",
+    "phase": "upgrade",
+    "runId": 37322876950,
+    "jobId": 111806125198,
+    "conclusion": "success",
+    "postSeconds": 3.126,
+    "jobSeconds": 58,
+    "compressedBytes": [
+      14739149
+    ],
+    "uploadedBytes": 14739149,
+    "savedKeys": [
+      "setup-go-Windows-x64-go-1.26.8-0ff4231887221b860d1531a13149a4af156f73a3f5b05c037a9beacd61b69061"
+    ],
+    "failures": []
+  },
+  {
+    "project": "viper",
+    "variant": "baseline",
+    "phase": "upgrade",
+    "runId": 37322876950,
+    "jobId": 111806125279,
+    "conclusion": "success",
+    "postSeconds": 3.267,
+    "jobSeconds": 94,
+    "compressedBytes": [
+      51868878
+    ],
+    "uploadedBytes": 51868878,
+    "savedKeys": [
+      "setup-go-Windows-x64-go-1.26.8-cdbe4eec444b2f1a8245ffd9d9df4911c57d3ed1ecc93f0d3ac1932914930bd6"
+    ],
+    "failures": []
+  },
+  {
+    "project": "gin",
+    "variant": "baseline",
+    "phase": "upgrade",
+    "runId": 37322876950,
+    "jobId": 111806125366,
+    "conclusion": "success",
+    "postSeconds": 5.098,
+    "jobSeconds": 70,
+    "compressedBytes": [
+      103246951
+    ],
+    "uploadedBytes": 103246951,
+    "savedKeys": [
+      "setup-go-Windows-x64-go-1.26.8-86a98ee14546903a86fa0b54af9fd44597fb08536cb9a2658d216657af9443df"
+    ],
+    "failures": []
+  },
+  {
+    "project": "grpc",
+    "variant": "baseline",
+    "phase": "upgrade",
+    "runId": 37322876950,
+    "jobId": 111806125382,
+    "conclusion": "success",
+    "postSeconds": 6.676,
+    "jobSeconds": 93,
+    "compressedBytes": [
+      180695032
+    ],
+    "uploadedBytes": 180695032,
+    "savedKeys": [
+      "setup-go-Windows-x64-go-1.26.8-30b352221f382473dd0af55eacc951b004e128915efd742744cc2c47cf7bc54f"
+    ],
+    "failures": []
+  },
+  {
+    "project": "client_golang",
+    "variant": "split",
+    "phase": "upgrade",
+    "runId": 37322876950,
+    "jobId": 111806125394,
+    "conclusion": "success",
+    "postSeconds": 2.4,
+    "jobSeconds": 56,
+    "compressedBytes": [
+      32197441
+    ],
+    "uploadedBytes": 32197441,
+    "savedKeys": [
+      "setup-go-build-Windows-x64-go-1.26.8-04f8459f03329e739f26266754266e9af7b3b4606f5f4001deccda591dca7e3b"
+    ],
+    "failures": []
+  },
+  {
+    "project": "grpc",
+    "variant": "split",
+    "phase": "upgrade",
+    "runId": 37322876950,
+    "jobId": 111806125399,
+    "conclusion": "success",
+    "postSeconds": 2.698,
+    "jobSeconds": 89,
+    "compressedBytes": [
+      56086671
+    ],
+    "uploadedBytes": 56086671,
+    "savedKeys": [
+      "setup-go-build-Windows-x64-go-1.26.8-30b352221f382473dd0af55eacc951b004e128915efd742744cc2c47cf7bc54f"
+    ],
+    "failures": []
+  },
+  {
+    "project": "hugo",
+    "variant": "baseline",
+    "phase": "upgrade",
+    "runId": 37322876950,
+    "jobId": 111806125456,
+    "conclusion": "success",
+    "postSeconds": 16.211,
+    "jobSeconds": 127,
+    "compressedBytes": [
+      371568073
+    ],
+    "uploadedBytes": 371568073,
+    "savedKeys": [
+      "setup-go-Windows-x64-go-1.26.8-668a58539737b470748f5e1701f5e4e6afa9976bd9d79de24fe9fa14a88cbc57"
+    ],
+    "failures": []
+  },
+  {
+    "project": "gin",
+    "variant": "split",
+    "phase": "upgrade",
+    "runId": 37322876950,
+    "jobId": 111806125459,
+    "conclusion": "success",
+    "postSeconds": 2.688,
+    "jobSeconds": 77,
+    "compressedBytes": [
+      46050839
+    ],
+    "uploadedBytes": 46050839,
+    "savedKeys": [
+      "setup-go-build-Windows-x64-go-1.26.8-86a98ee14546903a86fa0b54af9fd44597fb08536cb9a2658d216657af9443df"
+    ],
+    "failures": []
+  },
+  {
+    "project": "cobra",
+    "variant": "split",
+    "phase": "upgrade",
+    "runId": 37322876950,
+    "jobId": 111806125479,
+    "conclusion": "success",
+    "postSeconds": 1.496,
+    "jobSeconds": 39,
+    "compressedBytes": [
+      14100778
+    ],
+    "uploadedBytes": 14100778,
+    "savedKeys": [
+      "setup-go-build-Windows-x64-go-1.26.8-0ff4231887221b860d1531a13149a4af156f73a3f5b05c037a9beacd61b69061"
+    ],
+    "failures": []
+  },
+  {
+    "project": "prometheus",
+    "variant": "split",
+    "phase": "upgrade",
+    "runId": 37322876950,
+    "jobId": 111806125520,
+    "conclusion": "success",
+    "postSeconds": 3.865,
+    "jobSeconds": 178,
+    "compressedBytes": [
+      58574143
+    ],
+    "uploadedBytes": 58574143,
+    "savedKeys": [
+      "setup-go-build-Windows-x64-go-1.26.8-55bc726694ed9b0217457830a4860311937b8604085d4ffd2d58528600c50e30"
+    ],
+    "failures": []
+  },
+  {
+    "project": "hugo",
+    "variant": "split",
+    "phase": "upgrade",
+    "runId": 37322876950,
+    "jobId": 111806125531,
+    "conclusion": "success",
+    "postSeconds": 4.297,
+    "jobSeconds": 99,
+    "compressedBytes": [
+      86858269
+    ],
+    "uploadedBytes": 86858269,
+    "savedKeys": [
+      "setup-go-build-Windows-x64-go-1.26.8-668a58539737b470748f5e1701f5e4e6afa9976bd9d79de24fe9fa14a88cbc57"
+    ],
+    "failures": []
+  },
+  {
+    "project": "prometheus",
+    "variant": "baseline",
+    "phase": "upgrade",
+    "runId": 37322876950,
+    "jobId": 111806125650,
+    "conclusion": "success",
+    "postSeconds": 26.33,
+    "jobSeconds": 163,
+    "compressedBytes": [
+      924770837
+    ],
+    "uploadedBytes": 924770837,
+    "savedKeys": [
+      "setup-go-Windows-x64-go-1.26.8-55bc726694ed9b0217457830a4860311937b8604085d4ffd2d58528600c50e30"
+    ],
+    "failures": []
+  },
+  {
+    "project": "viper",
+    "variant": "split",
+    "phase": "upgrade",
+    "runId": 37322876950,
+    "jobId": 111806125797,
+    "conclusion": "success",
+    "postSeconds": 3.251,
+    "jobSeconds": 56,
+    "compressedBytes": [
+      29211498
+    ],
+    "uploadedBytes": 29211498,
+    "savedKeys": [
+      "setup-go-build-Windows-x64-go-1.26.8-cdbe4eec444b2f1a8245ffd9d9df4911c57d3ed1ecc93f0d3ac1932914930bd6"
+    ],
+    "failures": []
+  }
+]

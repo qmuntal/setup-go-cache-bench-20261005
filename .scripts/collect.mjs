@@ -11,7 +11,7 @@ const gh = args => execFileSync('gh', args, {encoding: 'utf8', maxBuffer: 128 * 
 const api = endpoint => JSON.parse(gh(['api', endpoint]));
 const load = async file => JSON.parse((await fs.readFile(file, 'utf8')).replace(/^\uFEFF/, ''));
 const runs = api(`repos/${repo}/actions/workflows/benchmark.yml/runs?per_page=30`).workflow_runs;
-const runId = process.argv[2];
+const runId = process.argv.slice(2).find(argument => /^\d+$/.test(argument));
 if (runId) {
   const run = runs.find(item => String(item.id) === runId) ?? api(`repos/${repo}/actions/runs/${runId}`);
   if (run.status !== 'completed') throw new Error(`Run ${runId} is still ${run.status}`);
@@ -95,4 +95,12 @@ for (const project of projects) {
   }
 }
 await fs.writeFile(path.join(directory, 'summary.json'), JSON.stringify({rows, jobs, samples, caches}, null, 2));
+if (process.argv.includes('--publish-data')) {
+  const publish = path.join(root, 'benchmark-data');
+  await fs.mkdir(publish, {recursive: true});
+  for (const [name, value] of Object.entries({rows, jobs, samples, caches})) {
+    await fs.writeFile(path.join(publish, `${name}.json`), JSON.stringify(value, null, 2));
+  }
+  console.log('Exported public measurement metadata; raw logs and signed cache URLs are not included.');
+}
 for (const row of rows) console.log(JSON.stringify(row));

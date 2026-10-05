@@ -1,0 +1,56 @@
+---
+title: IsTranslated
+description: Reports whether the given page has one or more translations.
+categories: []
+keywords: []
+params:
+  functions_and_methods:
+    returnType: bool
+    signatures: [PAGE.IsTranslated]
+---
+
+With this project configuration:
+
+{{< code-toggle file=hugo >}}
+defaultContentLanguage = 'en'
+
+[languages.en]
+contentDir = 'content/en'
+label = 'English'
+locale = 'en-US'
+weight = 1
+
+[languages.de]
+contentDir = 'content/de'
+label = 'Deutsch'
+locale = 'de-DE'
+weight = 2
+{{< /code-toggle >}}
+
+And this content:
+
+```text
+content/
+├── de/
+│   ├── books/
+│   │   └── book-1.md
+│   └── _index.md
+├── en/
+│   ├── books/
+│   │   ├── book-1.md
+│   │   └── book-2.md
+│   └── _index.md
+└── _index.md
+```
+
+When rendering `content/en/books/book-1.md`:
+
+```go-html-template
+{{ .IsTranslated }} → true
+```
+
+When rendering `content/en/books/book-2.md`:
+
+```go-html-template
+{{ .IsTranslated }} → false
+```

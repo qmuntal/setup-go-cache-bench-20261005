@@ -1,0 +1,50 @@
+# Test the hugo server command.
+
+# We run these tests in parallel so let Hugo decide which port to use.
+hugo server --renderToMemory --renderStaticToDisk &
+
+waitServer
+
+httpget ${HUGOTEST_BASEURL_0}en/ 'Title: Hugo Server Test' $HUGOTEST_BASEURL_0
+httpget ${HUGOTEST_BASEURL_0}mystatic.txt 'This is a static file in English.'
+
+! exists public/index.html
+exists public/mystatic.txt
+
+stopServer
+! stderr .
+
+-- hugo.toml --
+title = "Hugo Server Test"
+baseURL = "https://example.org/"
+disableKinds = ["taxonomy", "term", "sitemap"]
+defaultContentLanguage = "en"
+defaultContentLanguageInSubdir = true
+[[module.mounts]]
+source = 'static/en'
+target = 'static'
+lang = 'en'
+[[module.mounts]]
+source = 'static/fr'
+target = 'static'
+lang = 'fr'
+
+
+[languages]
+[languages.en]
+languageName = "English"
+title = "Hugo Server Test"
+weight = 1
+[languages.fr]
+title = "Hugo Serveur Test"
+languageName = "Français"
+weight = 2
+
+-- static/en/mystatic.txt --
+This is a static file in English.
+-- static/en/mystatic.txt --
+This is a static file in English.
+-- layouts/home.html --
+Title: {{ .Title }}|BaseURL: {{ site.BaseURL }}|
+
+

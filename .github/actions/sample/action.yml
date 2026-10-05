@@ -1,0 +1,43 @@
+name: Measured Go cache sample
+description: Clear scratch cache paths, run the unmodified action, download and run bounded unit tests.
+inputs:
+  project:
+    required: true
+    description: Project snapshot name.
+  variant:
+    required: true
+    description: baseline or split.
+  phase:
+    required: true
+    description: seed, warm, or upgrade.
+  sample:
+    required: true
+    description: Sample index.
+  go-version:
+    required: true
+    description: Installed exact Go version.
+runs:
+  using: composite
+  steps:
+    - name: Clear scratch caches and start timer
+      shell: pwsh
+      run: ./.scripts/benchmark.ps1 -Mode prepare -Project '${{ inputs.project }}' -Variant '${{ inputs.variant }}' -Phase '${{ inputs.phase }}' -Sample '${{ inputs.sample }}'
+    - name: Combined cache action
+      id: baseline
+      if: inputs.variant == 'baseline'
+      uses: actions/setup-go@90ad2b35f69faf97585ad74d28fa006d2739b7af
+      with:
+        go-version: ${{ inputs.go-version }}
+        cache: true
+        cache-dependency-path: projects/${{ inputs.project }}/go.mod
+    - name: Split cache action
+      id: split
+      if: inputs.variant == 'split'
+      uses: actions/setup-go@ad9941188fbcb38febe37eac394b80bd9bc34fc8
+      with:
+        go-version: ${{ inputs.go-version }}
+        cache: true
+        cache-dependency-path: projects/${{ inputs.project }}/go.mod
+    - name: Download dependencies, run unit workload, record sample
+      shell: pwsh
+      run: ./.scripts/benchmark.ps1 -Mode workload -Project '${{ inputs.project }}' -Variant '${{ inputs.variant }}' -Phase '${{ inputs.phase }}' -Sample '${{ inputs.sample }}' -CacheHit '${{ steps.baseline.outputs.cache-hit || steps.split.outputs.cache-hit }}'

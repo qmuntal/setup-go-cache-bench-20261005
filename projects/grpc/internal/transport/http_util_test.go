@@ -1,0 +1,637 @@
+/*
+ *
+ * Copyright 2014 gRPC authors.
+ *
+ * Licensed under the Apache License, Version 2.0 (the "License");
+ * you may not use this file except in compliance with the License.
+ * You may obtain a copy of the License at
+ *
+ *     http://www.apache.org/licenses/LICENSE-2.0
+ *
+ * Unless required by applicable law or agreed to in writing, software
+ * distributed under the License is distributed on an "AS IS" BASIS,
+ * WITHOUT WARRANTIES OR CONDITIONS OF ANY KIND, either express or implied.
+ * See the License for the specific language governing permissions and
+ * limitations under the License.
+ *
+ */
+
+package transport
+
+import (
+	"bufio"
+	"bytes"
+	"errors"
+	"fmt"
+	"io"
+	"math"
+	"net"
+	"reflect"
+	"strings"
+	"testing"
+	"time"
+
+	"golang.org/x/net/http2"
+	"google.golang.org/grpc/internal/envconfig"
+	imem "google.golang.org/grpc/internal/mem"
+	"google.golang.org/grpc/internal/testutils"
+	"google.golang.org/grpc/internal/transport/readyreader"
+	"google.golang.org/grpc/mem"
+)
+
+func (s) TestDecodeTimeout(t *testing.T) {
+	for _, test := range []struct {
+		// input
+		s string
+		// output
+		d       time.Duration
+		wantErr bool
+	}{
+
+		{"00000001n", time.Nanosecond, false},
+		{"10u", time.Microsecond * 10, false},
+		{"00000010m", time.Millisecond * 10, false},
+		{"1234S", time.Second * 1234, false},
+		{"00000001M", time.Minute, false},
+		{"09999999S", time.Second * 9999999, false},
+		{"99999999S", time.Second * 99999999, false},
+		{"99999999M", time.Minute * 99999999, false},
+		{"2562047H", time.Hour * 2562047, false},
+		{"2562048H", time.Duration(math.MaxInt64), false},
+		{"99999999H", time.Duration(math.MaxInt64), false},
+		{"-1S", 0, true},
+		{"1234x", 0, true},
+		{"1234s", 0, true},
+		{"1234", 0, true},
+		{"1", 0, true},
+		{"", 0, true},
+		{"9a1S", 0, true},
+		{"0S", 0, false}, // PROTOCOL-HTTP2.md requires positive integers, but we allow it to timeout instead
+		{"00000000S", 0, false},
+		{"000000000S", 0, true}, // PROTOCOL-HTTP2.md allows at most 8 digits
+	} {
+		d, err := decodeTimeout(test.s)
+		gotErr := err != nil
+		if d != test.d || gotErr != test.wantErr {
+			t.Errorf("timeoutDecode(%q) = %d, %v, want %d, wantErr=%v",
+				test.s, int64(d), err, int64(test.d), test.wantErr)
+		}
+	}
+}
+
+func (s) TestEncodeGrpcMessage(t *testing.T) {
+	for _, tt := range []struct {
+		input    string
+		expected string
+	}{
+		{"", ""},
+		{"Hello", "Hello"},
+		{"\u0000", "%00"},
+		{"%", "%25"},
+		{"系统", "%E7%B3%BB%E7%BB%9F"},
+		{string([]byte{0xff, 0xfe, 0xfd}), "%EF%BF%BD%EF%BF%BD%EF%BF%BD"},
+	} {
+		actual := encodeGrpcMessage(tt.input)
+		if tt.expected != actual {
+			t.Errorf("encodeGrpcMessage(%q) = %q, want %q", tt.input, actual, tt.expected)
+		}
+	}
+
+	// make sure that all the visible ASCII chars except '%' are not percent encoded.
+	for i := ' '; i <= '~' && i != '%'; i++ {
+		output := encodeGrpcMessage(string(i))
+		if output != string(i) {
+			t.Errorf("encodeGrpcMessage(%v) = %v, want %v", string(i), output, string(i))
+		}
+	}
+
+	// make sure that all the invisible ASCII chars and '%' are percent encoded.
+	for i := rune(0); i == '%' || (i >= rune(0) && i < ' ') || (i > '~' && i <= rune(127)); i++ {
+		output := encodeGrpcMessage(string(i))
+		expected := fmt.Sprintf("%%%02X", i)
+		if output != expected {
+			t.Errorf("encodeGrpcMessage(%v) = %v, want %v", string(i), output, expected)
+		}
+	}
+}
+
+func (s) TestDecodeGrpcMessage(t *testing.T) {
+	for _, tt := range []struct {
+		input    string
+		expected string
+	}{
+		{"", ""},
+		{"Hello", "Hello"},
+		{"H%61o", "Hao"},
+		{"H%6", "H%6"},
+		{"%G0", "%G0"},
+		{"%E7%B3%BB%E7%BB%9F", "系统"},
+		{"%EF%BF%BD", "�"},
+	} {
+		actual := decodeGrpcMessage(tt.input)
+		if tt.expected != actual {
+			t.Errorf("decodeGrpcMessage(%q) = %q, want %q", tt.input, actual, tt.expected)
+		}
+	}
+
+	// make sure that all the visible ASCII chars except '%' are not percent decoded.
+	for i := ' '; i <= '~' && i != '%'; i++ {
+		output := decodeGrpcMessage(string(i))
+		if output != string(i) {
+			t.Errorf("decodeGrpcMessage(%v) = %v, want %v", string(i), output, string(i))
+		}
+	}
+
+	// make sure that all the invisible ASCII chars and '%' are percent decoded.
+	for i := rune(0); i == '%' || (i >= rune(0) && i < ' ') || (i > '~' && i <= rune(127)); i++ {
+		output := decodeGrpcMessage(fmt.Sprintf("%%%02X", i))
+		if output != string(i) {
+			t.Errorf("decodeGrpcMessage(%v) = %v, want %v", fmt.Sprintf("%%%02X", i), output, string(i))
+		}
+	}
+}
+
+// Decode an encoded string should get the same thing back, except for invalid
+// utf8 chars.
+func (s) TestDecodeEncodeGrpcMessage(t *testing.T) {
+	testCases := []struct {
+		orig string
+		want string
+	}{
+		{"", ""},
+		{"hello", "hello"},
+		{"h%6", "h%6"},
+		{"%G0", "%G0"},
+		{"系统", "系统"},
+		{"Hello, 世界", "Hello, 世界"},
+
+		{string([]byte{0xff, 0xfe, 0xfd}), "���"},
+		{string([]byte{0xff}) + "Hello" + string([]byte{0xfe}) + "世界" + string([]byte{0xfd}), "�Hello�世界�"},
+	}
+	for _, tC := range testCases {
+		got := decodeGrpcMessage(encodeGrpcMessage(tC.orig))
+		if got != tC.want {
+			t.Errorf("decodeGrpcMessage(encodeGrpcMessage(%q)) = %q, want %q", tC.orig, got, tC.want)
+		}
+	}
+}
+
+const binaryValue = "\u0080"
+
+func (s) TestEncodeMetadataHeader(t *testing.T) {
+	for _, test := range []struct {
+		// input
+		kin string
+		vin string
+		// output
+		vout string
+	}{
+		{"key", "abc", "abc"},
+		{"KEY", "abc", "abc"},
+		{"key-bin", "abc", "YWJj"},
+		{"key-bin", binaryValue, "woA"},
+	} {
+		v := encodeMetadataHeader(test.kin, test.vin)
+		if !reflect.DeepEqual(v, test.vout) {
+			t.Fatalf("encodeMetadataHeader(%q, %q) = %q, want %q", test.kin, test.vin, v, test.vout)
+		}
+	}
+}
+
+func (s) TestDecodeMetadataHeader(t *testing.T) {
+	for _, test := range []struct {
+		// input
+		kin string
+		vin string
+		// output
+		vout string
+		err  error
+	}{
+		{"a", "abc", "abc", nil},
+		{"key-bin", "Zm9vAGJhcg==", "foo\x00bar", nil},
+		{"key-bin", "Zm9vAGJhcg", "foo\x00bar", nil},
+		{"key-bin", "woA=", binaryValue, nil},
+		{"a", "abc,efg", "abc,efg", nil},
+	} {
+		v, err := decodeMetadataHeader(test.kin, test.vin)
+		if !reflect.DeepEqual(v, test.vout) || !reflect.DeepEqual(err, test.err) {
+			t.Fatalf("decodeMetadataHeader(%q, %q) = %q, %v, want %q, %v", test.kin, test.vin, v, err, test.vout, test.err)
+		}
+	}
+}
+
+func (s) TestParseDialTarget(t *testing.T) {
+	for _, test := range []struct {
+		target, wantNet, wantAddr string
+	}{
+		{"unix:a", "unix", "a"},
+		{"unix:a/b/c", "unix", "a/b/c"},
+		{"unix:/a", "unix", "/a"},
+		{"unix:/a/b/c", "unix", "/a/b/c"},
+		{"unix://a", "unix", "a"},
+		{"unix://a/b/c", "unix", "/b/c"},
+		{"unix:///a", "unix", "/a"},
+		{"unix:///a/b/c", "unix", "/a/b/c"},
+		{"unix:etcd:0", "unix", "etcd:0"},
+		{"unix:///tmp/unix-3", "unix", "/tmp/unix-3"},
+		{"unix://domain", "unix", "domain"},
+		{"unix://etcd:0", "unix", "etcd:0"},
+		{"unix:///etcd:0", "unix", "/etcd:0"},
+		{"passthrough://unix://domain", "tcp", "passthrough://unix://domain"},
+		{"https://google.com:443", "tcp", "https://google.com:443"},
+		{"dns:///google.com", "tcp", "dns:///google.com"},
+		{"/unix/socket/address", "tcp", "/unix/socket/address"},
+	} {
+		gotNet, gotAddr := ParseDialTarget(test.target)
+		if gotNet != test.wantNet || gotAddr != test.wantAddr {
+			t.Errorf("ParseDialTarget(%q) = %s, %s want %s, %s", test.target, gotNet, gotAddr, test.wantNet, test.wantAddr)
+		}
+	}
+}
+
+type badNetworkConn struct {
+	net.Conn
+}
+
+func (c *badNetworkConn) Write([]byte) (int, error) {
+	return 0, io.EOF
+}
+
+// This test ensures Write() on a broken network connection does not lead to
+// an infinite loop. See https://github.com/grpc/grpc-go/issues/7389 for more details.
+func (s) TestWriteBadConnection(t *testing.T) {
+	data := []byte("test_data")
+	// Configure the bufWriter with a batchsize that results in data being flushed
+	// to the underlying conn, midway through Write().
+	writeBufferSize := (len(data) - 1) / 2
+	writer := newBufWriter(&badNetworkConn{}, writeBufferSize, ioBufferPool(writeBufferSize))
+
+	errCh := make(chan error, 1)
+	go func() {
+		_, err := writer.Write(data)
+		errCh <- err
+	}()
+
+	select {
+	case <-time.After(time.Second):
+		t.Fatalf("Write() did not return in time")
+	case err := <-errCh:
+		if !errors.Is(err, io.EOF) {
+			t.Fatalf("Write() = %v, want error presence = %v", err, io.EOF)
+		}
+	}
+	if writer.bufHandle != nil {
+		t.Fatalf("failed Write() retained pooled buffer: handle=%p", writer.bufHandle)
+	}
+}
+
+func (s) TestBufWriterSharedFlushAllocations(t *testing.T) {
+	pool := imem.NewDirtySimplePool()
+	writer := newBufWriter(io.Discard, defaultWriteBufSize, pool)
+	payload := make([]byte, 128)
+
+	allocs := testing.AllocsPerRun(1000, func() {
+		if _, err := writer.Write(payload); err != nil {
+			t.Fatalf("Write() failed: %v", err)
+		}
+		if err := writer.Flush(); err != nil {
+			t.Fatalf("Flush() failed: %v", err)
+		}
+	})
+	if allocs != 0 {
+		t.Fatalf("shared Write()+Flush() allocated %v times, want 0", allocs)
+	}
+}
+
+func (s) TestBufWriterSharedBufferOwnership(t *testing.T) {
+	const batchSize = 8
+	pool := imem.NewDirtySimplePool()
+	var conn bytes.Buffer
+	writer := newBufWriter(&conn, batchSize, pool)
+
+	if _, err := writer.Write([]byte("abc")); err != nil {
+		t.Fatalf("Write() failed: %v", err)
+	}
+	if writer.bufHandle == nil {
+		t.Fatal("Write() did not retain the pooled buffer handle")
+	}
+	if err := writer.Flush(); err != nil {
+		t.Fatalf("Flush() failed: %v", err)
+	}
+	if writer.bufHandle != nil {
+		t.Fatalf("Flush() retained pooled buffer: handle=%p", writer.bufHandle)
+	}
+	if got := conn.String(); got != "abc" {
+		t.Fatalf("conn data = %q, want %q", got, "abc")
+	}
+	if err := writer.Flush(); err != nil {
+		t.Fatalf("second Flush() failed: %v", err)
+	}
+
+	if _, err := writer.Write([]byte("12345678")); err != nil {
+		t.Fatalf("full-buffer Write() failed: %v", err)
+	}
+	if writer.bufHandle == nil {
+		t.Fatal("full-buffer Write() released the handle during its internal flush")
+	}
+	if writer.offset != 0 {
+		t.Fatalf("full-buffer Write() offset = %d, want 0", writer.offset)
+	}
+	if err := writer.Flush(); err != nil {
+		t.Fatalf("Flush() after full-buffer Write() failed: %v", err)
+	}
+	if writer.bufHandle != nil {
+		t.Fatalf("Flush() retained pooled buffer: handle=%p", writer.bufHandle)
+	}
+}
+
+func (s) TestBufWriterFlushErrorReleasesSharedBuffer(t *testing.T) {
+	pool := imem.NewDirtySimplePool()
+	writer := newBufWriter(&badNetworkConn{}, 8, pool)
+
+	if _, err := writer.Write([]byte("abc")); err != nil {
+		t.Fatalf("Write() failed before flush: %v", err)
+	}
+	if writer.bufHandle == nil {
+		t.Fatal("Write() did not retain the pooled buffer handle")
+	}
+	if err := writer.Flush(); !errors.Is(err, io.EOF) {
+		t.Fatalf("Flush() error = %v, want %v", err, io.EOF)
+	}
+	if writer.bufHandle != nil {
+		t.Fatalf("failed Flush() retained pooled buffer: handle=%p", writer.bufHandle)
+	}
+	if _, err := writer.Write([]byte("def")); !errors.Is(err, io.EOF) {
+		t.Fatalf("Write() after failed Flush() error = %v, want %v", err, io.EOF)
+	}
+	if writer.bufHandle != nil {
+		t.Fatal("Write() after failed Flush() acquired another pooled buffer")
+	}
+}
+
+func BenchmarkBufWriter(b *testing.B) {
+	const payloadSize = 128
+	payload := make([]byte, payloadSize)
+
+	for _, test := range []struct {
+		name string
+		pool *imem.SimpleBufferPool
+	}{
+		{name: "Shared", pool: imem.NewDirtySimplePool()},
+		{name: "Unshared"},
+	} {
+		b.Run(test.name, func(b *testing.B) {
+			b.Run("New", func(b *testing.B) {
+				b.ReportAllocs()
+				for b.Loop() {
+					writer := newBufWriter(io.Discard, defaultWriteBufSize, test.pool)
+					_ = writer
+				}
+			})
+
+			b.Run("WriteAndFlush", func(b *testing.B) {
+				writer := newBufWriter(io.Discard, defaultWriteBufSize, test.pool)
+				b.ReportAllocs()
+				b.SetBytes(payloadSize)
+				for b.Loop() {
+					if _, err := writer.Write(payload); err != nil {
+						b.Fatal(err)
+					}
+					if err := writer.Flush(); err != nil {
+						b.Fatal(err)
+					}
+				}
+			})
+
+			b.Run("EmptyFlush", func(b *testing.B) {
+				writer := newBufWriter(io.Discard, defaultWriteBufSize, test.pool)
+				b.ReportAllocs()
+				for b.Loop() {
+					if err := writer.Flush(); err != nil {
+						b.Fatal(err)
+					}
+				}
+			})
+
+			b.Run("FullBufferWrite", func(b *testing.B) {
+				writer := newBufWriter(io.Discard, defaultWriteBufSize, test.pool)
+				fullBuffer := make([]byte, defaultWriteBufSize)
+				b.ReportAllocs()
+				b.SetBytes(defaultWriteBufSize)
+				for b.Loop() {
+					if _, err := writer.Write(fullBuffer); err != nil {
+						b.Fatal(err)
+					}
+				}
+			})
+		})
+	}
+}
+
+func BenchmarkDecodeGrpcMessage(b *testing.B) {
+	input := "Hello, %E4%B8%96%E7%95%8C"
+	want := "Hello, 世界"
+	b.ReportAllocs()
+	for i := 0; i < b.N; i++ {
+		got := decodeGrpcMessage(input)
+		if got != want {
+			b.Fatalf("decodeGrpcMessage(%q) = %s, want %s", input, got, want)
+		}
+	}
+}
+
+func BenchmarkEncodeGrpcMessage(b *testing.B) {
+	input := "Hello, 世界"
+	want := "Hello, %E4%B8%96%E7%95%8C"
+	b.ReportAllocs()
+	for i := 0; i < b.N; i++ {
+		got := encodeGrpcMessage(input)
+		if got != want {
+			b.Fatalf("encodeGrpcMessage(%q) = %s, want %s", input, got, want)
+		}
+	}
+}
+
+func buildDataFrame(h http2.FrameHeader, payload []byte) []byte {
+	buf := new(bytes.Buffer)
+	buf.Write([]byte{
+		byte(h.Length >> 16),
+		byte(h.Length >> 8),
+		byte(h.Length),
+		byte(h.Type),
+		byte(h.Flags),
+		byte(h.StreamID >> 24),
+		byte(h.StreamID >> 16),
+		byte(h.StreamID >> 8),
+		byte(h.StreamID),
+	})
+	buf.Write(payload)
+	return buf.Bytes()
+}
+
+func (s) TestFramer_ParseDataFrame(t *testing.T) {
+	tests := []struct {
+		name                string
+		wire                []byte // from frame header onward
+		wantData            []byte
+		wantErr             error
+		wantErrDetailSubstr string
+	}{
+		{
+			name: "good_padded",
+			wire: buildDataFrame(http2.FrameHeader{
+				Type: http2.FrameData, Length: 6, StreamID: 1, Flags: http2.FlagDataPadded,
+			}, []byte{
+				2,             // pad length
+				'f', 'o', 'o', // data
+				0, 0, // padding
+			}),
+			wantData: []byte("foo"),
+		},
+		{
+			name: "good_unpadded",
+			wire: buildDataFrame(http2.FrameHeader{
+				Type: http2.FrameData, Length: 3, StreamID: 1, Flags: 0,
+			}, []byte("foo")),
+			wantData: []byte("foo"),
+		},
+		{
+			name: "stream_id_0",
+			wire: buildDataFrame(http2.FrameHeader{
+				Type: http2.FrameData, Length: 1, StreamID: 0, Flags: 0,
+			}, []byte{0}),
+			wantErr:             http2.ConnectionError(http2.ErrCodeProtocol),
+			wantErrDetailSubstr: "DATA frame with stream ID 0",
+		},
+		{
+			name: "pad_size_bigger_than_payload",
+			wire: buildDataFrame(http2.FrameHeader{
+				Type: http2.FrameData, Length: 4, StreamID: 1, Flags: http2.FlagDataPadded,
+			}, []byte{
+				4,        // pad length of 4
+				'f', 'o', // data 'fo' is 2 bytes
+				0, // padding 0 is 1 byte.
+			}), // pad length 4 but only 3 bytes for data+padding available in payload after pad length byte
+			wantErr:             http2.ConnectionError(http2.ErrCodeProtocol),
+			wantErrDetailSubstr: "pad size larger than data payload",
+		},
+		{
+			name: "padded_zero_data_some_padding",
+			wire: buildDataFrame(http2.FrameHeader{
+				Type: http2.FrameData, Length: 3, StreamID: 1, Flags: http2.FlagDataPadded,
+			}, []byte{
+				2,    // pad length 2
+				0, 0, // padding
+			}),
+			wantData: []byte{},
+		},
+		{
+			name: "padded_short_payload_reading_pad_flag",
+			wire: buildDataFrame(http2.FrameHeader{
+				Type: http2.FrameData, Length: 0, StreamID: 1, Flags: http2.FlagDataPadded,
+			}, []byte{}),
+			wantErr: io.ErrUnexpectedEOF,
+		},
+	}
+
+	for _, tc := range tests {
+		t.Run(tc.name, func(t *testing.T) {
+			fr := newFramer(bytes.NewBuffer(tc.wire), defaultWriteBufSize, defaultReadBufSize, false, defaultClientMaxHeaderListSize, mem.DefaultBufferPool())
+			f, err := fr.readFrame()
+
+			if err != tc.wantErr {
+				t.Fatalf("readFrame() returned unexpected error: %v, want %v", err, tc.wantErr)
+			}
+			gotErrDetailStr := ""
+			if fr.errDetail != nil {
+				gotErrDetailStr = fr.errDetail.Error()
+			}
+			if !strings.Contains(gotErrDetailStr, tc.wantErrDetailSubstr) {
+				t.Fatalf("errorDetail() returned unexpected error string: %q, want substring %q", gotErrDetailStr, tc.wantErrDetailSubstr)
+			}
+
+			if tc.wantErr != nil {
+				return
+			}
+			df, ok := f.(*parsedDataFrame)
+			if !ok {
+				t.Fatalf("readFrame() returned %T, want *parsedDataFrame", f)
+			}
+			if gotData := df.data.ReadOnlyData(); !bytes.Equal(gotData, tc.wantData) {
+				t.Fatalf("parsedDataFrame.Data() = %q, want %q", gotData, tc.wantData)
+			}
+			df.data.Free()
+		})
+	}
+}
+
+type testReadyReader struct {
+	readyreader.Reader
+}
+
+func (t *testReadyReader) Read([]byte) (int, error) {
+	return 0, io.EOF
+}
+
+func (s) TestBufferedReader(t *testing.T) {
+	normalReader := bytes.NewReader(nil)
+
+	tests := []struct {
+		name          string
+		reader        io.Reader
+		bufSize       int
+		enablePooling bool
+		wantTypeOf    any
+	}{
+		{
+			name:          "bufSize_0",
+			reader:        normalReader,
+			bufSize:       0,
+			enablePooling: true,
+			wantTypeOf:    (*bytes.Reader)(nil),
+		},
+		{
+			name:          "env_var_disabled_normal_reader",
+			reader:        normalReader,
+			bufSize:       10,
+			enablePooling: false,
+			wantTypeOf:    (*bufio.Reader)(nil),
+		},
+		{
+			name:          "env_var_disabled_ready_reader",
+			reader:        &testReadyReader{},
+			bufSize:       10,
+			enablePooling: false,
+			wantTypeOf:    (*bufio.Reader)(nil),
+		},
+		{
+			name:          "env_var_enabled_normal_reader",
+			reader:        normalReader,
+			bufSize:       10,
+			enablePooling: true,
+			wantTypeOf:    (*bufio.Reader)(nil),
+		},
+		{
+			name:          "env_var_enabled_ready_reader",
+			reader:        &testReadyReader{},
+			bufSize:       10,
+			enablePooling: true,
+			wantTypeOf:    readyreader.NewBuffered(nil, 10, mem.DefaultBufferPool()),
+		},
+	}
+
+	for _, tt := range tests {
+		t.Run(tt.name, func(t *testing.T) {
+			testutils.SetEnvConfig(t, &envconfig.EnableHTTPFramerReadBufferPooling, tt.enablePooling)
+
+			got := bufferedReader(tt.reader, tt.bufSize)
+
+			gotType := reflect.TypeOf(got)
+			wantType := reflect.TypeOf(tt.wantTypeOf)
+
+			if gotType != wantType {
+				t.Errorf("bufferedReader() type = %v, want %v", gotType, wantType)
+			}
+		})
+	}
+}

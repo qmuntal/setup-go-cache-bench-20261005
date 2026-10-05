@@ -1,0 +1,93 @@
+// Copyright 2018 The Hugo Authors. All rights reserved.
+//
+// Licensed under the Apache License, Version 2.0 (the "License");
+// you may not use this file except in compliance with the License.
+// You may obtain a copy of the License at
+// http://www.apache.org/licenses/LICENSE-2.0
+//
+// Unless required by applicable law or agreed to in writing, software
+// distributed under the License is distributed on an "AS IS" BASIS,
+// WITHOUT WARRANTIES OR CONDITIONS OF ANY KIND, either express or implied.
+// See the License for the specific language governing permissions and
+// limitations under the License.
+
+package templates
+
+import (
+	"context"
+
+	"github.com/gohugoio/hugo/deps"
+	"github.com/gohugoio/hugo/tpl/internal"
+	"github.com/gohugoio/hugo/tpl/partials"
+)
+
+const name = "templates"
+
+func init() {
+	f := func(d *deps.Deps) *internal.TemplateFuncsNamespace {
+		ctx := New(d)
+
+		ns := &internal.TemplateFuncsNamespace{
+			Name:    name,
+			Context: func(cctx context.Context, args ...any) (any, error) { return ctx, nil },
+			OnCreated: func(m map[string]any) {
+			LOOP:
+				for _, v := range m {
+					switch v := v.(type) {
+					case *partials.Namespace:
+						ctx.partialsNs = v
+						break LOOP
+					}
+				}
+				if ctx.partialsNs == nil {
+					panic("partialsNs namespace not found")
+				}
+			},
+		}
+
+		ns.AddMethodMapping(ctx.Current,
+			nil,
+			[][2]string{},
+		)
+
+		ns.AddMethodMapping(ctx.Defer,
+			nil, // No aliases to keep the AST parsing simple.
+			[][2]string{},
+		)
+
+		// For internal use only.
+		ns.AddMethodMapping(ctx.DoDefer,
+			[]string{"doDefer"},
+			[][2]string{},
+		)
+
+		ns.AddMethodMapping(ctx.Inner,
+			[]string{"inner"},
+			[][2]string{},
+		)
+
+		// For internal use only.
+		ns.AddMethodMapping(ctx._PushPartialDecorator,
+			[]string{"_pushPartialDecorator"},
+			[][2]string{},
+		)
+
+		// For internal use only.
+		ns.AddMethodMapping(ctx._PopPartialDecorator,
+			[]string{"_popPartialDecorator"},
+			[][2]string{},
+		)
+
+		ns.AddMethodMapping(ctx.Exists,
+			nil,
+			[][2]string{
+				{`{{ if (templates.Exists "_partials/header.html") }}Yes!{{ end }}`, `Yes!`},
+				{`{{ if not (templates.Exists "_partials/doesnotexist.html") }}No!{{ end }}`, `No!`},
+			},
+		)
+
+		return ns
+	}
+
+	internal.AddTemplateFuncsNamespace(f)
+}

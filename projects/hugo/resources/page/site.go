@@ -1,0 +1,476 @@
+// Copyright 2019 The Hugo Authors. All rights reserved.
+//
+// Licensed under the Apache License, Version 2.0 (the "License");
+// you may not use this file except in compliance with the License.
+// You may obtain a copy of the License at
+// http://www.apache.org/licenses/LICENSE-2.0
+//
+// Unless required by applicable law or agreed to in writing, software
+// distributed under the License is distributed on an "AS IS" BASIS,
+// WITHOUT WARRANTIES OR CONDITIONS OF ANY KIND, either express or implied.
+// See the License for the specific language governing permissions and
+// limitations under the License.
+
+package page
+
+import (
+	"slices"
+	"time"
+
+	"github.com/gohugoio/hugo/common/hmaps"
+	"github.com/gohugoio/hugo/common/hstore"
+	"github.com/gohugoio/hugo/common/hugo"
+	"github.com/gohugoio/hugo/config/privacy"
+	"github.com/gohugoio/hugo/config/services"
+	"github.com/gohugoio/hugo/hugolib/roles"
+	"github.com/gohugoio/hugo/hugolib/versions"
+	"github.com/gohugoio/hugo/identity"
+
+	"github.com/gohugoio/hugo/common/loggers"
+	"github.com/gohugoio/hugo/config"
+
+	"github.com/gohugoio/hugo/langs"
+	"github.com/gohugoio/hugo/navigation"
+)
+
+// Site represents a site. There can be multiple sites in a multilingual setup.
+type Site interface {
+	// Returns the Language configured for this Site.
+	Language() *langs.Language
+
+	// Returns the Site in one of dimensions language, version or role.
+	Dimension(string) SiteDimension
+
+	// Returns the role configured for this Site.
+	Role() roles.Role
+
+	// Returns the version configured for this Site.
+	Version() versions.Version
+
+	// Returns all the languages configured for all sites.
+	Languages() langs.Languages
+
+	GetPage(ref ...string) (Page, error)
+
+	// AllPages returns all pages for all languages.
+	AllPages() Pages
+
+	// Returns all the regular Pages in this Site.
+	RegularPages() Pages
+
+	// Returns all Pages in this Site.
+	Pages() Pages
+
+	// Returns all the top level sections.
+	Sections() Pages
+
+	// A shortcut to the home
+	Home() Page
+
+	// Returns the server port.
+	ServerPort() int
+
+	// Returns the configured title for this Site.
+	Title() string
+
+	// Deprecated: Use .Language.Locale instead.
+	LanguageCode() string
+
+	// Returns the configured copyright information for this Site.
+	Copyright() string
+
+	// Returns all sites for all dimensions.
+	Sites() Sites
+
+	// Returns Site currently rendering.
+	Current() Site
+
+	// Reports whether this site is the default across all dimensions.
+	IsDefault() bool
+
+	// Returns a struct with some information about the build.
+	Hugo() HugoInfo
+
+	// Returns the BaseURL for this Site.
+	BaseURL() string
+
+	// Returns a taxonomy map.
+	Taxonomies() TaxonomyList
+
+	// Returns the last modification date of the content.
+	Lastmod() time.Time
+
+	// Returns the Menus for this site.
+	Menus() navigation.Menus
+
+	// The main sections in the site.
+	MainSections() []string
+
+	// Returns the Params configured for this site.
+	Params() hmaps.Params
+
+	// Param is a convenience method to do lookups in Params.
+	Param(key any) (any, error)
+
+	// Returns a map of all the data inside /data.
+	Data() map[string]any
+
+	// Returns the project config.
+	Config() SiteConfig
+
+	// BuildDrafts is deprecated and will be removed in a future release.
+	BuildDrafts() bool
+
+	// LanguagePrefix returns the language prefix for this site.
+	LanguagePrefix() string
+
+	hstore.StoreProvider
+
+	// String returns a string representation of the site.
+	// Note that this representation may change in the future.
+	String() string
+
+	// For internal use only.
+	// This will panic if the site is not fully initialized.
+	// This is typically used to inform the user in the content adapter templates,
+	// as these are executed before all the page collections etc. are ready to use.
+	CheckReady()
+}
+
+// SiteDimension represents a dimension of the site.
+type SiteDimension interface {
+	Name() string
+}
+
+// Sites represents an ordered list of sites (languages).
+type Sites []Site
+
+// Default is a convenience method to get the default site.
+func (s Sites) Default() Site {
+	if idx := slices.IndexFunc(s, func(ss Site) bool {
+		return ss.IsDefault()
+	}); idx != -1 {
+		return s[idx]
+	}
+	return nil
+}
+
+// Some additional interfaces implemented by siteWrapper that's not on Site.
+var _ identity.ForEeachIdentityByNameProvider = (*siteWrapper)(nil)
+
+type siteWrapper struct {
+	s Site
+}
+
+func WrapSite(s Site) Site {
+	if s == nil {
+		panic("Site is nil")
+	}
+	return &siteWrapper{s: s}
+}
+
+func (s *siteWrapper) Key() string {
+	return s.s.Language().Lang
+}
+
+func (s *siteWrapper) GetPage(ref ...string) (Page, error) {
+	return s.s.GetPage(ref...)
+}
+
+func (s *siteWrapper) Language() *langs.Language {
+	return s.s.Language()
+}
+
+func (s *siteWrapper) Languages() langs.Languages {
+	return s.s.Languages()
+}
+
+func (s *siteWrapper) Role() roles.Role {
+	return s.s.Role()
+}
+
+func (s *siteWrapper) Dimension(d string) SiteDimension {
+	return s.s.Dimension(d)
+}
+
+func (s *siteWrapper) Version() versions.Version {
+	return s.s.Version()
+}
+
+func (s *siteWrapper) AllPages() Pages {
+	return s.s.AllPages()
+}
+
+func (s *siteWrapper) RegularPages() Pages {
+	return s.s.RegularPages()
+}
+
+func (s *siteWrapper) Pages() Pages {
+	return s.s.Pages()
+}
+
+func (s *siteWrapper) Sections() Pages {
+	return s.s.Sections()
+}
+
+func (s *siteWrapper) Home() Page {
+	return s.s.Home()
+}
+
+func (s *siteWrapper) ServerPort() int {
+	return s.s.ServerPort()
+}
+
+func (s *siteWrapper) Title() string {
+	return s.s.Title()
+}
+
+func (s *siteWrapper) LanguageCode() string {
+	hugo.DeprecateWithLogger(".Site.LanguageCode", "Use .Site.Language.Locale instead.", "v0.158.0", s.s.Language().Logger())
+	return s.s.Language().Locale()
+}
+
+func (s *siteWrapper) Copyright() string {
+	return s.s.Copyright()
+}
+
+func (s *siteWrapper) Sites() Sites {
+	return s.s.Sites()
+}
+
+func (s *siteWrapper) Current() Site {
+	return s.s.Current()
+}
+
+func (s *siteWrapper) IsDefault() bool {
+	return s.s.IsDefault()
+}
+
+func (s *siteWrapper) Config() SiteConfig {
+	return s.s.Config()
+}
+
+func (s *siteWrapper) Hugo() HugoInfo {
+	return s.s.Hugo()
+}
+
+func (s *siteWrapper) BaseURL() string {
+	return s.s.BaseURL()
+}
+
+func (s *siteWrapper) Taxonomies() TaxonomyList {
+	return s.s.Taxonomies()
+}
+
+func (s *siteWrapper) Lastmod() time.Time {
+	return s.s.Lastmod()
+}
+
+func (s *siteWrapper) Menus() navigation.Menus {
+	return s.s.Menus()
+}
+
+func (s *siteWrapper) MainSections() []string {
+	return s.s.MainSections()
+}
+
+func (s *siteWrapper) Params() hmaps.Params {
+	return s.s.Params()
+}
+
+func (s *siteWrapper) Param(key any) (any, error) {
+	return s.s.Param(key)
+}
+
+func (s *siteWrapper) Data() map[string]any {
+	return s.s.Data()
+}
+
+func (s *siteWrapper) BuildDrafts() bool {
+	return s.s.BuildDrafts()
+}
+
+func (s *siteWrapper) LanguagePrefix() string {
+	return s.s.LanguagePrefix()
+}
+
+func (s *siteWrapper) Store() *hstore.Scratch {
+	return s.s.Store()
+}
+
+func (s *siteWrapper) String() string {
+	return s.s.String()
+}
+
+// For internal use only.
+func (s *siteWrapper) ForEeachIdentityByName(name string, f func(identity.Identity) bool) {
+	s.s.(identity.ForEeachIdentityByNameProvider).ForEeachIdentityByName(name, f)
+}
+
+// For internal use only.
+func (s *siteWrapper) CheckReady() {
+	s.s.CheckReady()
+}
+
+type testSite struct {
+	h HugoInfo
+	l *langs.Language
+}
+
+func (t testSite) Hugo() HugoInfo {
+	return t.h
+}
+
+func (t testSite) ServerPort() int {
+	return 1313
+}
+
+func (testSite) Lastmod() (t time.Time) {
+	return
+}
+
+func (t testSite) Title() string {
+	return "foo"
+}
+
+// Deprecated: Use .Language.Locale instead.
+func (t testSite) LanguageCode() string {
+	hugo.DeprecateWithLogger(".Site.LanguageCode", "Use .Site.Language.Locale instead.", "v0.158.0", t.l.Logger())
+	return t.l.Locale()
+}
+
+func (t testSite) Copyright() string {
+	return ""
+}
+
+func (t testSite) Sites() Sites {
+	return nil
+}
+
+func (t testSite) Sections() Pages {
+	return nil
+}
+
+func (t testSite) GetPage(ref ...string) (Page, error) {
+	return nil, nil
+}
+
+func (t testSite) Current() Site {
+	return t
+}
+
+func (t testSite) IsDefault() bool {
+	return true
+}
+
+func (s testSite) LanguagePrefix() string {
+	return ""
+}
+
+func (t testSite) Languages() langs.Languages {
+	return nil
+}
+
+func (t testSite) Dimension(d string) SiteDimension {
+	return nil
+}
+
+func (t testSite) MainSections() []string {
+	return nil
+}
+
+func (t testSite) Language() *langs.Language {
+	return t.l
+}
+
+func (t testSite) Role() roles.Role {
+	return nil
+}
+
+func (t testSite) Version() versions.Version {
+	return nil
+}
+
+func (t testSite) Home() Page {
+	return nil
+}
+
+func (t testSite) Pages() Pages {
+	return nil
+}
+
+func (t testSite) AllPages() Pages {
+	return nil
+}
+
+func (t testSite) RegularPages() Pages {
+	return nil
+}
+
+func (t testSite) Menus() navigation.Menus {
+	return nil
+}
+
+func (t testSite) Taxonomies() TaxonomyList {
+	return nil
+}
+
+func (t testSite) BaseURL() string {
+	return ""
+}
+
+func (t testSite) Params() hmaps.Params {
+	return nil
+}
+
+func (t testSite) Data() map[string]any {
+	return nil
+}
+
+func (s testSite) Config() SiteConfig {
+	return SiteConfig{}
+}
+
+func (s testSite) BuildDrafts() bool {
+	return false
+}
+
+func (s testSite) Param(key any) (any, error) {
+	return nil, nil
+}
+
+func (s testSite) Store() *hstore.Scratch {
+	return hstore.NewScratch()
+}
+
+func (s testSite) String() string {
+	return "testSite"
+}
+
+func (s testSite) CheckReady() {
+}
+
+// NewDummyHugoSite creates a new minimal test site.
+func NewDummyHugoSite(conf config.AllProvider) Site {
+	opts := HugoInfoOptions{
+		Conf: conf,
+	}
+	l, err := langs.NewLanguage("en", "en", "", langs.LanguageConfig{}, loggers.NewDefault())
+	if err != nil {
+		panic(err)
+	}
+	return testSite{
+		h: NewHugoInfo(opts),
+		l: l,
+	}
+}
+
+// SiteConfig holds the config in site.Config.
+type SiteConfig struct {
+	// This contains all privacy related settings that can be used to
+	// make the YouTube template etc. GDPR compliant.
+	Privacy privacy.Config
+
+	// Services contains config for services such as Google Analytics etc.
+	Services services.Config
+}

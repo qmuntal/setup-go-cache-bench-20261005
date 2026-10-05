@@ -1,0 +1,412 @@
+// Copyright 2018 The Hugo Authors. All rights reserved.
+//
+// Licensed under the Apache License, Version 2.0 (the "License");
+// you may not use this file except in compliance with the License.
+// You may obtain a copy of the License at
+// http://www.apache.org/licenses/LICENSE-2.0
+//
+// Unless required by applicable law or agreed to in writing, software
+// distributed under the License is distributed on an "AS IS" BASIS,
+// WITHOUT WARRANTIES OR CONDITIONS OF ANY KIND, either express or implied.
+// See the License for the specific language governing permissions and
+// limitations under the License.
+
+package hugo
+
+import (
+	"context"
+	"fmt"
+	"os"
+	"path/filepath"
+	"runtime/debug"
+	"sort"
+	"strings"
+	"sync"
+	"time"
+
+	"github.com/bep/helpers/contexthelpers"
+	"github.com/bep/logg"
+
+	"github.com/bep/godartsass/v2"
+
+	"github.com/gohugoio/hugo/common/hexec"
+	"github.com/gohugoio/hugo/common/loggers"
+	"github.com/gohugoio/hugo/common/version"
+	"github.com/gohugoio/hugo/hugofs/files"
+
+	"github.com/spf13/afero"
+
+	iofs "io/fs"
+
+	"github.com/gohugoio/hugo/config"
+	"github.com/gohugoio/hugo/hugofs"
+)
+
+const (
+	EnvironmentDevelopment = "development"
+	EnvironmentProduction  = "production"
+)
+
+var (
+	// buildDate allows vendor-specified build date when .git/ is unavailable.
+	buildDate string
+	// vendorInfo contains vendor notes about the current build.
+	vendorInfo string
+)
+
+// BuildInfo holds build information extracted from runtime/debug.
+type BuildInfo struct {
+	Revision     string
+	RevisionTime string
+	GoVersion    string
+}
+
+// GetBuildInfo returns the build info for the current binary.
+func GetBuildInfo() *BuildInfo {
+	bi := getBuildInfo()
+	if bi == nil {
+		return nil
+	}
+	return &BuildInfo{
+		Revision:     bi.Revision,
+		RevisionTime: bi.RevisionTime,
+		GoVersion:    bi.GoVersion,
+	}
+}
+
+type contextKey uint8
+
+const (
+	contextKeyMarkupScope contextKey = iota
+)
+
+var markupScope = contexthelpers.NewContextDispatcher[string](contextKeyMarkupScope)
+
+// Context gives access to some of the context scoped variables.
+type Context struct{}
+
+func (c Context) MarkupScope(ctx context.Context) string {
+	return GetMarkupScope(ctx)
+}
+
+// SetMarkupScope sets the markup scope in the context.
+func SetMarkupScope(ctx context.Context, s string) context.Context {
+	return markupScope.Set(ctx, s)
+}
+
+// GetMarkupScope gets the markup scope from the context.
+func GetMarkupScope(ctx context.Context) string {
+	return markupScope.Get(ctx)
+}
+
+// GetExecEnviron creates and gets the common os/exec environment used in the
+// external programs we interact with via os/exec, e.g. postcss.
+func GetExecEnviron(workDir string, cfg config.AllProvider, fs afero.Fs) []string {
+	var env []string
+	nodepath := filepath.Join(workDir, "node_modules")
+	if np := os.Getenv("NODE_PATH"); np != "" {
+		nodepath = workDir + string(os.PathListSeparator) + np
+	}
+	config.SetEnvVars(&env, "NODE_PATH", nodepath)
+	config.SetEnvVars(&env, "PWD", workDir)
+	config.SetEnvVars(&env, "HUGO_ENVIRONMENT", cfg.Environment())
+	config.SetEnvVars(&env, "HUGO_ENV", cfg.Environment())
+	config.SetEnvVars(&env, "HUGO_PUBLISHDIR", filepath.Join(workDir, cfg.BaseConfig().PublishDir))
+
+	if fs != nil {
+		var fis []iofs.DirEntry
+		d, err := fs.Open(files.FolderJSConfig)
+		if err == nil {
+			fis, err = d.(iofs.ReadDirFile).ReadDir(-1)
+		}
+
+		if err == nil {
+			for _, fi := range fis {
+				key := fmt.Sprintf("HUGO_FILE_%s", strings.ReplaceAll(strings.ToUpper(fi.Name()), ".", "_"))
+				value := fi.(hugofs.FileMetaInfo).Meta().Filename
+				config.SetEnvVars(&env, key, value)
+			}
+		}
+	}
+
+	return env
+}
+
+type buildInfo struct {
+	VersionControlSystem string
+	Revision             string
+	RevisionTime         string
+	Modified             bool
+
+	GoOS   string
+	GoArch string
+
+	*debug.BuildInfo
+}
+
+var (
+	bInfo     *buildInfo
+	bInfoInit sync.Once
+)
+
+func getBuildInfo() *buildInfo {
+	bInfoInit.Do(func() {
+		bi, ok := debug.ReadBuildInfo()
+		if !ok {
+			return
+		}
+
+		bInfo = &buildInfo{BuildInfo: bi}
+
+		for _, s := range bInfo.Settings {
+			switch s.Key {
+			case "vcs":
+				bInfo.VersionControlSystem = s.Value
+			case "vcs.revision":
+				bInfo.Revision = s.Value
+			case "vcs.time":
+				bInfo.RevisionTime = s.Value
+			case "vcs.modified":
+				bInfo.Modified = s.Value == "true"
+			case "GOOS":
+				bInfo.GoOS = s.Value
+			case "GOARCH":
+				bInfo.GoArch = s.Value
+			}
+		}
+	})
+
+	return bInfo
+}
+
+func formatDep(path, version string) string {
+	return fmt.Sprintf("%s=%q", path, version)
+}
+
+// GetDependencyList returns a sorted dependency list on the format package="version".
+// It includes both Go dependencies and (a manually maintained) list of C(++) dependencies.
+func GetDependencyList() []string {
+	var deps []string
+
+	bi := getBuildInfo()
+	if bi == nil {
+		return deps
+	}
+
+	for _, dep := range bi.Deps {
+		deps = append(deps, formatDep(dep.Path, dep.Version))
+	}
+
+	deps = append(deps, GetDependencyListNonGo()...)
+
+	sort.Strings(deps)
+
+	return deps
+}
+
+// GetDependencyListNonGo returns a list of non-Go dependencies.
+func GetDependencyListNonGo() []string {
+	deps := []string{formatDep("github.com/webmproject/libwebp", "v1.6.0")} // via WASM. TODO(bep) get versions from the plugin setup.
+
+	if IsExtended {
+		deps = append(
+			deps,
+			formatDep("github.com/sass/libsass", "3.6.6"),
+		)
+	}
+
+	if dartSass := dartSassVersion(); dartSass.ProtocolVersion != "" {
+		dartSassPath := "github.com/sass/dart-sass-embedded"
+		if IsDartSassGeV2() {
+			dartSassPath = "github.com/sass/dart-sass"
+		}
+		deps = append(deps,
+			formatDep(dartSassPath+"/protocol", dartSass.ProtocolVersion),
+			formatDep(dartSassPath+"/compiler", dartSass.CompilerVersion),
+			formatDep(dartSassPath+"/implementation", dartSass.ImplementationVersion),
+		)
+	}
+	return deps
+}
+
+// IsRunningAsTest reports whether we are running as a test.
+func IsRunningAsTest() bool {
+	for _, arg := range os.Args {
+		if strings.HasPrefix(arg, "-test") {
+			return true
+		}
+	}
+	return false
+}
+
+// Dependency is a single dependency, which can be either a Hugo Module or a local theme.
+type Dependency struct {
+	// Returns the path to this module.
+	// This will either be the module path, e.g. "github.com/gohugoio/myshortcodes",
+	// or the path below your /theme folder, e.g. "mytheme".
+	Path string
+
+	// The module version.
+	Version string
+
+	// Whether this dependency is vendored.
+	Vendor bool
+
+	// Time version was created.
+	Time time.Time
+
+	// In the dependency tree, this is the first module that defines this module
+	// as a dependency.
+	Owner *Dependency
+
+	// Replaced by this dependency.
+	Replace *Dependency
+}
+
+func dartSassVersion() godartsass.DartSassVersion {
+	if DartSassBinaryName == "" || !IsDartSassGeV2() {
+		return godartsass.DartSassVersion{}
+	}
+	v, _ := godartsass.Version(DartSassBinaryName)
+	return v
+}
+
+// DartSassBinaryName is the name of the Dart Sass binary to use.
+// TODO(bep) find a better place for this.
+var DartSassBinaryName string
+
+func init() {
+	DartSassBinaryName = os.Getenv("DART_SASS_BINARY")
+	if DartSassBinaryName == "" {
+		for _, name := range dartSassBinaryNamesV2 {
+			if hexec.InPath(name) {
+				DartSassBinaryName = name
+				break
+			}
+		}
+		if DartSassBinaryName == "" {
+			if hexec.InPath(dartSassBinaryNameV1) {
+				DartSassBinaryName = dartSassBinaryNameV1
+			}
+		}
+	}
+}
+
+var (
+	dartSassBinaryNameV1  = "dart-sass-embedded"
+	dartSassBinaryNamesV2 = []string{"dart-sass", "sass"}
+)
+
+// TODO(bep) we eventually want to remove this, but keep it for a while to throw an informative error.
+// We stopped supporting the old binary in Hugo 0.139.0.
+func IsDartSassGeV2() bool {
+	// dart-sass-embedded was the first version of the embedded Dart Sass before it was moved into the main project.
+	return !strings.Contains(DartSassBinaryName, "embedded")
+}
+
+// Deprecate informs about a deprecation starting at the given version.
+//
+// A deprecation typically needs a simple change in the template, but doing so will make the template incompatible with older versions.
+// Theme maintainers generally want
+// 1. No warnings or errors in the console when building a Hugo site.
+// 2. Their theme to work for at least the last few Hugo versions.
+func Deprecate(item, alternative string, version string) {
+	level := deprecationLogLevelFromVersion(version)
+	deprecateLevel(item, alternative, version, level)
+}
+
+// See Deprecate for details.
+func DeprecateWithLogger(item, alternative string, version string, log logg.Logger) {
+	level := deprecationLogLevelFromVersion(version)
+	deprecateLevelWithLogger(item, alternative, version, level, log)
+}
+
+// DeprecateLevelMin informs about a deprecation starting at the given version, but with a minimum log level.
+func DeprecateLevelMin(item, alternative string, version string, minLevel logg.Level) {
+	level := max(deprecationLogLevelFromVersion(version), minLevel)
+	deprecateLevel(item, alternative, version, level)
+}
+
+// deprecateLevel informs about a deprecation logging at the given level.
+func deprecateLevel(item, alternative, version string, level logg.Level) {
+	deprecateLevelWithLogger(item, alternative, version, level, loggers.Log().Logger())
+}
+
+// DeprecateLevel informs about a deprecation logging at the given level.
+func deprecateLevelWithLogger(item, alternative, version string, level logg.Level, log logg.Logger) {
+	//if strings.Contains(item, "module.mounts.lang") || strings.Contains(item, "includeFiles") {
+	// hdebug.Panicf("Deprecated")
+	//}
+	var msg string
+	if level == logg.LevelError {
+		// Useful to debug deprecation errors that needs to be removedor fixed. Comment out when done debugging.
+		// hdebug.Panicf("deprecation error: %s was removed in Hugo %s. %s", item, version, alternative)
+		msg = fmt.Sprintf("%s was deprecated in Hugo %s and subsequently removed. %s", item, version, alternative)
+	} else {
+		msg = fmt.Sprintf("%s was deprecated in Hugo %s and will be removed in a future release. %s", item, version, alternative)
+	}
+
+	log.WithLevel(level).WithField(loggers.FieldNameCmd, "deprecated").Logf("%s", msg)
+}
+
+// We usually do about one minor version a month.
+// We want people to run at least the current and previous version without any warnings.
+// We want people who don't update Hugo that often to see the warnings and errors before we remove the feature.
+func deprecationLogLevelFromVersion(ver string) logg.Level {
+	from := version.MustParseVersion(ver)
+	to := CurrentVersion
+	minorDiff := to.Minor - from.Minor
+	switch {
+	case minorDiff >= 15:
+		// Start failing the build after about 15 months.
+		return logg.LevelError
+	case minorDiff >= 3:
+		// Start printing warnings after about 3 months.
+		return logg.LevelWarn
+	default:
+		return logg.LevelInfo
+	}
+}
+
+// BuildVersionString creates a version string. This is what you see when
+// running "hugo version".
+func BuildVersionString() string {
+	// program := "Hugo Static Site Generator"
+	program := "hugo"
+
+	version := "v" + CurrentVersion.String()
+
+	bi := getBuildInfo()
+	if bi == nil {
+		return version
+	}
+	if bi.Revision != "" {
+		version += "-" + bi.Revision
+	}
+	if IsExtended {
+		version += "+extended"
+	}
+	if IsWithdeploy {
+		version += "+withdeploy"
+	}
+
+	osArch := bi.GoOS + "/" + bi.GoArch
+
+	date := bi.RevisionTime
+	if date == "" {
+		// Accept vendor-specified build date if .git/ is unavailable.
+		date = buildDate
+	}
+	if date == "" {
+		date = "unknown"
+	}
+
+	versionString := fmt.Sprintf("%s %s %s BuildDate=%s",
+		program, version, osArch, date)
+
+	if vendorInfo != "" {
+		versionString += " VendorInfo=" + vendorInfo
+	}
+
+	return versionString
+}

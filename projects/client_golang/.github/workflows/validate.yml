@@ -1,0 +1,43 @@
+---
+name: Validate
+on:
+  pull_request:
+  push:
+    branches:
+      - main
+      - "release-*"
+
+concurrency:
+  group: ${{ github.workflow }}-${{ (github.event.pull_request && github.event.pull_request.number) || github.ref || github.run_id }}
+  cancel-in-progress: true
+
+# Minimal permissions to be inherited by any job that don't declare it's own permissions
+permissions:
+  contents: read
+
+jobs:
+  validate:
+    name: Validate
+    runs-on: ubuntu-latest
+
+    steps:
+      - name: Checkout code
+        uses: actions/checkout@9c091bb21b7c1c1d1991bb908d89e4e9dddfe3e0 # v7.0.0
+        with:
+          persist-credentials: false
+
+      - name: Check for CRLF line endings
+        run: make check-crlf
+
+      - name: Set up Go
+        uses: actions/setup-go@v6
+        with:
+          go-version: stable
+          check-latest: true
+          cache-dependency-path: go.sum
+
+      - name: Check license
+        run: make check_license
+
+      - name: Run style and unused
+        run: make style unused

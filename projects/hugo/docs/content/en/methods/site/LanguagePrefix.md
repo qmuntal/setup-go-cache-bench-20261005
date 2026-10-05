@@ -1,0 +1,51 @@
+---
+title: LanguagePrefix
+description: Returns the URL language prefix, if any, for the given site.
+categories: []
+keywords: []
+params:
+  functions_and_methods:
+    returnType: string
+    signatures: [SITE.LanguagePrefix]
+---
+
+Consider this project configuration:
+
+{{< code-toggle file=hugo >}}
+defaultContentLanguage = 'de'
+defaultContentLanguageInSubdir = false
+
+[languages.de]
+direction = 'ltr'
+label = 'Deutsch'
+locale = 'de-DE'
+title = 'Projekt Dokumentation'
+weight = 1
+
+[languages.en]
+direction = 'ltr'
+label = 'English'
+locale = 'en-US'
+title = 'Project Documentation'
+weight = 2
+{{< /code-toggle >}}
+
+When visiting the German language site:
+
+```go-html-template
+{{ .Site.LanguagePrefix }} → ""
+```
+
+When visiting the English language site:
+
+```go-html-template
+{{ .Site.LanguagePrefix }} → /en
+```
+
+If you change `defaultContentLanguageInSubdir` to `true`, when visiting the German language site:
+
+```go-html-template
+{{ .Site.LanguagePrefix }} → /de
+```
+
+You may use the `LanguagePrefix` method with both monolingual and multilingual projects.

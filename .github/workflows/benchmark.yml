@@ -1,0 +1,136 @@
+name: Hosted cache benchmark
+run-name: Cache benchmark ${{ inputs.phase }}
+on:
+  workflow_dispatch:
+    inputs:
+      phase:
+        type: choice
+        required: true
+        options: [seed, warm, upgrade]
+permissions:
+  contents: read
+concurrency:
+  group: cache-benchmark
+  cancel-in-progress: false
+jobs:
+  measure:
+    name: ${{ matrix.project }} / ${{ matrix.variant }} / ${{ inputs.phase }}
+    runs-on: windows-latest
+    timeout-minutes: 60
+    strategy:
+      fail-fast: false
+      max-parallel: 4
+      matrix:
+        project: [cobra, viper, client_golang, gin, grpc, hugo, prometheus]
+        variant: [baseline, split]
+    env:
+      MEASURED_GO_VERSION: ${{ inputs.phase == 'upgrade' && '1.26.8' || '1.26.7' }}
+    steps:
+      - uses: actions/checkout@3d3c42e5aac5ba805825da76410c181273ba90b1
+        with:
+          persist-credentials: false
+      - name: Install toolchain outside measurement
+        uses: actions/setup-go@90ad2b35f69faf97585ad74d28fa006d2739b7af
+        with:
+          go-version: ${{ env.MEASURED_GO_VERSION }}
+          cache: false
+      - name: Configure isolated cache locations
+        shell: pwsh
+        run: ./.scripts/benchmark.ps1 -Mode configure -Project '${{ matrix.project }}' -Variant '${{ matrix.variant }}' -Phase '${{ inputs.phase }}'
+      - name: Sample 1
+        uses: ./.github/actions/sample
+        with:
+          project: ${{ matrix.project }}
+          variant: ${{ matrix.variant }}
+          phase: ${{ inputs.phase }}
+          go-version: ${{ env.MEASURED_GO_VERSION }}
+          sample: '1'
+      - name: Sample 2
+        if: inputs.phase == 'warm'
+        uses: ./.github/actions/sample
+        with:
+          project: ${{ matrix.project }}
+          variant: ${{ matrix.variant }}
+          phase: ${{ inputs.phase }}
+          go-version: ${{ env.MEASURED_GO_VERSION }}
+          sample: '2'
+      - name: Sample 3
+        if: inputs.phase == 'warm'
+        uses: ./.github/actions/sample
+        with:
+          project: ${{ matrix.project }}
+          variant: ${{ matrix.variant }}
+          phase: ${{ inputs.phase }}
+          go-version: ${{ env.MEASURED_GO_VERSION }}
+          sample: '3'
+      - name: Sample 4
+        if: inputs.phase == 'warm'
+        uses: ./.github/actions/sample
+        with:
+          project: ${{ matrix.project }}
+          variant: ${{ matrix.variant }}
+          phase: ${{ inputs.phase }}
+          go-version: ${{ env.MEASURED_GO_VERSION }}
+          sample: '4'
+      - name: Sample 5
+        if: inputs.phase == 'warm'
+        uses: ./.github/actions/sample
+        with:
+          project: ${{ matrix.project }}
+          variant: ${{ matrix.variant }}
+          phase: ${{ inputs.phase }}
+          go-version: ${{ env.MEASURED_GO_VERSION }}
+          sample: '5'
+      - name: Sample 6
+        if: inputs.phase == 'warm'
+        uses: ./.github/actions/sample
+        with:
+          project: ${{ matrix.project }}
+          variant: ${{ matrix.variant }}
+          phase: ${{ inputs.phase }}
+          go-version: ${{ env.MEASURED_GO_VERSION }}
+          sample: '6'
+      - name: Sample 7
+        if: inputs.phase == 'warm'
+        uses: ./.github/actions/sample
+        with:
+          project: ${{ matrix.project }}
+          variant: ${{ matrix.variant }}
+          phase: ${{ inputs.phase }}
+          go-version: ${{ env.MEASURED_GO_VERSION }}
+          sample: '7'
+      - name: Sample 8
+        if: inputs.phase == 'warm'
+        uses: ./.github/actions/sample
+        with:
+          project: ${{ matrix.project }}
+          variant: ${{ matrix.variant }}
+          phase: ${{ inputs.phase }}
+          go-version: ${{ env.MEASURED_GO_VERSION }}
+          sample: '8'
+      - name: Sample 9
+        if: inputs.phase == 'warm'
+        uses: ./.github/actions/sample
+        with:
+          project: ${{ matrix.project }}
+          variant: ${{ matrix.variant }}
+          phase: ${{ inputs.phase }}
+          go-version: ${{ env.MEASURED_GO_VERSION }}
+          sample: '9'
+      - name: Sample 10
+        if: inputs.phase == 'warm'
+        uses: ./.github/actions/sample
+        with:
+          project: ${{ matrix.project }}
+          variant: ${{ matrix.variant }}
+          phase: ${{ inputs.phase }}
+          go-version: ${{ env.MEASURED_GO_VERSION }}
+          sample: '10'
+      - name: Upload sample measurements
+        if: always()
+        uses: actions/upload-artifact@ea165f8d65b6e75b540449e92b4886f43607fa02
+        with:
+          name: ${{ inputs.phase }}-${{ matrix.project }}-${{ matrix.variant }}
+          path: results/
+          if-no-files-found: warn
+          retention-days: 7

@@ -1,0 +1,620 @@
+// Copyright 2025 The Hugo Authors. All rights reserved.
+//
+// Licensed under the Apache License, Version 2.0 (the "License");
+// you may not use this file except in compliance with the License.
+// You may obtain a copy of the License at
+// http://www.apache.org/licenses/LICENSE-2.0
+//
+// Unless required by applicable law or agreed to in writing, software
+// distributed under the License is distributed on an "AS IS" BASIS,
+// WITHOUT WARRANTIES OR CONDITIONS OF ANY KIND, either express or implied.
+// See the License for the specific language governing permissions and
+// limitations under the License.
+
+package collections_test
+
+import (
+	"context"
+	"fmt"
+	"strings"
+	"testing"
+
+	"github.com/gohugoio/hugo/hugolib"
+	"github.com/gohugoio/hugo/resources/page"
+	"github.com/gohugoio/hugo/tpl/collections"
+)
+
+// Issue 9585
+func TestApplyWithContext(t *testing.T) {
+	t.Parallel()
+
+	files := `
+-- hugo.toml --
+baseURL = 'http://example.com/'
+-- layouts/home.html --
+{{ apply (seq 3) "partial" "foo.html"}}
+-- layouts/_partials/foo.html --
+{{ return "foo"}}
+  `
+
+	b := hugolib.Test(t, files)
+
+	b.AssertFileContent("public/index.html", `
+	[foo foo foo]
+`)
+}
+
+func TestApplyBuiltInIssue13418(t *testing.T) {
+	t.Parallel()
+
+	files := `
+-- hugo.toml --
+baseURL = 'http://example.com/'
+-- layouts/home.html --
+len: {{ apply (slice "hello") "len" "." }}
+not: {{ apply (slice "hello") "not" "." }}
+`
+	b := hugolib.Test(t, files)
+
+	b.AssertFileContent("public/index.html", "len: [5]", "not: [false]")
+}
+
+// Issue 9865
+func TestSortStable(t *testing.T) {
+	t.Parallel()
+
+	files := `
+-- hugo.toml --
+-- layouts/home.html --
+{{ $values := slice (dict "a" 1 "b" 2) (dict "a" 3 "b" 1) (dict "a" 2 "b" 0) (dict "a" 1 "b" 0) (dict "a" 3 "b" 1) (dict "a" 2 "b" 2) (dict "a" 2 "b" 1) (dict "a" 0 "b" 3) (dict "a" 3 "b" 3) (dict "a" 0 "b" 0) (dict "a" 0 "b" 0) (dict "a" 2 "b" 0) (dict "a" 1 "b" 2) (dict "a" 1 "b" 1) (dict "a" 3 "b" 0) (dict "a" 2 "b" 0) (dict "a" 3 "b" 0) (dict "a" 3 "b" 0) (dict "a" 3 "b" 0) (dict "a" 3 "b" 1) }}
+Asc:  {{ sort (sort $values "b" "asc") "a" "asc" }}
+Desc: {{ sort (sort $values "b" "desc") "a" "desc" }}
+
+  `
+
+	for range 4 {
+
+		b := hugolib.NewIntegrationTestBuilder(
+			hugolib.IntegrationTestConfig{
+				T:           t,
+				TxtarString: files,
+			},
+		).Build()
+
+		b.AssertFileContent("public/index.html", `
+Asc:  [map[a:0 b:0] map[a:0 b:0] map[a:0 b:3] map[a:1 b:0] map[a:1 b:1] map[a:1 b:2] map[a:1 b:2] map[a:2 b:0] map[a:2 b:0] map[a:2 b:0] map[a:2 b:1] map[a:2 b:2] map[a:3 b:0] map[a:3 b:0] map[a:3 b:0] map[a:3 b:0] map[a:3 b:1] map[a:3 b:1] map[a:3 b:1] map[a:3 b:3]]
+Desc: [map[a:3 b:3] map[a:3 b:1] map[a:3 b:1] map[a:3 b:1] map[a:3 b:0] map[a:3 b:0] map[a:3 b:0] map[a:3 b:0] map[a:2 b:2] map[a:2 b:1] map[a:2 b:0] map[a:2 b:0] map[a:2 b:0] map[a:1 b:2] map[a:1 b:2] map[a:1 b:1] map[a:1 b:0] map[a:0 b:3] map[a:0 b:0] map[a:0 b:0]]
+`)
+
+	}
+}
+
+// Issue #11004.
+func TestAppendSliceToASliceOfSlices(t *testing.T) {
+	t.Parallel()
+
+	files := `
+-- hugo.toml --
+-- layouts/home.html --
+{{ $obj := slice (slice "a") }}
+{{ $obj = $obj | append (slice "b") }}
+{{ $obj = $obj | append (slice "c") }}
+
+{{ $obj }}
+
+  `
+
+	b := hugolib.Test(t, files)
+
+	b.AssertFileContent("public/index.html", "[[a] [b] [c]]")
+}
+
+func TestAppendNilToSlice(t *testing.T) {
+	t.Parallel()
+
+	files := `
+-- hugo.toml --
+-- layouts/home.html --
+{{ $obj := (slice "a") }}
+{{ $obj = $obj | append nil }}
+
+{{ $obj }}
+
+
+  `
+
+	b := hugolib.Test(t, files)
+
+	b.AssertFileContent("public/index.html", "[a &lt;nil&gt;]")
+}
+
+func TestAppendNilsToSliceWithNils(t *testing.T) {
+	t.Parallel()
+
+	files := `
+-- hugo.toml --
+-- layouts/home.html --
+{{ $obj := (slice "a" nil "c") }}
+{{ $obj = $obj | append nil }}
+
+{{ $obj }}
+
+
+  `
+
+	for range 4 {
+
+		b := hugolib.NewIntegrationTestBuilder(
+			hugolib.IntegrationTestConfig{
+				T:           t,
+				TxtarString: files,
+			},
+		).Build()
+
+		b.AssertFileContent("public/index.html", "[a &lt;nil&gt; c &lt;nil&gt;]")
+
+	}
+}
+
+// Issue 11234.
+func TestWhereWithWordCount(t *testing.T) {
+	t.Parallel()
+
+	files := `
+-- hugo.toml --
+baseURL = 'http://example.com/'
+-- layouts/home.html --
+Home: {{ range where site.RegularPages "WordCount" "gt" 50 }}{{ .Title }}|{{ end }}
+-- layouts/_shortcodes/lorem.html --
+{{ "ipsum " | strings.Repeat (.Get 0 | int) }}
+
+-- content/p1.md --
+---
+title: "p1"
+---
+{{< lorem 100 >}}
+-- content/p2.md --
+---
+title: "p2"
+---
+{{< lorem 20 >}}
+-- content/p3.md --
+---
+title: "p3"
+---
+{{< lorem 60 >}}
+  `
+
+	b := hugolib.Test(t, files)
+
+	b.AssertFileContent("public/index.html", `
+Home: p1|p3|
+`)
+}
+
+// Issue #11279
+func TestWhereLikeOperator(t *testing.T) {
+	t.Parallel()
+	files := `
+-- content/p1.md --
+---
+title: P1
+foo: ab
+---
+-- content/p2.md --
+---
+title: P2
+foo: abc
+---
+-- content/p3.md --
+---
+title: P3
+foo: bc
+---
+-- layouts/home.html --
+<ul>
+  {{- range where site.RegularPages "Params.foo" "like" "^ab" -}}
+    <li>{{ .Title }}</li>
+  {{- end -}}
+</ul>
+  `
+	b := hugolib.Test(t, files)
+	b.AssertFileContent("public/index.html", "<ul><li>P1</li><li>P2</li></ul>")
+}
+
+func TestTermEntriesCollectionsIssue12254(t *testing.T) {
+	t.Parallel()
+
+	files := `
+-- hugo.toml --
+capitalizeListTitles = false
+disableKinds = ['rss','sitemap']
+-- content/p1.md --
+---
+title: p1
+categories: [cat-a]
+tags: ['tag-b','tag-a','tag-c']
+---
+-- content/p2.md --
+---
+title: p2
+categories: [cat-a]
+tags: ['tag-b','tag-a']
+---
+-- content/p3.md --
+---
+title: p3
+categories: [cat-a]
+tags: ['tag-b']
+---
+-- layouts/term.html --
+{{ $list1 := .Pages }}
+{{ range $i, $e := site.Taxonomies.tags.ByCount }}
+{{ $list2 := .Pages }}
+{{ $i }}: List1: {{ len $list1 }}|
+{{ $i }}: List2: {{ len $list2 }}|
+{{ $i }}: Intersect: {{ intersect $.Pages .Pages | len }}|
+{{ $i }}: Union: {{ union $.Pages .Pages | len }}|
+{{ $i }}: SymDiff: {{ symdiff $.Pages .Pages | len }}|
+{{ $i }}: Uniq: {{ append $.Pages .Pages | uniq | len }}|
+{{ end }}
+
+
+`
+	b := hugolib.Test(t, files)
+
+	b.AssertFileContent("public/categories/cat-a/index.html",
+		"0: List1: 3|\n0: List2: 3|\n0: Intersect: 3|\n0: Union: 3|\n0: SymDiff: 0|\n0: Uniq: 3|\n\n\n1: List1: 3|",
+		"1: List2: 2|\n1: Intersect: 2|\n1: Union: 3|\n1: SymDiff: 1|\n1: Uniq: 3|\n\n\n2: List1: 3|\n2: List2: 1|",
+		"2: Intersect: 1|\n2: Union: 3|\n2: SymDiff: 2|\n2: Uniq: 3|",
+	)
+}
+
+// Issue #13181
+func TestUnionResourcesMatch(t *testing.T) {
+	t.Parallel()
+
+	files := `
+-- hugo.toml --
+disableKinds = ['rss','sitemap', 'taxonomy', 'term', 'page']
+-- layouts/home.html --
+{{ $a := resources.Match "*a*" }}
+{{ $b := resources.Match "*b*" }}
+{{ $union := $a | union $b }}
+{{ range $i, $e := $union }}
+{{ $i }}: {{ .Name }}
+{{ end }}$
+-- assets/a1.html --
+<div>file1</div>
+-- assets/a2.html --
+<div>file2</div>
+-- assets/a3_b1.html --
+<div>file3</div>
+-- assets/b2.html --
+<div>file4</div>
+`
+
+	b := hugolib.Test(t, files)
+
+	b.AssertFileContentExact("public/index.html", "0: /a3_b1.html\n\n1: /b2.html\n\n2: /a1.html\n\n3: /a2.html\n$")
+}
+
+// Issue 13621.
+func TestWhereNotInEmptySlice(t *testing.T) {
+	t.Parallel()
+
+	files := `
+-- hugo.toml --
+-- layouts/home.html --
+{{- $pages := where site.RegularPages "Kind" "not in" (slice) -}}
+Len: {{  $pages | len }}|
+-- layouts/all.html --
+All|{{ .Title }}|
+-- content/p1.md --
+
+`
+
+	b := hugolib.Test(t, files)
+
+	b.AssertFileContent("public/index.html", "Len: 1|")
+}
+
+func TestD(t *testing.T) {
+	t.Parallel()
+	files := `
+-- hugo.toml --
+-- layouts/home.html --
+{{ $p := site.RegularPages }}
+5 random pages: {{ range collections.D 42 5 ($p | len) }}{{ with (index $p .) }}{{ .RelPermalink }}|{{ end }}{{ end }}$
+-- content/a.md --
+-- content/b.md --
+-- content/c.md --
+-- content/d.md --
+-- content/e.md --
+-- content/f.md --
+-- content/g.md --
+-- content/h.md --
+-- content/i.md --
+-- content/j.md --
+-- content/k.md --
+-- content/l.md --
+-- content/m.md --
+-- content/n.md --
+-- content/o.md --
+-- content/p.md --
+
+`
+	b := hugolib.Test(t, files)
+
+	b.AssertFileContentExact("public/index.html", "5 random pages: /b/|/g/|/j/|/k/|/l/|$")
+}
+
+func TestGroup(t *testing.T) {
+	t.Parallel()
+
+	files := `
+-- hugo.toml --
+disableKinds = ["rss", "sitemap", "taxonomy", "term"]
+-- layouts/home.html --
+{{ $cool := .Site.RegularPages | group "cool" }}
+{{ $cool.Key }}: {{ len $cool.Pages }}
+-- content/page1.md --
+-- content/page2.md --
+ `
+
+	hugolib.Test(t, files).AssertFileContent("public/index.html", "cool: 2")
+}
+
+func TestSlice(t *testing.T) {
+	t.Parallel()
+
+	files := `
+-- hugo.toml --
+disableKinds = ["rss", "sitemap"]
+baseURL = "http://example.com/"
+-- layouts/home.html --
+{{ $cool := .Site.RegularPages | group "cool" }}
+{{ $cool.Key }}: {{ len $cool.Pages }}
+-- content/page1.md --
+---
+title: "Page 1"
+tags: ["blue", "green"]
+tags_weight: 10
+---
+-- content/page2.md --
+---
+title: "Page 2"
+tags: ["blue", "green"]
+tags_weight: 20
+---
+-- layouts/home.html --
+{{ $cool := first 1 .Site.RegularPages | group "cool" }}
+{{ $blue := after 1 .Site.RegularPages | group "blue" }}
+{{ $weightedPages := index (index .Site.Taxonomies "tags") "blue" }}
+
+{{ $p1 := index .Site.RegularPages 0 }}{{ $p2 := index .Site.RegularPages 1 }}
+{{ $wp1 := index $weightedPages 0 }}{{ $wp2 := index $weightedPages 1 }}
+
+{{ $pages := slice $p1 $p2 }}
+{{ $pageGroups := slice $cool $blue }}
+{{ $weighted := slice $wp1 $wp2 }}
+
+{{ printf "pages:%d:%T:%s|%s" (len $pages) $pages (index $pages 0).Path (index $pages 1).Path }}
+{{ printf "pageGroups:%d:%T:%s|%s" (len $pageGroups) $pageGroups (index (index $pageGroups 0).Pages 0).Path (index (index $pageGroups 1).Pages 0).Path}}
+{{ printf "weightedPages:%d:%T" (len $weighted) $weighted | safeHTML }}
+ `
+
+	hugolib.Test(t, files).AssertFileContent("public/index.html",
+		"pages:2:page.Pages:/page1|/page2",
+		"pageGroups:2:page.PagesGroup:/page1|/page2",
+		`weightedPages:2:page.WeightedPages`)
+}
+
+func TestUnion(t *testing.T) {
+	t.Parallel()
+
+	files := `
+-- hugo.toml --
+disableKinds = ["rss", "sitemap"]
+baseURL = "http://example.com/"
+-- layouts/home.html --
+{{ $cool := .Site.RegularPages | group "cool" }}
+{{ $cool.Key }}: {{ len $cool.Pages }}
+-- content/page1.md --
+---
+title: "Page 1"
+tags: ["blue", "green"]
+tags_weight: 10
+---
+-- content/page2.md --
+---
+title: "Page 2"
+tags: ["blue", "green"]
+tags_weight: 20
+---
+-- content/page3.md --
+---
+title: "Page 3"
+tags: ["blue", "green"]
+tags_weight: 30
+---
+-- layouts/home.html --
+{{ $unionPages := first 2 .Site.RegularPages | union .Site.RegularPages  }}
+{{ $unionWeightedPages := .Site.Taxonomies.tags.blue | union .Site.Taxonomies.tags.green }}
+{{ printf "unionPages: %T %d" $unionPages (len $unionPages) }} 
+{{ printf "unionWeightedPages: %T %d" $unionWeightedPages (len $unionWeightedPages) }}
+ `
+
+	hugolib.Test(t, files).AssertFileContent("public/index.html",
+		"unionPages: page.Pages 3",
+		"unionWeightedPages: page.WeightedPages 6",
+	)
+}
+
+func TestCollectionsFuncs(t *testing.T) {
+	t.Parallel()
+
+	files := `
+-- hugo.toml --
+disableKinds = ["rss", "sitemap"]
+baseURL = "http://example.com/"
+-- layouts/home.html --
+{{ $cool := .Site.RegularPages | group "cool" }}
+{{ $cool.Key }}: {{ len $cool.Pages }}
+-- content/page1.md --
+---
+title: "Page 1"
+tags: ["blue", "green"]
+tags_weight: 10
+---
+-- content/page2.md --
+---
+title: "Page 2"
+tags: ["blue", "green"]
+tags_weight: 20
+---
+-- content/page3.md --
+---
+title: "Page 3"
+tags: ["blue", "green"]
+tags_weight: 30
+---
+-- layouts/home.html --
+{{ $uniqPages := first 2 .Site.RegularPages | append .Site.RegularPages | uniq  }}
+{{ $inTrue := in .Site.RegularPages (index .Site.RegularPages 1)  }}
+{{ $inFalse := in .Site.RegularPages (.Site.Home)  }}
+
+{{ printf "uniqPages: %T %d" $uniqPages (len $uniqPages) }}
+{{ printf "inTrue: %t" $inTrue }}
+{{ printf "inFalse: %t" $inFalse  }}
+-- layouts/single.html --
+{{ $related := .Site.RegularPages.Related . }}
+{{ $symdiff := $related | symdiff .Site.RegularPages }}
+Related: {{ range $related }}{{ .RelPermalink }}|{{ end }}
+Symdiff: {{ range $symdiff }}{{ .RelPermalink }}|{{ end }}
+ `
+
+	b := hugolib.Test(t, files)
+
+	b.AssertFileContent("public/index.html",
+		"uniqPages: page.Pages 3",
+		"inTrue: true",
+		"inFalse: false",
+	)
+
+	b.AssertFileContent("public/page1/index.html", `Related: /page2/|/page3/|`, `Symdiff: /page1/|`)
+}
+
+func TestAppend(t *testing.T) {
+	t.Parallel()
+
+	files := `
+-- hugo.toml --
+disableKinds = ["rss", "sitemap"]
+baseURL = "http://example.com/"
+-- layouts/home.html --
+{{ $cool := .Site.RegularPages | group "cool" }}
+{{ $cool.Key }}: {{ len $cool.Pages }}
+-- content/page1.md --
+---
+title: "Page 1"
+tags: ["blue", "green"]
+tags_weight: 10
+---
+-- content/page2.md --
+---
+title: "Page 2"
+tags: ["blue", "green"]
+tags_weight: 20
+---
+-- layouts/home.html --
+{{ $p1 := index .Site.RegularPages 0 }}{{ $p2 := index .Site.RegularPages 1 }}
+
+{{ $pages := slice }}
+
+{{ if true }}
+	{{ $pages = $pages | append $p2 $p1 }}
+{{ end }}
+{{ $appendPages := .Site.Pages | append .Site.RegularPages }}
+{{ $appendStrings := slice "a" "b" | append "c" "d" "e" }}
+{{ $appendStringsSlice := slice "a" "b" "c" | append (slice "c" "d") }}
+
+{{ printf "pages:%d:%T:%s|%s" (len $pages) $pages (index $pages 0).Path (index $pages 1).Path  }}
+{{ printf "appendPages:%d:%T:%v/%v" (len $appendPages) $appendPages (index $appendPages 0).Kind (index $appendPages 8).Kind  }}
+{{ printf "appendStrings:%T:%v"  $appendStrings $appendStrings  }}
+{{ printf "appendStringsSlice:%T:%v"  $appendStringsSlice $appendStringsSlice }}
+
+{{/* add some slightly related funcs to check what types we get */}}
+{{ $u :=  $appendStrings | union $appendStringsSlice }}
+{{ $i :=  $appendStrings | intersect $appendStringsSlice }}
+{{ printf "union:%T:%v" $u $u  }}
+{{ printf "intersect:%T:%v" $i $i }}
+ `
+
+	hugolib.Test(t, files).AssertFileContent("public/index.html",
+		"pages:2:page.Pages:/page2|/page1",
+		"appendPages:9:page.Pages:home/page",
+		"appendStrings:[]string:[a b c d e]",
+		"appendStringsSlice:[]string:[a b c c d]",
+		"union:[]string:[a b c d e]",
+		"intersect:[]string:[a b c d]",
+	)
+}
+
+func BenchmarkWhereAndSortPages(b *testing.B) {
+	pageTemplate := `
+-- content/page%04d.md --
+---
+title: Page%04d
+---
+`
+
+	var files strings.Builder
+	files.WriteString(`
+-- hugo.toml --
+-- layouts/all.html --
+All.
+`)
+
+	for i := range 500 {
+		files.WriteString(fmt.Sprintf(pageTemplate, i, i))
+	}
+
+	bb := hugolib.Test(b, files.String(), hugolib.TestOptWithConfig(func(conf *hugolib.IntegrationTestConfig) {
+		conf.BuildCfg = hugolib.BuildCfg{
+			SkipRender: true,
+		}
+	}))
+
+	s := bb.H.Sites[0]
+	seq := s.RegularPages()
+	ns := s.TemplateStore.GetTemplateFuncsNamespace("collections").(*collections.Namespace)
+
+	b.ResetTimer()
+
+	b.Run("Where", func(b *testing.B) {
+		for b.Loop() {
+			v, err := ns.Where(context.Background(), seq, "Title", "ge", "Page0480")
+			if err != nil {
+				b.Fatal(err)
+			}
+			res := v.(page.Pages)
+			if len(res) != 20 {
+				b.Fatalf("Where didn't return an expected result, got %d", len(res))
+			}
+		}
+	})
+
+	b.Run("Sort", func(b *testing.B) {
+		for b.Loop() {
+			v, err := ns.Sort(context.Background(), s.RegularPages(), "Title", "desc")
+			if err != nil {
+				b.Fatal(err)
+			}
+			res := v.(page.Pages)
+			if len(res) != 500 {
+				b.Fatalf("Sort didn't return an expected result, got %d", len(res))
+			}
+		}
+	})
+}

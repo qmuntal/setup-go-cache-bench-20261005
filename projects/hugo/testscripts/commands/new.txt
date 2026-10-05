@@ -1,0 +1,114 @@
+# Test the new command.
+
+hugo new project -h
+stdout 'Create a new project at the specified path.'
+hugo new project my-yaml-project --format yml
+checkfile my-yaml-project/hugo.yml
+hugo new project my-project -f
+stdout 'Congratulations! Your new Hugo project was created in'
+cd my-project
+checkfile archetypes/default.md
+checkfile hugo.toml
+exists assets
+exists content
+exists data
+exists i18n
+exists layouts
+exists static
+exists themes
+! exists resources
+
+hugo new theme -h
+stdout 'Create a new theme with the specified name in the ./themes directory.'
+hugo new theme my-theme --format yml
+stdout 'Creating new theme'
+! exists resources
+cd themes
+cd my-theme
+checkfile archetypes/default.md
+checkfile assets/css/main.css
+checkfile assets/js/main.js
+checkfile content/_index.md
+checkfile content/posts/_index.md
+checkfile content/posts/post-1.md
+checkfile content/posts/post-2.md
+checkfile content/posts/post-3/bryce-canyon.jpg
+checkfile content/posts/post-3/index.md
+checkfile layouts/baseof.html
+checkfile layouts/home.html
+checkfile layouts/section.html
+checkfile layouts/page.html
+checkfile layouts/taxonomy.html
+checkfile layouts/term.html
+checkfile layouts/_partials/footer.html
+checkfile layouts/_partials/head.html
+checkfile layouts/_partials/head/css.html
+checkfile layouts/_partials/head/js.html
+checkfile layouts/_partials/header.html
+checkfile layouts/_partials/menu.html
+checkfile layouts/_partials/terms.html
+checkfile static/favicon.ico
+checkfile hugo.yml
+exists data
+exists i18n
+
+cd $WORK/my-project
+
+hugo new -h
+stdout 'Create a new content file.'
+hugo new posts/my-first-post.md
+checkfile content/posts/my-first-post.md
+
+cd ..
+cd my-existing-project
+hugo new post/foo.md -t my-theme
+grep 'Dummy content' content/post/foo.md
+
+cd $WORK
+
+# In the three archetype format tests below, skip Windows testing to avoid
+# newline differences when comparing to golden.
+
+hugo new project json-project --format json
+[!windows] cmp json-project/archetypes/default.md archetype-golden-json.md
+
+hugo new project toml-project --format toml
+[!windows] cmp toml-project/archetypes/default.md archetype-golden-toml.md
+
+hugo new project yaml-project --format yaml
+[!windows] cmp yaml-project/archetypes/default.md archetype-golden-yaml.md
+
+-- my-existing-project/hugo.toml --
+theme = "my-theme"
+-- my-existing-project/content/p1.md --
+---
+title: "P1"
+---
+-- my-existing-project/themes/my-theme/hugo.toml --
+-- my-existing-project/themes/my-theme/archetypes/post.md --
+---
+title: "{{ replace .Name "-" " " | title }}"
+date: {{ .Date }}
+draft: true
+---
+
+Dummy content.
+
+-- archetype-golden-json.md --
+{
+   "date": "{{ .Date }}",
+   "draft": true,
+   "title": "{{ replace .File.ContentBaseName \"-\" \" \" | title }}"
+}
+-- archetype-golden-toml.md --
++++
+date = '{{ .Date }}'
+draft = true
+title = '{{ replace .File.ContentBaseName "-" " " | title }}'
++++
+-- archetype-golden-yaml.md --
+---
+date: '{{ .Date }}'
+draft: true
+title: '{{ replace .File.ContentBaseName "-" " " | title }}'
+---

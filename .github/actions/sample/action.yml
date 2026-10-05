@@ -1,5 +1,5 @@
 name: Measured Go cache sample
-description: Clear scratch cache paths, run the unmodified action, download and run bounded unit tests.
+description: Clear scratch cache paths, run the unmodified action, download dependencies and build packages.
 inputs:
   project:
     required: true
@@ -38,6 +38,6 @@ runs:
         go-version: ${{ inputs.go-version }}
         cache: true
         cache-dependency-path: projects/${{ inputs.project }}/go.mod
-    - name: Download dependencies, run unit workload, record sample
+    - name: Download dependencies, build packages, record sample
       shell: pwsh
       run: ./.scripts/benchmark.ps1 -Mode workload -Project '${{ inputs.project }}' -Variant '${{ inputs.variant }}' -Phase '${{ inputs.phase }}' -Sample '${{ inputs.sample }}' -CacheHit '${{ steps.baseline.outputs.cache-hit || steps.split.outputs.cache-hit }}'

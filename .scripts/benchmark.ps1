@@ -15,7 +15,7 @@ $resultsDirectory = Join-Path $root 'results'
 [System.IO.Directory]::CreateDirectory($resultsDirectory) | Out-Null
 
 if ($Mode -eq 'configure') {
-    $cacheRoot = Join-Path $env:RUNNER_TEMP "measured-go-cache/$Project"
+    $cacheRoot = Join-Path $env:RUNNER_TEMP "measured-go-build-cache-v2/$Project"
     @(
         "GOMODCACHE=$(Join-Path $cacheRoot 'modules')"
         "GOCACHE=$(Join-Path $cacheRoot 'build')"
@@ -49,11 +49,11 @@ try {
     & go mod download
     if ($LASTEXITCODE -ne 0) { throw 'Module download failed' }
     $downloadEnd = [DateTime]::UtcNow
-    $testStart = [DateTime]::UtcNow
+    $buildStart = [DateTime]::UtcNow
     $packages = @($projectInfo.packages)
-    & go test '-short' '-count=1' '-timeout=10m' @packages
-    if ($LASTEXITCODE -ne 0) { throw 'Unit workload failed' }
-    $testEnd = [DateTime]::UtcNow
+    & go build @packages
+    if ($LASTEXITCODE -ne 0) { throw 'Build workload failed' }
+    $buildEnd = [DateTime]::UtcNow
     $moduleGraph = (& go list -m -json all) -join "`n"
     if ($LASTEXITCODE -ne 0) { throw 'Module graph lookup failed' }
 } finally {
@@ -76,8 +76,9 @@ $result = @{
     cacheHit = $CacheHit
     restoreSeconds = ($restoreFinished - [DateTime]::Parse($start).ToUniversalTime()).TotalSeconds
     downloadSeconds = ($downloadEnd - $downloadStart).TotalSeconds
-    testSeconds = ($testEnd - $testStart).TotalSeconds
-    beforePostSeconds = ($testEnd - [DateTime]::Parse($start).ToUniversalTime()).TotalSeconds
+    buildSeconds = ($buildEnd - $buildStart).TotalSeconds
+    beforePostSeconds = ($buildEnd - [DateTime]::Parse($start).ToUniversalTime()).TotalSeconds
+    workload = 'build-v2'
     inventory = $inventory
     runnerOS = $env:RUNNER_OS
     runnerArch = $env:RUNNER_ARCH

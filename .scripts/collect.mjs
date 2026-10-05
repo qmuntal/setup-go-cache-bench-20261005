@@ -1,0 +1,89 @@
+import fs from 'node:fs/promises';
+import path from 'node:path';
+import {execFileSync} from 'node:child_process';
+import {fileURLToPath} from 'node:url';
+
+const root = path.dirname(path.dirname(fileURLToPath(import.meta.url)));
+const repo = 'qmuntal/setup-go-cache-bench-20261005';
+const directory = path.join(root, 'results');
+await fs.mkdir(directory, {recursive: true});
+const gh = args => execFileSync('gh', args, {encoding: 'utf8', maxBuffer: 128 * 1024 * 1024, env: {...process.env, GH_PAGER: 'cat'}});
+const api = endpoint => JSON.parse(gh(['api', endpoint]));
+const load = async file => JSON.parse((await fs.readFile(file, 'utf8')).replace(/^\uFEFF/, ''));
+const runs = api(`repos/${repo}/actions/workflows/benchmark.yml/runs?per_page=30`).workflow_runs;
+const runId = process.argv[2];
+if (runId) {
+  const run = runs.find(item => String(item.id) === runId) ?? api(`repos/${repo}/actions/runs/${runId}`);
+  if (run.status !== 'completed') throw new Error(`Run ${runId} is still ${run.status}`);
+  const dest = path.join(directory, String(run.id));
+  await fs.mkdir(dest, {recursive: true});
+  gh(['run', 'download', String(run.id), '--repo', repo, '--dir', dest]);
+  const jobs = [];
+  for (let page = 1; ; page++) {
+    const batch = api(`repos/${repo}/actions/runs/${run.id}/jobs?per_page=100&page=${page}`).jobs;
+    jobs.push(...batch);
+    if (batch.length < 100) break;
+  }
+  await fs.writeFile(path.join(dest, 'jobs.json'), JSON.stringify(jobs, null, 2));
+  await fs.writeFile(path.join(dest, 'run.json'), JSON.stringify(run, null, 2));
+  await fs.writeFile(path.join(dest, 'logs.txt'), gh(['run', 'view', String(run.id), '--repo', repo, '--log']));
+  console.log(`Downloaded ${jobs.length} jobs for ${run.display_title}: ${run.conclusion}`);
+}
+
+const caches = api(`repos/${repo}/actions/caches?per_page=100`);
+await fs.writeFile(path.join(directory, 'caches.json'), JSON.stringify(caches, null, 2));
+const samples = [];
+const jobs = [];
+for (const entry of await fs.readdir(directory, {withFileTypes: true})) {
+  if (!entry.isDirectory() || !/^\d+$/.test(entry.name)) continue;
+  const dest = path.join(directory, entry.name);
+  if (!await fs.stat(path.join(dest, 'jobs.json')).catch(() => false)) continue;
+  const runJobs = await load(path.join(dest, 'jobs.json'));
+  const logs = await fs.readFile(path.join(dest, 'logs.txt'), 'utf8');
+  for (const artifact of await fs.readdir(dest, {withFileTypes: true})) {
+    if (!artifact.isDirectory()) continue;
+    for (const file of await fs.readdir(path.join(dest, artifact.name))) {
+      if (!/^sample-\d+\.json$/.test(file)) continue;
+      const sample = await load(path.join(dest, artifact.name, file));
+      if (sample.workload === 'build-v2') samples.push(sample);
+    }
+  }
+  for (const job of runJobs) {
+    const [project, variant, phase] = job.name.split(' / ');
+    const duration = step => (Date.parse(step.completed_at) - Date.parse(step.started_at)) / 1000;
+    const post = job.steps.filter(step => /^Post Sample/.test(step.name));
+    const jobLines = logs.split('\n').filter(line => line.startsWith(`${job.name}\t`));
+    const postLines = jobLines.filter(line => /^Post Sample/.test(line.split('\t')[1]));
+    const postText = postLines.join('\n');
+    const compressedBytes = [...postText.matchAll(/Cache Size:\s*[^\n]*?\((\d+) B\)/g)].map(match => Number(match[1]));
+    const savedKeys = [...postText.matchAll(/Cache saved with the key:\s*(\S+)/g)].map(match => match[1]);
+    const failures = jobLines.filter(line => /Restore .* cache failed|Save .* cache failed|Restore cache failed|Unable to save cache|Failed to save|Error:|\[error\]/i.test(line));
+    jobs.push({project, variant, phase, runId: job.run_id, jobId: job.id, conclusion: job.conclusion, postSeconds: post.reduce((sum, step) => sum + duration(step), 0), jobSeconds: (Date.parse(job.completed_at) - Date.parse(job.started_at)) / 1000, compressedBytes, uploadedBytes: compressedBytes.reduce((a, b) => a + b, 0), savedKeys, failures});
+  }
+}
+
+const median = values => { const sorted = [...values].sort((a,b) => a-b); return sorted.length ? (sorted[Math.floor((sorted.length-1)/2)] + sorted[Math.ceil((sorted.length-1)/2)]) / 2 : null; };
+const projects = await load(path.join(root, 'projects.json'));
+const rows = [];
+for (const project of projects) {
+  for (const phase of ['seed', 'warm', 'upgrade']) {
+    const row = {project: project.slug, declaredRequirements: project.requirements, phase};
+    for (const variant of ['baseline', 'split']) {
+      const matching = samples.filter(sample => sample.project === project.slug && sample.phase === phase && sample.variant === variant);
+      const job = jobs.filter(job => job.project === project.slug && job.phase === phase && job.variant === variant).at(-1);
+      row[variant] = {n: matching.length, conclusion: job?.conclusion, restoreSeconds: median(matching.map(sample => sample.restoreSeconds)), downloadSeconds: median(matching.map(sample => sample.downloadSeconds)), buildSeconds: median(matching.map(sample => sample.buildSeconds)), beforePostSeconds: median(matching.map(sample => sample.beforePostSeconds)), fullHitCount: matching.filter(sample => sample.cacheHit === 'true').length, postSeconds: job?.postSeconds, uploadedMiB: job?.uploadedBytes / 1024**2, savedKeys: job?.savedKeys, modulesMiB: median(matching.map(sample => sample.inventory.modules.bytes / 1024**2)), buildMiB: median(matching.map(sample => sample.inventory.build.bytes / 1024**2)), failures: job?.failures};
+    }
+    if (row.baseline.n && row.split.n) {
+      row.restoreReductionPercent = 100 * (1 - row.split.restoreSeconds / row.baseline.restoreSeconds);
+      row.beforePostReductionPercent = 100 * (1 - row.split.beforePostSeconds / row.baseline.beforePostSeconds);
+      if (phase !== 'warm') {
+        row.totalSecondsBefore = row.baseline.beforePostSeconds + row.baseline.postSeconds;
+        row.totalSecondsAfter = row.split.beforePostSeconds + row.split.postSeconds;
+        row.totalReductionPercent = 100 * (1 - row.totalSecondsAfter / row.totalSecondsBefore);
+      }
+    }
+    rows.push(row);
+  }
+}
+await fs.writeFile(path.join(directory, 'summary.json'), JSON.stringify({rows, jobs, samples, caches}, null, 2));
+for (const row of rows) console.log(JSON.stringify(row));

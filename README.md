@@ -26,4 +26,6 @@ The repository contains public upstream code only. Workflow permissions are read
 
 ## Results
 
+The [split-cache benchmark and adoption report](reports/setup-go-split-cache-benchmark-report.md) adds an executive summary, verified upstream CI case studies, storage/upload charts, latency wins and regressions, and reproducible JSON/CSV analysis. It uses the existing October 5 hosted measurements; it does not claim a fresh independent-run experiment.
+
 See [RESULTS.md](RESULTS.md) for measured warm-cache timing and actual upload/storage bytes, including regressions and sampling limits. A cancelled test-based pilot is excluded from every reported figure.

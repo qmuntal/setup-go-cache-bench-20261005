@@ -1,0 +1,23 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 1000 620" role="img" aria-labelledby="title desc"><title id="title">Retained cache storage across two Go versions</title><desc id="desc">Measured combined versus split cache values for seven projects. Exact numbers are provided in the adjacent report table.</desc><rect width="100%" height="100%" fill="#fff"/><g font-family="Arial, sans-serif" fill="#172033"><text x="24" y="34" font-size="22" font-weight="bold">Retained cache storage across two Go versions</text><rect x="24" y="54" width="16" height="16" fill="#64748b"/><text x="48" y="68" font-size="14">Combined</text><rect x="160" y="54" width="16" height="16" fill="#2563eb"/><text x="184" y="68" font-size="14">Split</text>
+<text x="24" y="127" font-size="15">Cobra</text>
+<rect x="190" y="105" width="9.407974442055512" height="19" rx="3" fill="#64748b"/><text x="207.40797444205552" y="120" font-size="13">28.13 MiB</text>
+<rect x="190" y="130" width="9.199728307849552" height="19" rx="3" fill="#2563eb"/><text x="207.19972830784954" y="145" font-size="13">27.51 MiB</text>
+<text x="24" y="197" font-size="15">Viper</text>
+<rect x="190" y="175" width="33.05569268491342" height="19" rx="3" fill="#64748b"/><text x="231.05569268491342" y="190" font-size="13">98.84 MiB</text>
+<rect x="190" y="200" width="25.84621575447292" height="19" rx="3" fill="#2563eb"/><text x="223.84621575447292" y="215" font-size="13">77.28 MiB</text>
+<text x="24" y="267" font-size="15">Prometheus client</text>
+<rect x="190" y="245" width="82.68644523510609" height="19" rx="3" fill="#64748b"/><text x="280.6864452351061" y="260" font-size="13">247.23 MiB</text>
+<rect x="190" y="270" width="51.606408064647866" height="19" rx="3" fill="#2563eb"/><text x="249.60640806464787" y="285" font-size="13">154.30 MiB</text>
+<text x="24" y="337" font-size="15">Gin</text>
+<rect x="190" y="315" width="65.82575893055333" height="19" rx="3" fill="#64748b"/><text x="263.8257589305533" y="330" font-size="13">196.82 MiB</text>
+<rect x="190" y="340" width="47.59265387928978" height="19" rx="3" fill="#2563eb"/><text x="245.59265387928977" y="355" font-size="13">142.30 MiB</text>
+<text x="24" y="407" font-size="15">gRPC-Go</text>
+<rect x="190" y="385" width="115.22355817807494" height="19" rx="3" fill="#64748b"/><text x="313.22355817807494" y="400" font-size="13">344.51 MiB</text>
+<rect x="190" y="410" width="75.44542043182837" height="19" rx="3" fill="#2563eb"/><text x="273.4454204318284" y="425" font-size="13">225.58 MiB</text>
+<text x="24" y="477" font-size="15">Hugo</text>
+<rect x="190" y="455" width="236.93070419174916" height="19" rx="3" fill="#64748b"/><text x="434.93070419174916" y="470" font-size="13">708.41 MiB</text>
+<rect x="190" y="480" width="146.18755248084784" height="19" rx="3" fill="#2563eb"/><text x="344.18755248084784" y="495" font-size="13">437.10 MiB</text>
+<text x="24" y="547" font-size="15">Prometheus server</text>
+<rect x="190" y="525" width="590" height="19" rx="3" fill="#64748b"/><text x="788" y="540" font-size="13">1764.08 MiB</text>
+<rect x="190" y="550" width="313.80557667049254" height="19" rx="3" fill="#2563eb"/><text x="511.80557667049254" y="565" font-size="13">938.27 MiB</text>
+</g></svg>

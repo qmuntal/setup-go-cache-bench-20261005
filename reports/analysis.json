@@ -1,0 +1,900 @@
+{
+  "measurementDate": "2026-10-05",
+  "analysisDate": "2026-10-06",
+  "projects": [
+    {
+      "slug": "cobra",
+      "repository": "spf13/cobra",
+      "tag": "v1.10.2",
+      "sha": "88b30ab89da2d0d0abb153818746c5a2d30eccec",
+      "requirements": 4,
+      "packages": [
+        "./..."
+      ],
+      "compressedModuleMiB": 0.6373720169067383,
+      "compressedSeedBuildMiB": 13.42192554473877,
+      "compressedModulesFraction": 0.0453345563042582,
+      "storageBeforeMiB": 28.12949562072754,
+      "storageAfterMiB": 27.506847381591797,
+      "storageSavedMiB": 0.6226482391357422,
+      "storageReductionPercent": 2.213506589421166,
+      "uploadBeforeMiB": 14.056347846984863,
+      "uploadAfterMiB": 13.447549819946289,
+      "uploadReductionPercent": 4.331125223036958,
+      "warmRestore": {
+        "baseline": {
+          "n": 10,
+          "median": 2.86784265,
+          "mean": 2.80222327,
+          "p95NearestRank": 3.1610766,
+          "min": 2.0807558,
+          "max": 3.1610766
+        },
+        "split": {
+          "n": 10,
+          "median": 2.9609212,
+          "mean": 3.26151614,
+          "p95NearestRank": 6.2335874,
+          "min": 2.5660026,
+          "max": 6.2335874
+        }
+      },
+      "warmBuild": {
+        "baseline": {
+          "n": 10,
+          "median": 0.1513715,
+          "mean": 0.15240053000000003,
+          "p95NearestRank": 0.1663019,
+          "min": 0.1403415,
+          "max": 0.1663019
+        },
+        "split": {
+          "n": 10,
+          "median": 0.2157012,
+          "mean": 0.22738755,
+          "p95NearestRank": 0.2941452,
+          "min": 0.1931929,
+          "max": 0.2941452
+        }
+      },
+      "warmBeforePost": {
+        "baseline": {
+          "n": 10,
+          "median": 3.0746279,
+          "mean": 3.0046647699999998,
+          "p95NearestRank": 3.4041555,
+          "min": 2.2727209,
+          "max": 3.4041555
+        },
+        "split": {
+          "n": 10,
+          "median": 3.25195195,
+          "mean": 3.54956635,
+          "p95NearestRank": 6.5854532,
+          "min": 2.8245807,
+          "max": 6.5854532
+        }
+      },
+      "warmNumberMatchedDescriptive": {
+        "n": 10,
+        "medianDeltaSeconds": 0.14064335000000017,
+        "splitWins": 4,
+        "ties": 0,
+        "baselineWins": 6
+      },
+      "upgrade": {
+        "baseline": {
+          "n": 1,
+          "conclusion": "success",
+          "restoreSeconds": 2.0646233,
+          "downloadSeconds": 0.5449318,
+          "buildSeconds": 19.311407,
+          "beforePostSeconds": 21.9641116,
+          "fullHitCount": 0,
+          "postSeconds": 3.126,
+          "uploadedMiB": 14.056347846984863,
+          "savedKeys": [
+            "setup-go-Windows-x64-go-1.26.8-0ff4231887221b860d1531a13149a4af156f73a3f5b05c037a9beacd61b69061"
+          ],
+          "modulesMiB": 1.7736320495605469,
+          "buildMiB": 57.07769966125488,
+          "failures": []
+        },
+        "split": {
+          "n": 1,
+          "conclusion": "success",
+          "restoreSeconds": 2.3309034,
+          "downloadSeconds": 0.2997566,
+          "buildSeconds": 13.2660007,
+          "beforePostSeconds": 15.938974,
+          "fullHitCount": 0,
+          "postSeconds": 1.496,
+          "uploadedMiB": 13.447549819946289,
+          "savedKeys": [
+            "setup-go-build-Windows-x64-go-1.26.8-0ff4231887221b860d1531a13149a4af156f73a3f5b05c037a9beacd61b69061"
+          ],
+          "modulesMiB": 1.7736320495605469,
+          "buildMiB": 57.07769966125488,
+          "failures": []
+        },
+        "cacheAndDependenciesBeforeSeconds": 5.7355551,
+        "cacheAndDependenciesAfterSeconds": 4.126659999999999,
+        "cacheAndDependenciesReductionPercent": 28.051253487216965
+      },
+      "projectedThreeVariants": {
+        "beforeMiB": 42.17789268493652,
+        "afterMiB": 40.90314865112305,
+        "reductionPercent": 3.0223037536172135
+      }
+    },
+    {
+      "slug": "viper",
+      "repository": "spf13/viper",
+      "tag": "v1.21.0",
+      "sha": "394040caccbdf5821fa6839386a35f0fb1b1ee9e",
+      "requirements": 17,
+      "packages": [
+        "./..."
+      ],
+      "compressedModuleMiB": 21.55259418487549,
+      "compressedSeedBuildMiB": 27.868379592895508,
+      "compressedModulesFraction": 0.436102175602408,
+      "storageBeforeMiB": 98.83529853820801,
+      "storageAfterMiB": 77.27922916412354,
+      "storageSavedMiB": 21.556069374084473,
+      "storageReductionPercent": 21.810091832475486,
+      "uploadBeforeMiB": 49.46601676940918,
+      "uploadAfterMiB": 27.85825538635254,
+      "uploadReductionPercent": 43.68203221978312,
+      "warmRestore": {
+        "baseline": {
+          "n": 10,
+          "median": 4.9836316499999995,
+          "mean": 5.0017186,
+          "p95NearestRank": 5.4803828,
+          "min": 4.210594,
+          "max": 5.4803828
+        },
+        "split": {
+          "n": 10,
+          "median": 3.84042495,
+          "mean": 3.8500337100000004,
+          "p95NearestRank": 4.2187003,
+          "min": 3.4716853,
+          "max": 4.2187003
+        }
+      },
+      "warmBuild": {
+        "baseline": {
+          "n": 10,
+          "median": 0.30500105,
+          "mean": 0.30877479,
+          "p95NearestRank": 0.3281477,
+          "min": 0.2969286,
+          "max": 0.3281477
+        },
+        "split": {
+          "n": 10,
+          "median": 0.35992975,
+          "mean": 0.38144379,
+          "p95NearestRank": 0.4886009,
+          "min": 0.348808,
+          "max": 0.4886009
+        }
+      },
+      "warmBeforePost": {
+        "baseline": {
+          "n": 10,
+          "median": 5.360639600000001,
+          "mean": 5.3805499,
+          "p95NearestRank": 5.8781749,
+          "min": 4.5809875,
+          "max": 5.8781749
+        },
+        "split": {
+          "n": 10,
+          "median": 4.31813175,
+          "mean": 4.308276380000001,
+          "p95NearestRank": 4.6560543,
+          "min": 3.9481361,
+          "max": 4.6560543
+        }
+      },
+      "warmNumberMatchedDescriptive": {
+        "n": 10,
+        "medianDeltaSeconds": -1.2261879500000001,
+        "splitWins": 10,
+        "ties": 0,
+        "baselineWins": 0
+      },
+      "upgrade": {
+        "baseline": {
+          "n": 1,
+          "conclusion": "success",
+          "restoreSeconds": 1.5883506,
+          "downloadSeconds": 2.1123022,
+          "buildSeconds": 50.4375154,
+          "beforePostSeconds": 54.1826312,
+          "fullHitCount": 0,
+          "postSeconds": 3.267,
+          "uploadedMiB": 49.46601676940918,
+          "savedKeys": [
+            "setup-go-Windows-x64-go-1.26.8-cdbe4eec444b2f1a8245ffd9d9df4911c57d3ed1ecc93f0d3ac1932914930bd6"
+          ],
+          "modulesMiB": 65.66710567474365,
+          "buildMiB": 117.87607097625732,
+          "failures": []
+        },
+        "split": {
+          "n": 1,
+          "conclusion": "success",
+          "restoreSeconds": 3.6184211,
+          "downloadSeconds": 0.1068026,
+          "buildSeconds": 25.3335081,
+          "beforePostSeconds": 29.0888992,
+          "fullHitCount": 0,
+          "postSeconds": 3.251,
+          "uploadedMiB": 27.85825538635254,
+          "savedKeys": [
+            "setup-go-build-Windows-x64-go-1.26.8-cdbe4eec444b2f1a8245ffd9d9df4911c57d3ed1ecc93f0d3ac1932914930bd6"
+          ],
+          "modulesMiB": 65.66710567474365,
+          "buildMiB": 117.87607097625732,
+          "failures": []
+        },
+        "cacheAndDependenciesBeforeSeconds": 6.9676528,
+        "cacheAndDependenciesAfterSeconds": 6.9762237,
+        "cacheAndDependenciesReductionPercent": -0.12300986065207908
+      },
+      "projectedThreeVariants": {
+        "beforeMiB": 148.262921333313,
+        "afterMiB": 105.15773296356201,
+        "reductionPercent": 29.073478373493867
+      }
+    },
+    {
+      "slug": "client_golang",
+      "repository": "prometheus/client_golang",
+      "tag": "v1.24.1",
+      "sha": "d6087ee482e06716ee21dc03819432d5d40f72db",
+      "requirements": 23,
+      "packages": [
+        "./prometheus/..."
+      ],
+      "compressedModuleMiB": 92.92943286895752,
+      "compressedSeedBuildMiB": 30.665946006774902,
+      "compressedModulesFraction": 0.751884364239802,
+      "storageBeforeMiB": 247.22941303253174,
+      "storageAfterMiB": 154.301251411438,
+      "storageSavedMiB": 92.92816162109375,
+      "storageReductionPercent": 37.58782601197447,
+      "uploadBeforeMiB": 123.65207099914551,
+      "uploadAfterMiB": 30.705872535705566,
+      "uploadReductionPercent": 75.16752264026556,
+      "warmRestore": {
+        "baseline": {
+          "n": 10,
+          "median": 5.6164631,
+          "mean": 5.59143012,
+          "p95NearestRank": 5.9509265,
+          "min": 5.1273987,
+          "max": 5.9509265
+        },
+        "split": {
+          "n": 10,
+          "median": 5.8580913,
+          "mean": 5.84304086,
+          "p95NearestRank": 6.0046368,
+          "min": 5.6672272,
+          "max": 6.0046368
+        }
+      },
+      "warmBuild": {
+        "baseline": {
+          "n": 10,
+          "median": 0.41703775,
+          "mean": 0.42157428999999996,
+          "p95NearestRank": 0.46232,
+          "min": 0.4077169,
+          "max": 0.46232
+        },
+        "split": {
+          "n": 10,
+          "median": 0.39325055,
+          "mean": 0.40718453,
+          "p95NearestRank": 0.4839043,
+          "min": 0.3853473,
+          "max": 0.4839043
+        }
+      },
+      "warmBeforePost": {
+        "baseline": {
+          "n": 10,
+          "median": 6.11354145,
+          "mean": 6.092847720000001,
+          "p95NearestRank": 6.4655621,
+          "min": 5.6239258,
+          "max": 6.4655621
+        },
+        "split": {
+          "n": 10,
+          "median": 6.34124495,
+          "mean": 6.3248143500000005,
+          "p95NearestRank": 6.4673336,
+          "min": 6.1502743,
+          "max": 6.4673336
+        }
+      },
+      "warmNumberMatchedDescriptive": {
+        "n": 10,
+        "medianDeltaSeconds": 0.2347977000000001,
+        "splitWins": 2,
+        "ties": 0,
+        "baselineWins": 8
+      },
+      "upgrade": {
+        "baseline": {
+          "n": 1,
+          "conclusion": "success",
+          "restoreSeconds": 2.6317481,
+          "downloadSeconds": 2.0174069,
+          "buildSeconds": 27.5743786,
+          "beforePostSeconds": 32.2592245,
+          "fullHitCount": 0,
+          "postSeconds": 6.917,
+          "uploadedMiB": 123.65207099914551,
+          "savedKeys": [
+            "setup-go-Windows-x64-go-1.26.8-04f8459f03329e739f26266754266e9af7b3b4606f5f4001deccda591dca7e3b"
+          ],
+          "modulesMiB": 158.54274654388428,
+          "buildMiB": 132.27522468566895,
+          "failures": []
+        },
+        "split": {
+          "n": 1,
+          "conclusion": "success",
+          "restoreSeconds": 4.2703265,
+          "downloadSeconds": 0.1288713,
+          "buildSeconds": 26.057212,
+          "beforePostSeconds": 30.477709,
+          "fullHitCount": 0,
+          "postSeconds": 2.4,
+          "uploadedMiB": 30.705872535705566,
+          "savedKeys": [
+            "setup-go-build-Windows-x64-go-1.26.8-04f8459f03329e739f26266754266e9af7b3b4606f5f4001deccda591dca7e3b"
+          ],
+          "modulesMiB": 158.54274654388428,
+          "buildMiB": 132.27522468566895,
+          "failures": []
+        },
+        "cacheAndDependenciesBeforeSeconds": 11.566155,
+        "cacheAndDependenciesAfterSeconds": 6.7991978,
+        "cacheAndDependenciesReductionPercent": 41.21470964205477
+      },
+      "projectedThreeVariants": {
+        "beforeMiB": 370.78613662719727,
+        "afterMiB": 184.92727088928223,
+        "reductionPercent": 50.12562428265346
+      }
+    },
+    {
+      "slug": "gin",
+      "repository": "gin-gonic/gin",
+      "tag": "v1.12.0",
+      "sha": "73726dc606796a025971fe451f0aa6f1b9b847f6",
+      "requirements": 35,
+      "packages": [
+        "./..."
+      ],
+      "compressedModuleMiB": 54.363534927368164,
+      "compressedSeedBuildMiB": 44.01923751831055,
+      "compressedModulesFraction": 0.5525716909165633,
+      "storageBeforeMiB": 196.81658458709717,
+      "storageAfterMiB": 142.300274848938,
+      "storageSavedMiB": 54.51630973815918,
+      "storageReductionPercent": 27.699042665804463,
+      "uploadBeforeMiB": 98.46396541595459,
+      "uploadAfterMiB": 43.91750240325928,
+      "uploadReductionPercent": 55.39738602062931,
+      "warmRestore": {
+        "baseline": {
+          "n": 10,
+          "median": 8.2093266,
+          "mean": 8.38673364,
+          "p95NearestRank": 9.99077,
+          "min": 7.56326,
+          "max": 9.99077
+        },
+        "split": {
+          "n": 10,
+          "median": 7.02173155,
+          "mean": 7.0251595899999995,
+          "p95NearestRank": 7.5767114,
+          "min": 6.3856428,
+          "max": 7.5767114
+        }
+      },
+      "warmBuild": {
+        "baseline": {
+          "n": 10,
+          "median": 0.40134555,
+          "mean": 0.4151307299999999,
+          "p95NearestRank": 0.5684606,
+          "min": 0.3815593,
+          "max": 0.5684606
+        },
+        "split": {
+          "n": 10,
+          "median": 0.42409885,
+          "mean": 0.43148749999999997,
+          "p95NearestRank": 0.4740123,
+          "min": 0.4019567,
+          "max": 0.4740123
+        }
+      },
+      "warmBeforePost": {
+        "baseline": {
+          "n": 10,
+          "median": 8.69165275,
+          "mean": 8.87924339,
+          "p95NearestRank": 10.4642606,
+          "min": 8.0448615,
+          "max": 10.4642606
+        },
+        "split": {
+          "n": 10,
+          "median": 7.53986755,
+          "mean": 7.5426417,
+          "p95NearestRank": 8.0728688,
+          "min": 6.8936424,
+          "max": 8.0728688
+        }
+      },
+      "warmNumberMatchedDescriptive": {
+        "n": 10,
+        "medianDeltaSeconds": -1.124583200000001,
+        "splitWins": 10,
+        "ties": 0,
+        "baselineWins": 0
+      },
+      "upgrade": {
+        "baseline": {
+          "n": 1,
+          "conclusion": "success",
+          "restoreSeconds": 2.669361,
+          "downloadSeconds": 2.9811989,
+          "buildSeconds": 37.3422603,
+          "beforePostSeconds": 43.0335446,
+          "fullHitCount": 0,
+          "postSeconds": 5.098,
+          "uploadedMiB": 98.46396541595459,
+          "savedKeys": [
+            "setup-go-Windows-x64-go-1.26.8-86a98ee14546903a86fa0b54af9fd44597fb08536cb9a2658d216657af9443df"
+          ],
+          "modulesMiB": 176.6756248474121,
+          "buildMiB": 204.57295513153076,
+          "failures": []
+        },
+        "split": {
+          "n": 1,
+          "conclusion": "success",
+          "restoreSeconds": 8.728534,
+          "downloadSeconds": 0.0479516,
+          "buildSeconds": 40.7667687,
+          "beforePostSeconds": 49.5955051,
+          "fullHitCount": 0,
+          "postSeconds": 2.688,
+          "uploadedMiB": 43.91750240325928,
+          "savedKeys": [
+            "setup-go-build-Windows-x64-go-1.26.8-86a98ee14546903a86fa0b54af9fd44597fb08536cb9a2658d216657af9443df"
+          ],
+          "modulesMiB": 176.6756248474121,
+          "buildMiB": 204.57295513153076,
+          "failures": []
+        },
+        "cacheAndDependenciesBeforeSeconds": 10.7485599,
+        "cacheAndDependenciesAfterSeconds": 11.4644856,
+        "cacheAndDependenciesReductionPercent": -6.6606662349250945
+      },
+      "projectedThreeVariants": {
+        "beforeMiB": 295.14831733703613,
+        "afterMiB": 186.4212474822998,
+        "reductionPercent": 36.83811272777089
+      }
+    },
+    {
+      "slug": "grpc",
+      "repository": "grpc/grpc-go",
+      "tag": "v1.84.0",
+      "sha": "e84aa5ab15d1d2b29d54f838312ad490cb7551a8",
+      "requirements": 43,
+      "packages": [
+        "./codes",
+        "./metadata",
+        "./status",
+        "./credentials/...",
+        "./encoding/...",
+        "./resolver/...",
+        "./balancer/..."
+      ],
+      "compressedModuleMiB": 118.80349922180176,
+      "compressedSeedBuildMiB": 53.287099838256836,
+      "compressedModulesFraction": 0.6903543823468244,
+      "storageBeforeMiB": 344.5141773223877,
+      "storageAfterMiB": 225.57901668548584,
+      "storageSavedMiB": 118.93516063690186,
+      "storageReductionPercent": 34.52257366047532,
+      "uploadBeforeMiB": 172.32421112060547,
+      "uploadAfterMiB": 53.488417625427246,
+      "uploadReductionPercent": 68.96059046050586,
+      "warmRestore": {
+        "baseline": {
+          "n": 10,
+          "median": 9.412161000000001,
+          "mean": 9.395298119999998,
+          "p95NearestRank": 10.9163075,
+          "min": 8.3558015,
+          "max": 10.9163075
+        },
+        "split": {
+          "n": 10,
+          "median": 8.43409805,
+          "mean": 8.511038180000002,
+          "p95NearestRank": 10.3854047,
+          "min": 7.8068978,
+          "max": 10.3854047
+        }
+      },
+      "warmBuild": {
+        "baseline": {
+          "n": 10,
+          "median": 0.53565515,
+          "mean": 0.5353971900000001,
+          "p95NearestRank": 0.5530407,
+          "min": 0.5119449,
+          "max": 0.5530407
+        },
+        "split": {
+          "n": 10,
+          "median": 0.5388239,
+          "mean": 0.79053081,
+          "p95NearestRank": 2.8991734,
+          "min": 0.5133681,
+          "max": 2.8991734
+        }
+      },
+      "warmBeforePost": {
+        "baseline": {
+          "n": 10,
+          "median": 10.028859050000001,
+          "mean": 10.00868482,
+          "p95NearestRank": 11.5456577,
+          "min": 8.9583038,
+          "max": 11.5456577
+        },
+        "split": {
+          "n": 10,
+          "median": 9.050173699999998,
+          "mean": 9.382239750000002,
+          "p95NearestRank": 11.5371641,
+          "min": 8.4213368,
+          "max": 11.5371641
+        }
+      },
+      "warmNumberMatchedDescriptive": {
+        "n": 10,
+        "medianDeltaSeconds": -0.8160771000000002,
+        "splitWins": 8,
+        "ties": 0,
+        "baselineWins": 2
+      },
+      "upgrade": {
+        "baseline": {
+          "n": 1,
+          "conclusion": "success",
+          "restoreSeconds": 2.3683056,
+          "downloadSeconds": 6.2800903,
+          "buildSeconds": 47.4308481,
+          "beforePostSeconds": 56.1117687,
+          "fullHitCount": 0,
+          "postSeconds": 6.676,
+          "uploadedMiB": 172.32421112060547,
+          "savedKeys": [
+            "setup-go-Windows-x64-go-1.26.8-30b352221f382473dd0af55eacc951b004e128915efd742744cc2c47cf7bc54f"
+          ],
+          "modulesMiB": 576.8524560928345,
+          "buildMiB": 240.51880073547363,
+          "failures": []
+        },
+        "split": {
+          "n": 1,
+          "conclusion": "success",
+          "restoreSeconds": 6.9228164,
+          "downloadSeconds": 0.2703252,
+          "buildSeconds": 49.9255049,
+          "beforePostSeconds": 57.1421696,
+          "fullHitCount": 0,
+          "postSeconds": 2.698,
+          "uploadedMiB": 53.488417625427246,
+          "savedKeys": [
+            "setup-go-build-Windows-x64-go-1.26.8-30b352221f382473dd0af55eacc951b004e128915efd742744cc2c47cf7bc54f"
+          ],
+          "modulesMiB": 576.8524560928345,
+          "buildMiB": 240.51880073547363,
+          "failures": []
+        },
+        "cacheAndDependenciesBeforeSeconds": 15.3243959,
+        "cacheAndDependenciesAfterSeconds": 9.891141600000001,
+        "cacheAndDependenciesReductionPercent": 35.45493300652719
+      },
+      "projectedThreeVariants": {
+        "beforeMiB": 516.2717971801758,
+        "afterMiB": 278.66479873657227,
+        "reductionPercent": 46.023625489788294
+      }
+    },
+    {
+      "slug": "hugo",
+      "repository": "gohugoio/hugo",
+      "tag": "v0.159.0",
+      "sha": "2ed7d193cfdfcf11808fb2a921a9429423b0ebe9",
+      "requirements": 184,
+      "packages": [
+        "./common/...",
+        "./parser/...",
+        "./tpl/strings",
+        "./tpl/math"
+      ],
+      "compressedModuleMiB": 271.65599060058594,
+      "compressedSeedBuildMiB": 82.60488414764404,
+      "compressedModulesFraction": 0.7668247045165498,
+      "storageBeforeMiB": 708.4140424728394,
+      "storageAfterMiB": 437.09537506103516,
+      "storageSavedMiB": 271.3186674118042,
+      "storageReductionPercent": 38.29944794215546,
+      "uploadBeforeMiB": 354.3549280166626,
+      "uploadAfterMiB": 82.83450031280518,
+      "uploadReductionPercent": 76.62386106031236,
+      "warmRestore": {
+        "baseline": {
+          "n": 10,
+          "median": 16.63864525,
+          "mean": 16.82678522,
+          "p95NearestRank": 19.1528108,
+          "min": 15.9334035,
+          "max": 19.1528108
+        },
+        "split": {
+          "n": 10,
+          "median": 12.677686999999999,
+          "mean": 12.734675649999996,
+          "p95NearestRank": 14.0523784,
+          "min": 12.1250734,
+          "max": 14.0523784
+        }
+      },
+      "warmBuild": {
+        "baseline": {
+          "n": 10,
+          "median": 0.51618535,
+          "mean": 0.52590296,
+          "p95NearestRank": 0.6224254,
+          "min": 0.4877501,
+          "max": 0.6224254
+        },
+        "split": {
+          "n": 10,
+          "median": 0.38058970000000003,
+          "mean": 0.38294156999999995,
+          "p95NearestRank": 0.4183106,
+          "min": 0.3455133,
+          "max": 0.4183106
+        }
+      },
+      "warmBeforePost": {
+        "baseline": {
+          "n": 10,
+          "median": 17.28232435,
+          "mean": 17.480453700000005,
+          "p95NearestRank": 19.785346,
+          "min": 16.537367,
+          "max": 19.785346
+        },
+        "split": {
+          "n": 10,
+          "median": 13.1563466,
+          "mean": 13.216879180000001,
+          "p95NearestRank": 14.5678595,
+          "min": 12.6031125,
+          "max": 14.5678595
+        }
+      },
+      "warmNumberMatchedDescriptive": {
+        "n": 10,
+        "medianDeltaSeconds": -4.01884155,
+        "splitWins": 10,
+        "ties": 0,
+        "baselineWins": 0
+      },
+      "upgrade": {
+        "baseline": {
+          "n": 1,
+          "conclusion": "success",
+          "restoreSeconds": 2.250147,
+          "downloadSeconds": 15.9902267,
+          "buildSeconds": 54.1432698,
+          "beforePostSeconds": 72.4171307,
+          "fullHitCount": 0,
+          "postSeconds": 16.211,
+          "uploadedMiB": 354.3549280166626,
+          "savedKeys": [
+            "setup-go-Windows-x64-go-1.26.8-668a58539737b470748f5e1701f5e4e6afa9976bd9d79de24fe9fa14a88cbc57"
+          ],
+          "modulesMiB": 939.0947065353394,
+          "buildMiB": 375.40838623046875,
+          "failures": []
+        },
+        "split": {
+          "n": 1,
+          "conclusion": "success",
+          "restoreSeconds": 14.3725431,
+          "downloadSeconds": 0.3008328,
+          "buildSeconds": 53.9776346,
+          "beforePostSeconds": 68.6968233,
+          "fullHitCount": 0,
+          "postSeconds": 4.297,
+          "uploadedMiB": 82.83450031280518,
+          "savedKeys": [
+            "setup-go-build-Windows-x64-go-1.26.8-668a58539737b470748f5e1701f5e4e6afa9976bd9d79de24fe9fa14a88cbc57"
+          ],
+          "modulesMiB": 939.0947065353394,
+          "buildMiB": 375.40838623046875,
+          "failures": []
+        },
+        "cacheAndDependenciesBeforeSeconds": 34.4513737,
+        "cacheAndDependenciesAfterSeconds": 18.9703759,
+        "cacheAndDependenciesReductionPercent": 44.93579250223046
+      },
+      "projectedThreeVariants": {
+        "beforeMiB": 1062.78262424469,
+        "afterMiB": 519.4706430435181,
+        "reductionPercent": 51.12164696776999
+      }
+    },
+    {
+      "slug": "prometheus",
+      "repository": "prometheus/prometheus",
+      "tag": "v3.15.0",
+      "sha": "5241a27fe3c6983549fccc32f6e65917408c63cd",
+      "requirements": 251,
+      "packages": [
+        "./model/...",
+        "./promql/parser/...",
+        "./util/strutil/..."
+      ],
+      "compressedModuleMiB": 826.5103178024292,
+      "compressedSeedBuildMiB": 55.89609432220459,
+      "compressedModulesFraction": 0.9366549318384717,
+      "storageBeforeMiB": 1764.0781784057617,
+      "storageAfterMiB": 938.2670679092407,
+      "storageSavedMiB": 825.811110496521,
+      "storageReductionPercent": 46.81261412364533,
+      "uploadBeforeMiB": 881.9301958084106,
+      "uploadAfterMiB": 55.860655784606934,
+      "uploadReductionPercent": 93.66609102964176,
+      "warmRestore": {
+        "baseline": {
+          "n": 10,
+          "median": 57.05589485,
+          "mean": 57.80600547,
+          "p95NearestRank": 66.5111514,
+          "min": 55.1302341,
+          "max": 66.5111514
+        },
+        "split": {
+          "n": 10,
+          "median": 62.01755695,
+          "mean": 62.405434,
+          "p95NearestRank": 65.224098,
+          "min": 60.2040393,
+          "max": 65.224098
+        }
+      },
+      "warmBuild": {
+        "baseline": {
+          "n": 10,
+          "median": 0.52766125,
+          "mean": 0.5348466500000001,
+          "p95NearestRank": 0.6521074,
+          "min": 0.4678924,
+          "max": 0.6521074
+        },
+        "split": {
+          "n": 10,
+          "median": 0.6053896000000001,
+          "mean": 0.6221815900000001,
+          "p95NearestRank": 0.8093329,
+          "min": 0.5272344,
+          "max": 0.8093329
+        }
+      },
+      "warmBeforePost": {
+        "baseline": {
+          "n": 10,
+          "median": 57.80144335,
+          "mean": 58.66600599000001,
+          "p95NearestRank": 67.2887106,
+          "min": 55.9167721,
+          "max": 67.2887106
+        },
+        "split": {
+          "n": 10,
+          "median": 62.9843601,
+          "mean": 63.384925599999995,
+          "p95NearestRank": 66.270271,
+          "min": 61.0217143,
+          "max": 66.270271
+        }
+      },
+      "warmNumberMatchedDescriptive": {
+        "n": 10,
+        "medianDeltaSeconds": 4.766503999999998,
+        "splitWins": 1,
+        "ties": 0,
+        "baselineWins": 9
+      },
+      "upgrade": {
+        "baseline": {
+          "n": 1,
+          "conclusion": "success",
+          "restoreSeconds": 1.1601535,
+          "downloadSeconds": 38.611526,
+          "buildSeconds": 49.3854851,
+          "beforePostSeconds": 89.1800706,
+          "fullHitCount": 0,
+          "postSeconds": 26.33,
+          "uploadedMiB": 881.9301958084106,
+          "savedKeys": [
+            "setup-go-Windows-x64-go-1.26.8-55bc726694ed9b0217457830a4860311937b8604085d4ffd2d58528600c50e30"
+          ],
+          "modulesMiB": 2666.916293144226,
+          "buildMiB": 245.53755950927734,
+          "failures": []
+        },
+        "split": {
+          "n": 1,
+          "conclusion": "success",
+          "restoreSeconds": 53.0810247,
+          "downloadSeconds": 1.3948543,
+          "buildSeconds": 75.9267345,
+          "beforePostSeconds": 130.429342,
+          "fullHitCount": 0,
+          "postSeconds": 3.865,
+          "uploadedMiB": 55.860655784606934,
+          "savedKeys": [
+            "setup-go-build-Windows-x64-go-1.26.8-55bc726694ed9b0217457830a4860311937b8604085d4ffd2d58528600c50e30"
+          ],
+          "modulesMiB": 2666.8392972946167,
+          "buildMiB": 245.53755950927734,
+          "failures": []
+        },
+        "cacheAndDependenciesBeforeSeconds": 66.10167949999999,
+        "cacheAndDependenciesAfterSeconds": 58.340879,
+        "cacheAndDependenciesReductionPercent": 11.740700930299342
+      },
+      "projectedThreeVariants": {
+        "beforeMiB": 2647.2192363739014,
+        "afterMiB": 994.198600769043,
+        "reductionPercent": 62.44366212256478
+      }
+    }
+  ],
+  "total": {
+    "storageBeforeMiB": 3388.017189979553,
+    "storageAfterMiB": 2002.329062461853,
+    "uploadBeforeMiB": 1694.2477359771729,
+    "uploadAfterMiB": 308.112753868103
+  },
+  "sampleCount": 168,
+  "jobCount": 42
+}

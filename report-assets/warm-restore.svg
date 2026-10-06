@@ -1,0 +1,23 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 1000 620" role="img" aria-labelledby="title desc"><title id="title">Warm-cache setup median: wins and regressions</title><desc id="desc">Measured combined versus split cache values for seven projects. Exact numbers are provided in the adjacent report table.</desc><rect width="100%" height="100%" fill="#fff"/><g font-family="Arial, sans-serif" fill="#172033"><text x="24" y="34" font-size="22" font-weight="bold">Warm-cache setup median: wins and regressions</text><rect x="24" y="54" width="16" height="16" fill="#64748b"/><text x="48" y="68" font-size="14">Combined</text><rect x="160" y="54" width="16" height="16" fill="#2563eb"/><text x="184" y="68" font-size="14">Split</text>
+<text x="24" y="127" font-size="15">Cobra</text>
+<rect x="190" y="105" width="27.28303478423298" height="19" rx="3" fill="#64748b"/><text x="225.283034784233" y="120" font-size="13">2.87 s</text>
+<rect x="190" y="130" width="28.168531524200908" height="19" rx="3" fill="#2563eb"/><text x="226.16853152420092" y="145" font-size="13">2.96 s</text>
+<text x="24" y="197" font-size="15">Viper</text>
+<rect x="190" y="175" width="47.411456015117984" height="19" rx="3" fill="#64748b"/><text x="245.41145601511798" y="190" font-size="13">4.98 s</text>
+<rect x="190" y="200" width="36.5356333260077" height="19" rx="3" fill="#2563eb"/><text x="234.5356333260077" y="215" font-size="13">3.84 s</text>
+<text x="24" y="267" font-size="15">Prometheus client</text>
+<rect x="190" y="245" width="53.43185691225459" height="19" rx="3" fill="#64748b"/><text x="251.4318569122546" y="260" font-size="13">5.62 s</text>
+<rect x="190" y="270" width="55.730571099189355" height="19" rx="3" fill="#2563eb"/><text x="253.73057109918935" y="285" font-size="13">5.86 s</text>
+<text x="24" y="337" font-size="15">Gin</text>
+<rect x="190" y="315" width="78.0988954128739" height="19" rx="3" fill="#64748b"/><text x="276.0988954128739" y="330" font-size="13">8.21 s</text>
+<rect x="190" y="340" width="66.80078703906443" height="19" rx="3" fill="#2563eb"/><text x="264.8007870390644" y="355" font-size="13">7.02 s</text>
+<text x="24" y="407" font-size="15">gRPC-Go</text>
+<rect x="190" y="385" width="89.54198235311172" height="19" rx="3" fill="#64748b"/><text x="287.54198235311173" y="400" font-size="13">9.41 s</text>
+<rect x="190" y="410" width="80.2372440035305" height="19" rx="3" fill="#2563eb"/><text x="278.2372440035305" y="425" font-size="13">8.43 s</text>
+<text x="24" y="477" font-size="15">Hugo</text>
+<rect x="190" y="455" width="158.29067090492669" height="19" rx="3" fill="#64748b"/><text x="356.2906709049267" y="470" font-size="13">16.64 s</text>
+<rect x="190" y="480" width="120.60835185801365" height="19" rx="3" fill="#2563eb"/><text x="318.60835185801363" y="495" font-size="13">12.68 s</text>
+<text x="24" y="547" font-size="15">Prometheus server</text>
+<rect x="190" y="525" width="542.7975498718836" height="19" rx="3" fill="#64748b"/><text x="740.7975498718836" y="540" font-size="13">57.06 s</text>
+<rect x="190" y="550" width="590" height="19" rx="3" fill="#2563eb"/><text x="788" y="565" font-size="13">62.02 s</text>
+</g></svg>
